@@ -2,8 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="Title_of_app_color">#1B5E3A</color>
-    <color name="Button_color_1">#4B9B6E</color>
+    <color name="color_palette_1">#A8D5BA</color>
+    <color name="color_palette_2">#6BBF8A</color>
+    <color name="color_palette_3">#4B9B6E</color>
+    <color name="color_palette_4">#2E7D5C</color>
+    <color name="color_palette_5">#1B5E3A</color>
     <color name="Input_field_color">#F0EBEB</color>
     <color name="Input_field_text_color">#A29999</color>
 </resources>
