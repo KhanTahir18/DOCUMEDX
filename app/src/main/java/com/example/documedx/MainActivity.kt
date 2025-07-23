@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bindingSignUpPage: SignUpPageActiviyBinding
 
     //Bind For Info Gathering Page
-    private lateinit var bindingBasicHEalthInfoGatheringPage: BasicHealthInfoGatheringActivityBinding
+    private lateinit var bindingBasicHealthInfoGatheringPage: BasicHealthInfoGatheringActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         bindingSignUpPage.signUpBtn.setOnClickListener {
 
             //Setting info gathering page as default
-            bindingBasicHEalthInfoGatheringPage = BasicHealthInfoGatheringActivityBinding.inflate(layoutInflater)
-            setContentView(bindingBasicHEalthInfoGatheringPage.root)
+            bindingBasicHealthInfoGatheringPage = BasicHealthInfoGatheringActivityBinding.inflate(layoutInflater)
+            setContentView(bindingBasicHealthInfoGatheringPage.root)
         }
     }
 

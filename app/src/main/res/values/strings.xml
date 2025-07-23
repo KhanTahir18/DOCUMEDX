@@ -27,4 +27,10 @@
     <string name="Input_field_staff_id_text"><b>Staff Id</b></string>
     <string name="Input_field_staff_pass_text"><b>Password</b></string>
     <string name="Create_staff_acc"><b>Create an account?</b></string>
+    <string name="Input_field_Dob_text"><b>Date of Birth</b></string>
+    <string name="Input_field_employee_id_text"><b>Employee Id</b></string>
+    <string name="Input_field_employee_department_text"><b>Department</b></string>
+    <string name="Input_field_employee_role_text"><b>Role</b></string>
+
+
 </resources>

@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/signUpPageEditTextStyles"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:hint="@string/Input_field_staff_pass_text"
         android:autofillHints=""
         app:layout_constraintTop_toBottomOf="@id/firstNameInputField"
