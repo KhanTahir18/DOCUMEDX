@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/SignUpPage"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity"
     android:background="@color/white">
 
@@ -45,7 +49,7 @@
         style="@style/signUpPageEditTextStyles"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:autofillHints=""
         android:hint="@string/Input_field_first_name_text"
         android:inputType="text"
@@ -57,17 +61,17 @@
     <!--Last name-->
     <EditText
         android:id="@+id/lastNameInputField"
-        android:layout_height="wrap_content"
-        android:layout_width="300dp"
         style="@style/signUpPageEditTextStyles"
-        android:inputType="text"
-        android:hint="@string/Input_field_last_name_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/firstNameInputField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        />
+        android:autofillHints=""
+        android:hint="@string/Input_field_last_name_text"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstNameInputField" />
 
     <!--Phone no-->
     <EditText
@@ -128,6 +132,80 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         />
+    <!--Gender-->
+    <EditText
+        android:id="@+id/sexInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userAddressInputField"
+        android:inputType="text"
+        android:hint="@string/Input_field_sex_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
+    <!--DOB-->
+    <EditText
+        android:id="@+id/DOBInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sexInputField"
+        android:inputType="date"
+        android:hint="@string/Input_field_Dob_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
+    <!--Employee id-->
+    <EditText
+        android:id="@+id/employeeIdInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DOBInputField"
+        android:inputType="text"
+        android:hint="@string/Input_field_employee_id_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
+    <!--department-->
+    <EditText
+        android:id="@+id/departmentInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employeeIdInputField"
+        android:inputType="text"
+        android:hint="@string/Input_field_employee_department_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
+    <!--role-->
+    <EditText
+        android:id="@+id/employeeRoleInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departmentInputField"
+        android:inputType="text"
+        android:hint="@string/Input_field_employee_role_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
 
     <!--sign up button-->
     <androidx.appcompat.widget.AppCompatButton
@@ -135,7 +213,7 @@
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/buttonStyle"
-        app:layout_constraintTop_toBottomOf="@+id/userAddressInputField"
+        app:layout_constraintTop_toBottomOf="@+id/employeeRoleInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/SignUp_text"
@@ -151,8 +229,15 @@
         app:layout_constraintTop_toBottomOf="@id/signUpBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="70dp"
         android:textSize="14sp"
         android:textColor="@color/black"
         />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -7,14 +7,30 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.documedx.databinding.ActivityMainBinding
 import com.example.documedx.databinding.BasicHealthInfoGatheringActivityBinding
+import com.example.documedx.databinding.SignUpPageActiviyBinding
 
 class MainActivity : AppCompatActivity() {
+    //Bind For Sign up Page
+    private lateinit var bindingSignUpPage: SignUpPageActiviyBinding
 
-    private lateinit var binding: ActivityMainBinding
+    //Bind For Info Gathering Page
+    private lateinit var bindingBasicHealthInfoGatheringPage: BasicHealthInfoGatheringActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
+        //Setting the Sign up Page as default
+        bindingSignUpPage = SignUpPageActiviyBinding.inflate(layoutInflater)
+        setContentView(bindingSignUpPage.root)
+
+        //Sign up Button OnclickListener
+        bindingSignUpPage.signUpBtn.setOnClickListener {
+
+            //Setting info gathering page as default
+            bindingBasicHealthInfoGatheringPage = BasicHealthInfoGatheringActivityBinding.inflate(layoutInflater)
+            setContentView(bindingBasicHealthInfoGatheringPage.root)
+        }
     }
+
+
 }
