@@ -44,11 +44,6 @@
 
     <!--Text Field for user input-->
     <!--First Name-->
-
-    <!--Last name-->
-
-    <!--Phone no-->
-
     <EditText
         android:id="@+id/firstNameInputField"
         style="@style/signUpPageEditTextStyles"
@@ -63,6 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/SignUpPageTitle" />
 
+    <!--Last name-->
     <EditText
         android:id="@+id/lastNameInputField"
         style="@style/signUpPageEditTextStyles"
@@ -77,6 +73,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/firstNameInputField" />
 
+    <!--Phone no-->
     <EditText
         android:id="@+id/phoneNoInputField"
         android:layout_height="wrap_content"

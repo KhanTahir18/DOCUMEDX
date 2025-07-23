@@ -128,8 +128,7 @@
         android:layout_marginTop="15dp"
         />
 
-    <!--Current Ilness-->
-
+    <!--Current Illness-->
     <EditText
         android:id="@+id/currentIlnessInputField"
         style="@style/signUpPageEditTextStyles"
@@ -144,6 +143,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageInputField" />
 
+    <!--Caption for current illnes textView-->
     <TextView
         android:id="@+id/captionForCurrentIlnessInputField"
         android:layout_height="wrap_content"
