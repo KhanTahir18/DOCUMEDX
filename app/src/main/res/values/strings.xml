@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">DOCUMEDX</string>
+    <string name="app_name">DOCUMEDX!</string>
+    <!--For sign up -->
     <string name="SignUp_text"><b>Sign Up</b></string>
     <string name="Input_field_first_name_text"><b>First Name</b></string>
     <string name="Input_field_last_name_text"><b>Last Name</b></string>
@@ -8,4 +9,16 @@
     <string name="Input_field_confirm_password_text"><b>Confirm Password</b></string>
     <string name="Input_field_Address_text"><b>Address(Optional)</b></string>
     <string name="Already_have_an_acc_login">Already have an account? <b>Login</b></string>
+
+    <!--For Health info gathering page-->
+    <string name="Input_field_blood_group_text"><b>Blood Group</b></string>
+    <string name="Input_field_height_text"><b>Height(cm)</b></string>
+    <string name="Input_field_weight_text"><b>Weight(kg)</b></string>
+    <string name="Input_field_sex_text"><b>Sex</b></string>
+    <string name="Input_field_age_text"><b>Age</b></string>
+    <string name="Input_field_current_ilness_text"><b>Current Ilness</b></string>
+    <string name="Welcome_text">Welcome To</string>
+    <string name="Notice_text">Kindly fill the following information accurately as it will be useful to create your dashboard. This information will be stored in a database only accesseble by Developers</string>
+    <string name="Caption_for_current_ilness_Input_field">Name a disease that you are currently undergoing treatment for</string>
+    <string name="Continue_btn_text"><b>Continue</b></string>
 </resources>

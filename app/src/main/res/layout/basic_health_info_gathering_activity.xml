@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/healthInfoGatheringPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!--Welcome text-->
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/Welcome_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.12"
+        android:textColor="@color/color_palette_3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        />
+    <!--App name-->
+    <TextView
+        android:id="@+id/appNameOnWelcomePage"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+        android:textColor="@color/color_palette_5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="-10dp"
+        />
+
+    <!--Notice-->
+    <TextView
+        android:id="@+id/NoticeText"
+        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:text="@string/Notice_text"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appNameOnWelcomePage"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+
+        />
+
+    <!--Blood group-->
+    <EditText
+        android:id="@+id/bloodGroupInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NoticeText"
+        android:inputType="text"
+        android:hint="@string/Input_field_blood_group_text"
+        android:autofillHints=""
+        android:layout_marginTop="35dp"
+        />
+
+    <!--Height-->
+    <EditText
+        android:id="@+id/heightInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bloodGroupInputField"
+        android:inputType="numberDecimal"
+        android:hint="@string/Input_field_height_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
+    <!--Weight-->
+    <EditText
+        android:id="@+id/weightInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heightInputField"
+        android:inputType="numberDecimal"
+        android:hint="@string/Input_field_weight_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
+    <!--Gender-->
+    <EditText
+        android:id="@+id/sexInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weightInputField"
+        android:inputType="text"
+        android:hint="@string/Input_field_sex_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
+    <!--Age-->
+    <EditText
+        android:id="@+id/ageInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sexInputField"
+        android:inputType="number"
+        android:hint="@string/Input_field_age_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
+    <!--Current Ilness-->
+
+    <EditText
+        android:id="@+id/currentIlnessInputField"
+        style="@style/signUpPageEditTextStyles"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:autofillHints=""
+        android:hint="@string/Input_field_current_ilness_text"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageInputField" />
+
+    <TextView
+        android:id="@+id/captionForCurrentIlnessInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:text="@string/Caption_for_current_ilness_Input_field"
+        app:layout_constraintTop_toBottomOf="@+id/currentIlnessInputField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/Input_field_text_color"
+        android:textSize="14sp"
+        />
+
+    <!--Continue button-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/continuToDashboardBtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        style="@style/buttonStyle"
+        app:layout_constraintTop_toBottomOf="@+id/captionForCurrentIlnessInputField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/Continue_btn_text"
+        android:layout_marginTop="40dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
