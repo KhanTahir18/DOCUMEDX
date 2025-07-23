@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "682622788569",
+    "project_id": "documedx-fb2df",
+    "storage_bucket": "documedx-fb2df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682622788569:android:3c58ac1bf488e64834afc8",
+        "android_client_info": {
+          "package_name": "com.example.documedx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD43d_4rmuA_CyyNR5ErBdnGWk9OdSd6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

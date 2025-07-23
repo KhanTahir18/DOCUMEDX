@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/SignUpPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+    <!--Adding the main Logo of the app-->
+    <ImageView
+        android:id="@+id/appLogo"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/documedx"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <!--Sign up Title-->
+    <TextView
+        android:id="@+id/SignUpPageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SignUp_text"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/appLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        />
+
+    <!--Text Field for user input-->
+    <!--First Name-->
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="text"
+        android:hint="@string/Input_field_first_name_text"
+        android:autofillHints=""
+        android:textColorHint="@color/Input_field_text_color"
+        app:layout_constraintTop_toBottomOf="@id/SignUpPageTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <!--Last name-->
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="text"
+        android:hint="@string/Input_field_last_name_text"
+        android:autofillHints=""
+        android:textColorHint="@color/Input_field_text_color"
+        app:layout_constraintTop_toBottomOf="@id/firstName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <!--Phone no-->
+    <EditText
+        android:id="@+id/phoneNo"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="phone"
+        android:hint="@string/Input_field_Phone_no_text"
+        android:autofillHints=""
+        android:textColorHint="@color/Input_field_text_color"
+        app:layout_constraintTop_toBottomOf="@id/lastName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <!--Set Password-->
+    <EditText
+        android:id="@+id/setPassword"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="textPassword"
+        android:hint="@string/Input_field_set_password_text"
+        android:autofillHints=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColorHint="@color/Input_field_text_color"
+        app:layout_constraintTop_toBottomOf="@id/phoneNo"
+        android:layout_marginTop="20dp"
+        />
+
+    <!--Confirm password-->
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="textPassword"
+        android:hint="@string/Input_field_confirm_password_text"
+        android:autofillHints=""
+        android:textColorHint="@color/Input_field_text_color"
+        app:layout_constraintTop_toBottomOf="@id/setPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <!--Address-->
+    <EditText
+        android:id="@+id/userAddress"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="text"
+        android:hint="@string/Input_field_Address_text"
+        android:autofillHints=""
+        android:textColorHint="@color/Input_field_text_color"
+        app:layout_constraintTop_toBottomOf="@id/confirmPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <!--sign up button-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpBtn"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/buttonStyle"
+        app:layout_constraintTop_toBottomOf="@+id/userAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/SignUp_text"
+        android:layout_marginTop="60dp"
+        />
+
+    <!--Text to navigate to login page-->
+    <TextView
+        android:id="@+id/alreadyAnAccText"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/Already_have_an_acc_login"
+        app:layout_constraintTop_toBottomOf="@id/signUpBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

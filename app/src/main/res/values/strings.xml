@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DOCUMEDX</string>
+    <string name="SignUp_text"><b>Sign Up</b></string>
+    <string name="Input_field_first_name_text"><b>First Name</b></string>
+    <string name="Input_field_last_name_text"><b>Last Name</b></string>
+    <string name="Input_field_Phone_no_text"><b>Phone No</b></string>
+    <string name="Input_field_set_password_text"><b>Set Password</b></string>
+    <string name="Input_field_confirm_password_text"><b>Confirm Password</b></string>
+    <string name="Input_field_Address_text"><b>Address(Optional)</b></string>
+    <string name="Already_have_an_acc_login">Already have an account? <b>Login</b></string>
 </resources>
