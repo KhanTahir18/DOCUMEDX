@@ -41,31 +41,29 @@
     <!--Text Field for user input-->
     <!--First Name-->
     <EditText
-        android:id="@+id/firstName"
-        android:layout_height="wrap_content"
-        android:layout_width="300dp"
+        android:id="@+id/firstNameInputField"
         style="@style/signUpPageEditTextStyles"
-        android:inputType="text"
-        android:hint="@string/Input_field_first_name_text"
-        android:autofillHints=""
-        android:textColorHint="@color/Input_field_text_color"
-        app:layout_constraintTop_toBottomOf="@id/SignUpPageTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        />
+        android:autofillHints=""
+        android:hint="@string/Input_field_first_name_text"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SignUpPageTitle" />
 
     <!--Last name-->
     <EditText
-        android:id="@+id/lastName"
+        android:id="@+id/lastNameInputField"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/signUpPageEditTextStyles"
         android:inputType="text"
         android:hint="@string/Input_field_last_name_text"
         android:autofillHints=""
-        android:textColorHint="@color/Input_field_text_color"
-        app:layout_constraintTop_toBottomOf="@id/firstName"
+        app:layout_constraintTop_toBottomOf="@id/firstNameInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
@@ -73,15 +71,14 @@
 
     <!--Phone no-->
     <EditText
-        android:id="@+id/phoneNo"
+        android:id="@+id/phoneNoInputField"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/signUpPageEditTextStyles"
         android:inputType="phone"
         android:hint="@string/Input_field_Phone_no_text"
         android:autofillHints=""
-        android:textColorHint="@color/Input_field_text_color"
-        app:layout_constraintTop_toBottomOf="@id/lastName"
+        app:layout_constraintTop_toBottomOf="@id/lastNameInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
@@ -89,7 +86,7 @@
 
     <!--Set Password-->
     <EditText
-        android:id="@+id/setPassword"
+        android:id="@+id/setPasswordInputField"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/signUpPageEditTextStyles"
@@ -98,22 +95,20 @@
         android:autofillHints=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColorHint="@color/Input_field_text_color"
-        app:layout_constraintTop_toBottomOf="@id/phoneNo"
+        app:layout_constraintTop_toBottomOf="@id/phoneNoInputField"
         android:layout_marginTop="20dp"
         />
 
     <!--Confirm password-->
     <EditText
-        android:id="@+id/confirmPassword"
+        android:id="@+id/confirmPasswordInputField"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/signUpPageEditTextStyles"
         android:inputType="textPassword"
         android:hint="@string/Input_field_confirm_password_text"
         android:autofillHints=""
-        android:textColorHint="@color/Input_field_text_color"
-        app:layout_constraintTop_toBottomOf="@id/setPassword"
+        app:layout_constraintTop_toBottomOf="@id/setPasswordInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
@@ -121,15 +116,14 @@
 
     <!--Address-->
     <EditText
-        android:id="@+id/userAddress"
+        android:id="@+id/userAddressInputField"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/signUpPageEditTextStyles"
         android:inputType="text"
         android:hint="@string/Input_field_Address_text"
         android:autofillHints=""
-        android:textColorHint="@color/Input_field_text_color"
-        app:layout_constraintTop_toBottomOf="@id/confirmPassword"
+        app:layout_constraintTop_toBottomOf="@id/confirmPasswordInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
@@ -141,7 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/buttonStyle"
-        app:layout_constraintTop_toBottomOf="@+id/userAddress"
+        app:layout_constraintTop_toBottomOf="@+id/userAddressInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/SignUp_text"

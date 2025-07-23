@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.documedx.databinding.ActivityMainBinding
+import com.example.documedx.databinding.BasicHealthInfoGatheringActivityBinding
 
 class MainActivity : AppCompatActivity() {
 

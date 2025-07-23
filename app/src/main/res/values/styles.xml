@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--Styles for editText-->
     <style name="signUpPageEditTextStyles">
         <item name="android:background">@color/Input_field_color</item>
         <item name="android:padding">15dp</item>
-        <item name="android:textColor">@color/Input_field_text_color</item>
+        <item name="android:textColorHint">@color/Input_field_text_color</item>>
+        <item name="android:textColor">@color/black</item>
     </style>
 
+    <!--For button-->
     <style name="buttonStyle">
         <item name="android:background">@color/color_palette_3</item>
         <item name="android:textColor">@color/white</item>
