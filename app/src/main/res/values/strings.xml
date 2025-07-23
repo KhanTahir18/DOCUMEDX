@@ -7,7 +7,7 @@
     <string name="Input_field_Phone_no_text"><b>Phone No</b></string>
     <string name="Input_field_set_password_text"><b>Set Password</b></string>
     <string name="Input_field_confirm_password_text"><b>Confirm Password</b></string>
-    <string name="Input_field_Address_text"><b>Address(Optional)</b></string>
+    <string name="Input_field_Email_Address_text"><b>Email address</b></string>
     <string name="Already_have_an_acc_login">Already have an account? <b>Login</b></string>
 
     <!--For Health info gathering page-->
@@ -21,4 +21,10 @@
     <string name="Notice_text">Kindly fill the following information accurately as it will be useful to create your dashboard. This information will be stored in a database only accesseble by Developers</string>
     <string name="Caption_for_current_ilness_Input_field">Name a disease that you are currently undergoing treatment for</string>
     <string name="Continue_btn_text"><b>Continue</b></string>
+
+    <!--For Login page of staff-->
+    <string name="staff_Login_text"><b>Login</b></string>
+    <string name="Input_field_staff_id_text"><b>Staff Id</b></string>
+    <string name="Input_field_staff_pass_text"><b>Password</b></string>
+    <string name="Create_staff_acc"><b>Create an account?</b></string>
 </resources>

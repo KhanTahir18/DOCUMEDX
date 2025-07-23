@@ -20,26 +20,26 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.16" />
 
     <!--Sign up Title-->
     <TextView
         android:id="@+id/SignUpPageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/SignUp_text"
+        android:text="@string/staff_Login_text"
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/appLogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         android:textSize="22sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/black"
         />
 
     <!--Text Field for user input-->
-    <!--First Name-->
+    <!--Id Staff-->
     <EditText
         android:id="@+id/firstNameInputField"
         style="@style/signUpPageEditTextStyles"
@@ -47,21 +47,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:autofillHints=""
-        android:hint="@string/Input_field_first_name_text"
+        android:hint="@string/Input_field_staff_id_text"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/SignUpPageTitle" />
 
-    <!--Last name-->
+    <!--Password-->
     <EditText
         android:id="@+id/lastNameInputField"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/signUpPageEditTextStyles"
         android:inputType="text"
-        android:hint="@string/Input_field_last_name_text"
+        android:hint="@string/Input_field_staff_pass_text"
         android:autofillHints=""
         app:layout_constraintTop_toBottomOf="@id/firstNameInputField"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,90 +69,32 @@
         android:layout_marginTop="20dp"
         />
 
-    <!--Phone no-->
-    <EditText
-        android:id="@+id/phoneNoInputField"
-        android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
-        android:inputType="phone"
-        android:hint="@string/Input_field_Phone_no_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/lastNameInputField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
 
-    <!--Set Password-->
-    <EditText
-        android:id="@+id/setPasswordInputField"
-        android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
-        android:inputType="textPassword"
-        android:hint="@string/Input_field_set_password_text"
-        android:autofillHints=""
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneNoInputField"
-        android:layout_marginTop="20dp"
-        />
 
-    <!--Confirm password-->
-    <EditText
-        android:id="@+id/confirmPasswordInputField"
-        android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
-        android:inputType="textPassword"
-        android:hint="@string/Input_field_confirm_password_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/setPasswordInputField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
-
-    <!--Address-->
-    <EditText
-        android:id="@+id/userAddressInputField"
-        android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
-        android:inputType="text"
-        android:hint="@string/Input_field_Email_Address_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/confirmPasswordInputField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
-
-    <!--sign up button-->
+    <!--Login button-->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signUpBtn"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/buttonStyle"
-        app:layout_constraintTop_toBottomOf="@+id/userAddressInputField"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/SignUp_text"
+        android:text="@string/staff_Login_text"
         android:layout_marginTop="60dp"
         />
 
-    <!--Text to navigate to login page-->
+    <!--Text to navigate to sign up page-->
     <TextView
         android:id="@+id/alreadyAnAccText"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/Already_have_an_acc_login"
+        android:text="@string/Create_staff_acc"
         app:layout_constraintTop_toBottomOf="@id/signUpBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="5dp"
         android:textSize="14sp"
-        android:textColor="@color/black"
+        android:textColor="@color/color_palette_5"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
