@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">DOCUMEDX!</string>
+    <string name="app_name_for_intro">DOCUMEDX</string>
+
+    <!--For intro page-->
+    <string name="continue_as_for_intro_page_text"><b>Continue as?</b></string>
+
     <!--For sign up -->
     <string name="SignUp_text"><b>Sign Up</b></string>
     <string name="Input_field_first_name_text"><b>First Name</b></string>
