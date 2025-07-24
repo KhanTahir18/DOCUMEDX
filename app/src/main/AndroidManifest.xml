@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DOCUMEDX">
         <activity
-            android:name=".MainActivity"
+            android:name=".StaffSignUpActivity"
             android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <intent-filter>
