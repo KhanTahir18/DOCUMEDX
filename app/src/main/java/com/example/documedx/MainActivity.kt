@@ -7,11 +7,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.documedx.databinding.ActivityMainBinding
 import com.example.documedx.databinding.BasicHealthInfoGatheringActivityBinding
+import com.example.documedx.databinding.SignUpForStaffActivityBinding
 import com.example.documedx.databinding.SignUpPageActiviyBinding
 
 class MainActivity : AppCompatActivity() {
     //Bind For Sign up Page
-    private lateinit var bindingSignUpPage: SignUpPageActiviyBinding
+    private lateinit var bindingSignUpPage: SignUpForStaffActivityBinding
 
     //Bind For Info Gathering Page
     private lateinit var bindingBasicHealthInfoGatheringPage: BasicHealthInfoGatheringActivityBinding
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //Setting the Sign up Page as default
-        bindingSignUpPage = SignUpPageActiviyBinding.inflate(layoutInflater)
+        bindingSignUpPage = SignUpForStaffActivityBinding.inflate(layoutInflater)
         setContentView(bindingSignUpPage.root)
 
         //Sign up Button OnclickListener
