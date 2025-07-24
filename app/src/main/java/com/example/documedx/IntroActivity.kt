@@ -17,8 +17,14 @@ class IntroActivity: AppCompatActivity() {
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Continue as a patient
         binding.staffBtn.setOnClickListener {
             val intent = Intent(this, StaffSignUpActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.patientBtn.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
     }

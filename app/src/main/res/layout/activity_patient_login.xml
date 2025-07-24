@@ -67,7 +67,6 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
-        android:backgroundTint="#1B5E3A"
         android:text="@string/staff_Login_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +75,7 @@
 
     <!-- Sign Up Redirect Text -->
     <TextView
-        android:id="@+id/signupText"
+        android:id="@+id/createAccText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Create_staff_acc"

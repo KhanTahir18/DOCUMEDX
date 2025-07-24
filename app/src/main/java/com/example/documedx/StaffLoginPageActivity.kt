@@ -30,10 +30,11 @@ class StaffLoginPageActivity: AppCompatActivity()  {
                 Toast.makeText(this, "Fill all the fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
+            //Checking if the password is correct
             database.child(phoneNo).get().addOnSuccessListener { snapshot ->
                 if(snapshot.exists()){
                     val dbpass = snapshot.child("password").value.toString()
+                    //checks if the user pass and database pass are equal
                     if(password == dbpass){
                         val name = snapshot.child("firstName").value.toString()
                         Toast.makeText(this, "Welcome, $name!", Toast.LENGTH_SHORT).show()
