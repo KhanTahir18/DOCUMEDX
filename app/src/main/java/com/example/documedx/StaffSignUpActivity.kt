@@ -1,8 +1,10 @@
     package com.example.documedx
 
+    import android.content.Intent
     import android.os.Bundle
     import android.widget.Toast
     import androidx.appcompat.app.AppCompatActivity
+    import com.example.documedx.databinding.LoginPageStaffActivityBinding
     import com.example.documedx.databinding.SignUpForStaffActivityBinding
     import com.google.firebase.Firebase
     import com.google.firebase.database.DatabaseReference
@@ -34,20 +36,25 @@
                 val department = binding.departmentInputField.text.toString().trim()
                 val role = binding.employeeRoleInputField.text.toString().trim()
 
+                //checking if any fields are empty
                 if(firstName.isEmpty() || lastName.isEmpty() || phoneNo.isEmpty() || setPass.isEmpty() || confirmPass.isEmpty() || emailId.isEmpty() || sex.isEmpty() || dateOfBirth.isEmpty() || empId.isEmpty() || department.isEmpty() || role.isEmpty()){
                     Toast.makeText(this, "Fill all the fields", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
+                //checking if the passwords are matching
                 if(setPass != confirmPass){
                     Toast.makeText(this, "The password are not correct", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
+                //To make sure there are no staff with duplicate phone numbers
                 database.child(phoneNo).get().addOnSuccessListener { snapshot ->
                     if (snapshot.exists()){
+                        //msg when duplicate numbers are detected
                         Toast.makeText(this, "Phone no already exists", Toast.LENGTH_SHORT).show()
                     }else{
+                        //set values in data class
                         val staff = Staff(
                             firstName = firstName,
                             secondName = lastName,
@@ -59,6 +66,7 @@
                             employeeId = empId,
                             department = department,
                             role = role)
+                        //passing the value to database
                         database.child(phoneNo).setValue(staff).addOnSuccessListener {
                             Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show()
                             clearAllFields()
@@ -68,7 +76,12 @@
                     }
                 }
             }
-        }
+
+            binding.alreadyAnAccText.setOnClickListener {
+                val intent = Intent(this, StaffLoginPageActivity::class.java)
+                startActivity(intent)
+            }
+        }//clearing all fields
         private fun clearAllFields() {
             binding.firstNameInputField.text.clear()
             binding.lastNameInputField.text.clear()
