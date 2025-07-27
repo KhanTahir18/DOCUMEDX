@@ -9,13 +9,33 @@
     tools:context=".MainActivity"
     android:background="@color/white">
 
+    <!--Welcome text-->
     <TextView
+        android:id="@+id/welcomeText"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/Welcome_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        android:textColor="@color/color_palette_3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        />
+    <!--App name-->
+    <TextView
+        android:id="@+id/appNameOnWelcomePage"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+        android:textColor="@color/color_palette_5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="-10dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
