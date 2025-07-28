@@ -10,7 +10,7 @@
     android:id="@+id/SignUpPage"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MainActivity"
+    tools:context=".SignUpActivity"
     android:background="@color/white">
 
     <!--Adding the main Logo of the app-->

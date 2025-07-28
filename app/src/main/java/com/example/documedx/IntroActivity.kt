@@ -27,5 +27,10 @@ class IntroActivity: AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
+
+        binding.organizationBtn.setOnClickListener {
+            val intent = Intent(this, OrganizationSignUpActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

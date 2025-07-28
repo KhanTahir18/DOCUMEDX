@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <!-- DOCUMEDX Title -->
     <TextView
@@ -30,7 +30,7 @@
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/logoImage"
-        android:layout_marginTop="-23dp"
+        android:layout_marginTop="-30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -39,7 +39,7 @@
         android:id="@+id/continueAsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:text="@string/continue_as_for_intro_page_text"
         android:textStyle="bold"
         android:textSize="16sp"
@@ -72,4 +72,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp" />
 
+    <!--Organization-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/organizationBtn"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="Organization"
+        style="@style/buttonStyle"
+        app:layout_constraintTop_toBottomOf="@id/staffBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
