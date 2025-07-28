@@ -36,9 +36,10 @@
                 val department = binding.departmentInputField.text.toString().trim()
                 val role = binding.employeeRoleInputField.text.toString().trim()
                 val associatedHospital = binding.associatedHospitalInputField.text.toString()
+                val qualification = binding.qualificationInputField.text.toString().trim()
 
                 //checking if any fields are empty
-                if(firstName.isEmpty() || associatedHospital.isEmpty() || lastName.isEmpty() || phoneNo.isEmpty() || setPass.isEmpty() || confirmPass.isEmpty() || emailId.isEmpty() || sex.isEmpty() || dateOfBirth.isEmpty() || empId.isEmpty() || department.isEmpty() || role.isEmpty()){
+                if(firstName.isEmpty()|| qualification.isEmpty() || associatedHospital.isEmpty() || lastName.isEmpty() || phoneNo.isEmpty() || setPass.isEmpty() || confirmPass.isEmpty() || emailId.isEmpty() || sex.isEmpty() || dateOfBirth.isEmpty() || empId.isEmpty() || department.isEmpty() || role.isEmpty()){
                     Toast.makeText(this, "Fill all the fields", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
@@ -67,7 +68,8 @@
                             employeeId = empId,
                             department = department,
                             designation = role,
-                            associatedHospital = associatedHospital)
+                            associatedHospital = associatedHospital,
+                            qualification = qualification)
                         //passing the value to database
                         database.child(empId).setValue(staff).addOnSuccessListener {
                             Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show()
@@ -97,6 +99,7 @@
             binding.departmentInputField.text.clear()
             binding.employeeRoleInputField.text.clear()
             binding.associatedHospitalInputField.text.clear()
+            binding.qualificationInputField.text.clear()
         }
     }
 

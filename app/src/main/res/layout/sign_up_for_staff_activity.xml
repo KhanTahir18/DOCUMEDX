@@ -165,6 +165,21 @@
         android:layout_marginTop="15dp"
         />
 
+    <!--Qualifications-->
+    <EditText
+        android:id="@+id/qualificationInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DOBInputField"
+        android:inputType="text"
+        android:hint="@string/Input_field_Qualification_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
     <!--Employee id-->
     <EditText
         android:id="@+id/employeeIdInputField"
@@ -173,7 +188,7 @@
         style="@style/signUpPageEditTextStyles"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DOBInputField"
+        app:layout_constraintTop_toBottomOf="@+id/qualificationInputField"
         android:inputType="text"
         android:hint="@string/Input_field_employee_id_text"
         android:autofillHints=""

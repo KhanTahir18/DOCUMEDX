@@ -11,5 +11,6 @@ data class Staff(
     val employeeId: String? = null,
     val department: String? = null,
     val designation: String? = null,
-    val associatedHospital: String? = null
+    val associatedHospital: String? = null,
+    val qualification: String? = null
 )
