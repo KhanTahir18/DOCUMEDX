@@ -22,16 +22,16 @@ class StaffLoginPageActivity: AppCompatActivity()  {
         //accessing the staff
         database = FirebaseDatabase.getInstance().getReference("Staffs")
         binding.LoginBtn.setOnClickListener {
-            val phoneNo = binding.phoneNoInputField.text.toString().trim()
+            val empId = binding.employeeIdInputField.text.toString().trim()
             val password = binding.passInputField.text.toString()
 
             //checking if the the fields are filled
-            if(phoneNo.isEmpty() || password.isEmpty()){
+            if(empId.isEmpty() || password.isEmpty()){
                 Toast.makeText(this, "Fill all the fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             //Checking if the password is correct
-            database.child(phoneNo).get().addOnSuccessListener { snapshot ->
+            database.child(empId).get().addOnSuccessListener { snapshot ->
                 if(snapshot.exists()){
                     val dbpass = snapshot.child("password").value.toString()
                     //checks if the user pass and database pass are equal
@@ -43,7 +43,7 @@ class StaffLoginPageActivity: AppCompatActivity()  {
                         Toast.makeText(this, "Wrong password", Toast.LENGTH_SHORT).show()
                     }
                 }else{
-                    Toast.makeText(this, "Phone no do not exist", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Employee do not exist", Toast.LENGTH_SHORT).show()
                 }
             }.addOnFailureListener {
                 Toast.makeText(this, "Error: ${it.message}", Toast.LENGTH_SHORT).show()
@@ -60,7 +60,7 @@ class StaffLoginPageActivity: AppCompatActivity()  {
 
 
     private fun clearAllFields() {
-        binding.phoneNoInputField.text.clear()
+        binding.employeeIdInputField.text.clear()
         binding.passInputField.text.clear()
     }
 }

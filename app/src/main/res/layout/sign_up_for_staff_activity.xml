@@ -210,13 +210,28 @@
         android:layout_marginTop="15dp"
         />
 
+    <!--Associated Hospital-->
+    <EditText
+        android:id="@+id/associatedHospitalInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employeeRoleInputField"
+        android:inputType="text"
+        android:hint="@string/Input_field_associated_Hospital_text"
+        android:autofillHints=""
+        android:layout_marginTop="15dp"
+        />
+
     <!--sign up button-->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signUpBtn"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/buttonStyle"
-        app:layout_constraintTop_toBottomOf="@+id/employeeRoleInputField"
+        app:layout_constraintTop_toBottomOf="@+id/associatedHospitalInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/SignUp_text"

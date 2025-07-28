@@ -22,13 +22,17 @@ class SignUpActivity: AppCompatActivity() {
         binding.signUpBtn.setOnClickListener{
             val firstName = binding.firstNameInputField.text.toString().trim()
             val lastName = binding.lastNameInputField.text.toString().trim()
+            val dOB = binding.DOBInputField.text.toString().trim()
+            val sex = binding.sexInputField.text.toString().trim()
             val phoneNo = binding.phoneNoInputField.text.toString().trim()
             val setPass = binding.setPasswordInputField.text.toString()
             val confirmPass = binding.confirmPasswordInputField.text.toString()
-            val emailId = binding.userAddressInputField.text.toString().trim()
+            val emailId = binding.userEmailAddressInputField.text.toString().trim()
+            val address = binding.userAddressInputField.text.toString()
+            val medHistory = binding.medicalHistoryInputField.text.toString()
 
             //checking if all the fields re filled
-            if(firstName.isEmpty() || lastName.isEmpty() || phoneNo.isEmpty() || setPass.isEmpty() || confirmPass.isEmpty() || emailId.isEmpty()){
+            if(firstName.isEmpty() || lastName.isEmpty() || dOB.isEmpty() || sex.isEmpty() || phoneNo.isEmpty() || setPass.isEmpty() || confirmPass.isEmpty() || emailId.isEmpty() || address.isEmpty() || medHistory.isEmpty()){
                 Toast.makeText(this, "Fill all the fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -51,8 +55,12 @@ class SignUpActivity: AppCompatActivity() {
                     val user = User(
                         firstName = firstName,
                         lastName = lastName,
+                        gender = sex,
+                        dOB = dOB,
                         phoneNo = phoneNo,
                         emailId = emailId,
+                        address = address,
+                        medicalHistory = medHistory,
                         password = confirmPass
                     )
 
@@ -81,6 +89,10 @@ class SignUpActivity: AppCompatActivity() {
         binding.phoneNoInputField.text.clear()
         binding.setPasswordInputField.text.clear()
         binding.confirmPasswordInputField.text.clear()
+        binding.userEmailAddressInputField.text.clear()
+        binding.DOBInputField.text.clear()
+        binding.sexInputField.text.clear()
         binding.userAddressInputField.text.clear()
+        binding.medicalHistoryInputField.text.clear()
     }
 }
