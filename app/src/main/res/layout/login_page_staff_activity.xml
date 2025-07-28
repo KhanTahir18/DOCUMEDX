@@ -41,14 +41,14 @@
     <!--Text Field for user input-->
     <!--Id Staff-->
     <EditText
-        android:id="@+id/phoneNoInputField"
+        android:id="@+id/employeeIdInputField"
         style="@style/signUpPageEditTextStyles"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:autofillHints=""
-        android:hint="@string/Input_field_Phone_no_text"
-        android:inputType="phone"
+        android:hint="@string/Input_field_employee_id_text"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
         android:inputType="textPassword"
         android:hint="@string/Input_field_staff_pass_text"
         android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/phoneNoInputField"
+        app:layout_constraintTop_toBottomOf="@id/employeeIdInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"

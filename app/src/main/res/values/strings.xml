@@ -13,6 +13,8 @@
     <string name="Input_field_set_password_text"><b>Set Password</b></string>
     <string name="Input_field_confirm_password_text"><b>Confirm Password</b></string>
     <string name="Input_field_Email_Address_text"><b>Email address</b></string>
+    <string name="Input_field_Address_no_text"><b>Address</b></string>
+    <string name="Input_field_Medical_history_text"><b>Medical History</b></string>
     <string name="Already_have_an_acc_login">Already have an account? <b>Login</b></string>
 
     <!--For Health info gathering page-->
@@ -33,9 +35,11 @@
     <string name="Input_field_staff_pass_text"><b>Password</b></string>
     <string name="Create_staff_acc"><b>Create an account?</b></string>
     <string name="Input_field_Dob_text"><b>Date of Birth</b></string>
+    <string name="Input_field_Qualification_text"><b>Qualification</b></string>
     <string name="Input_field_employee_id_text"><b>Employee Id</b></string>
     <string name="Input_field_employee_department_text"><b>Department</b></string>
     <string name="Input_field_employee_role_text"><b>Role</b></string>
+    <string name="Input_field_associated_Hospital_text"><b>Associated Hospital</b></string>
 
 
 </resources>
