@@ -6,6 +6,7 @@ import android.os.PersistableBundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.documedx.databinding.LoginPageStaffActivityBinding
+import com.example.documedx.staff.StaffDashboardActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -38,6 +39,8 @@ class StaffLoginPageActivity: AppCompatActivity()  {
                     if(password == dbpass){
                         val name = snapshot.child("firstName").value.toString()
                         Toast.makeText(this, "Welcome, $name!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, StaffDashboardActivity::class.java)
+                        startActivity(intent)
                         clearAllFields()
                     }else{
                         Toast.makeText(this, "Wrong password", Toast.LENGTH_SHORT).show()
