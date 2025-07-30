@@ -2,42 +2,43 @@ package com.example.documedx
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.documedx.databinding.LoginPageStaffActivityBinding
+import com.example.documedx.databinding.OrganizationLoginActivityBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class StaffLoginPageActivity: AppCompatActivity()  {
-    //creating the database reference
-    private lateinit var binding: LoginPageStaffActivityBinding
+class OrganizationLoginActivity: AppCompatActivity() {
+    private lateinit var binding: OrganizationLoginActivityBinding
     private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = LoginPageStaffActivityBinding.inflate(layoutInflater)
+        binding = OrganizationLoginActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //accessing the staff
-        database = FirebaseDatabase.getInstance().getReference("Staffs")
+        database = FirebaseDatabase.getInstance().getReference("Organizations")
+
+        //Click listener
         binding.LoginBtn.setOnClickListener {
-            val empId = binding.employeeIdInputField.text.toString().trim()
+            val licence = binding.orgLicenceInputField.text.toString()
             val password = binding.passInputField.text.toString()
 
-            //checking if the the fields are filled
-            if(empId.isEmpty() || password.isEmpty()){
-                Toast.makeText(this, "Fill all the fields", Toast.LENGTH_SHORT).show()
+            //checks if fields are filled
+            if(licence.isEmpty() || password.isEmpty()){
+                Toast.makeText(this, "Fill the Fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            //Checking if the password is correct
-            database.child(empId).get().addOnSuccessListener { snapshot ->
+
+            //if the acc exits
+            database.child(licence).get().addOnSuccessListener { snapshot ->
                 if(snapshot.exists()){
                     val dbpass = snapshot.child("password").value.toString()
                     //checks if the user pass and database pass are equal
                     if(password == dbpass){
-                        val name = snapshot.child("firstName").value.toString()
-                        Toast.makeText(this, "Welcome, $name!", Toast.LENGTH_SHORT).show()
+                        val name = snapshot.child("organizationName").value.toString()
+                        Toast.makeText(this, "Welcome, $name", Toast.LENGTH_SHORT).show()
                         clearAllFields()
                     }else{
                         Toast.makeText(this, "Wrong password", Toast.LENGTH_SHORT).show()
@@ -50,17 +51,14 @@ class StaffLoginPageActivity: AppCompatActivity()  {
             }
         }
 
-        //If user does'nt have an acc
+        //navigates to sign up page
         binding.createAnAccText.setOnClickListener {
-            val intent = Intent(this, StaffSignUpActivity::class.java)
+            val intent = Intent(this, OrganizationSignUpActivity::class.java)
             startActivity(intent)
         }
-
     }
-
-
     private fun clearAllFields() {
-        binding.employeeIdInputField.text.clear()
+        binding.orgLicenceInputField.text.clear()
         binding.passInputField.text.clear()
     }
 }

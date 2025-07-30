@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/SignUpPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/SignUpPage"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".SignUpActivity"
     android:background="@color/white">
 
     <!--Adding the main Logo of the app-->
@@ -68,6 +73,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         />
+    <!--DOB-->
+    <EditText
+        android:id="@+id/DOBInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="date"
+        android:hint="@string/Input_field_Dob_text"
+        android:autofillHints=""
+        app:layout_constraintTop_toBottomOf="@id/lastNameInputField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <!--Gender-->
+    <EditText
+        android:id="@+id/sexInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="text"
+        android:hint="@string/Input_field_sex_text"
+        android:autofillHints=""
+        app:layout_constraintTop_toBottomOf="@id/DOBInputField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
 
     <!--Phone no-->
     <EditText
@@ -78,7 +112,7 @@
         android:inputType="phone"
         android:hint="@string/Input_field_Phone_no_text"
         android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/lastNameInputField"
+        app:layout_constraintTop_toBottomOf="@id/sexInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
@@ -114,16 +148,46 @@
         android:layout_marginTop="20dp"
         />
 
+    <!--EmailAddress-->
+    <EditText
+        android:id="@+id/userEmailAddressInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="textEmailAddress"
+        android:hint="@string/Input_field_Email_Address_text"
+        android:autofillHints=""
+        app:layout_constraintTop_toBottomOf="@id/confirmPasswordInputField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
     <!--Address-->
     <EditText
         android:id="@+id/userAddressInputField"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/signUpPageEditTextStyles"
-        android:inputType="text"
-        android:hint="@string/Input_field_Email_Address_text"
+        android:inputType="textEmailAddress"
+        android:hint="@string/Input_field_Address_no_text"
         android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/confirmPasswordInputField"
+        app:layout_constraintTop_toBottomOf="@id/userEmailAddressInputField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <!--Medical History-->
+    <EditText
+        android:id="@+id/medicalHistoryInputField"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        style="@style/signUpPageEditTextStyles"
+        android:inputType="textEmailAddress"
+        android:hint="@string/Input_field_Medical_history_text"
+        android:autofillHints=""
+        app:layout_constraintTop_toBottomOf="@id/userAddressInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
@@ -135,7 +199,7 @@
         android:layout_height="wrap_content"
         android:layout_width="300dp"
         style="@style/buttonStyle"
-        app:layout_constraintTop_toBottomOf="@+id/userAddressInputField"
+        app:layout_constraintTop_toBottomOf="@+id/medicalHistoryInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/SignUp_text"
@@ -151,8 +215,11 @@
         app:layout_constraintTop_toBottomOf="@id/signUpBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="70dp"
         android:textSize="14sp"
         android:textColor="@color/black"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
