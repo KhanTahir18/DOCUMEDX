@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main"
+        android:background="@color/white">
+
+        <!--Navbar-->
+        <TextView
+            android:id="@+id/orgDashboardText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/org_dashboard"
+            android:background="@color/color_palette_4"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <!--Your profie-->
+        <TextView
+            android:id="@+id/profileText"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@style/signUpPageEditTextStyles"
+            android:textColor="@color/color_palette_5"
+            android:text="@string/Profile_Text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orgDashboardText"
+            app:layout_constraintHorizontal_bias="0.2"
+            android:layout_marginTop="70dp"/>
+
+        <!--View more btn-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/viewMoreBtnProfile"
+            android:layout_width="100dp"
+            style="@style/buttonStyle"
+            android:textSize="12sp"
+            android:layout_height="57dp"
+            android:text="@string/Veiw_more_text"
+            app:layout_constraintBottom_toBottomOf="@+id/profileText"
+            app:layout_constraintTop_toTopOf="@+id/profileText"
+            app:layout_constraintStart_toEndOf="@id/profileText"/>
+
+        <!--Staff-->
+        <TextView
+            android:id="@+id/deptText"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@style/signUpPageEditTextStyles"
+            android:textColor="@color/color_palette_5"
+            android:text="@string/Input_field_employee_department_text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileText"
+            app:layout_constraintHorizontal_bias="0.2"
+            android:layout_marginTop="30dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/viewMoreBtnStaff"
+            style="@style/buttonStyle"
+            android:textSize="12sp"
+            android:layout_width="100dp"
+            android:layout_height="57dp"
+            android:text="@string/Veiw_more_text"
+            app:layout_constraintBottom_toBottomOf="@+id/deptText"
+            app:layout_constraintTop_toTopOf="@+id/deptText"
+            app:layout_constraintStart_toEndOf="@id/deptText"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

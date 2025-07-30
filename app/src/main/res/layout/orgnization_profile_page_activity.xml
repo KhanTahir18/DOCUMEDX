@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main"
+        android:background="@color/white">
+
+        <!--Navbar-->
+        <TextView
+            android:id="@+id/orgProfileHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/org_Profile_heading"
+            android:background="@color/color_palette_4"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <!--Your Name Field-->
+        <TextView
+            android:id="@+id/orgNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_palette_5"
+            android:text="@string/org_name_text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orgProfileHeading"
+            app:layout_constraintHorizontal_bias="0.1"
+            android:layout_marginTop="70dp"/>
+
+        <TextView
+            android:id="@+id/orgNameTextField"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@style/signUpPageEditTextStyles"
+            android:textColor="@color/color_palette_5"
+            android:text=""
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/orgNameText"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintBottom_toBottomOf="@id/orgNameText"/>
+
+        <!--Phone no-->
+        <TextView
+            android:id="@+id/orgPhoneText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_palette_5"
+            android:text="@string/org_phone_text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orgNameText"
+            app:layout_constraintHorizontal_bias="0.1"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/orgPhoneTextField"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@style/signUpPageEditTextStyles"
+            android:textColor="@color/color_palette_5"
+            android:text=""
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintTop_toTopOf="@id/orgPhoneText"
+            app:layout_constraintBottom_toBottomOf="@id/orgPhoneText"/>
+
+        <!--Address-->
+        <TextView
+            android:id="@+id/orgAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_palette_5"
+            android:text="@string/Input_field_Address_no_text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orgPhoneText"
+            app:layout_constraintHorizontal_bias="0.1"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/orgAddressTextField"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@style/signUpPageEditTextStyles"
+            android:textColor="@color/color_palette_5"
+            android:text=""
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintTop_toTopOf="@id/orgAddressText"
+            app:layout_constraintBottom_toBottomOf="@id/orgAddressText"/>
+
+        <!--Email-->
+        <TextView
+            android:id="@+id/orgEmailAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_palette_5"
+            android:text="@string/org_email_text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orgAddressText"
+            app:layout_constraintHorizontal_bias="0.1"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/orgEmailAddressTextField"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@style/signUpPageEditTextStyles"
+            android:textColor="@color/color_palette_5"
+            android:text=""
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintTop_toTopOf="@id/orgEmailAddressText"
+            app:layout_constraintBottom_toBottomOf="@id/orgEmailAddressText"/>
+
+        <!--Registration licence-->
+        <TextView
+            android:id="@+id/orgLicenceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_palette_5"
+            android:text="@string/Input_field_Address_no_text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orgEmailAddressText"
+            app:layout_constraintHorizontal_bias="0.1"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/orgLicenceTextField"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@style/signUpPageEditTextStyles"
+            android:textColor="@color/color_palette_5"
+            android:text=""
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintTop_toTopOf="@id/orgLicenceText"
+            app:layout_constraintBottom_toBottomOf="@id/orgLicenceText"/>
+
+        <!--Type-->
+        <TextView
+            android:id="@+id/orgTypeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_palette_5"
+            android:text="@string/Input_field_Address_no_text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orgLicenceText"
+            app:layout_constraintHorizontal_bias="0.1"
+            android:layout_marginTop="50dp"/>
+
+        <TextView
+            android:id="@+id/orgTypeTextField"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@style/signUpPageEditTextStyles"
+            android:textColor="@color/color_palette_5"
+            android:text=""
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintTop_toTopOf="@id/orgTypeText"
+            app:layout_constraintBottom_toBottomOf="@id/orgTypeText"/>
+
+        <!--Go to dashboard btn-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/goToDashBoardBtn"
+            android:layout_width="200dp"
+            style="@style/buttonStyle"
+            android:layout_height="wrap_content"
+            android:text="@string/org_Go_TO_dashboard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.72"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

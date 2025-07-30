@@ -48,6 +48,18 @@
             >
 
         </activity>
+        <activity
+            android:name=".OrganizationLoginActivity"
+            android:windowSoftInputMode="adjustPan"
+            >
+
+        </activity>
+        <activity
+            android:name=".OrganizationSignUpActivity"
+            android:windowSoftInputMode="adjustPan"
+            >
+
+        </activity>
 
     </application>
 

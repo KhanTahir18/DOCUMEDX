@@ -41,5 +41,34 @@
     <string name="Input_field_employee_role_text"><b>Role</b></string>
     <string name="Input_field_associated_Hospital_text"><b>Associated Hospital</b></string>
 
+    <!--For Organization-->
+    <string name="hospital_regiteration_text"><b>Registration</b></string>
+    <string name="Input_field_Hospital_Name_text"><b>Hospital Name</b></string>
+    <string name="Input_field_Licence_text"><b>Registration licence</b></string>
+    <string name="Input_field_Type_of_hospital_text"><b>Type(Govt,private,clinic,etc)</b></string>
+    <string name="Input_Field_Already_Registered_login">Already Registered? <b>Login</b></string>
+
+    <!--For organization Dashboard-->
+
+    <string name="Profile_Text"><b>Profile</b></string>
+    <string name="Staff_text"><b>Staffs</b></string>
+    <string name="org_name_text"><b>Name</b></string>
+    <string name="org_type"><b>Type</b></string>
+    <string name="org_phone_text"><b>Phone no</b></string>
+    <string name="org_email_text"><b>Email</b></string>
+    <string name="org_Licence_text"><b>Licence</b></string>
+    <string name="Veiw_more_text"><b>view more</b></string>
+    <string name="Staff_name_text"><b>Staff Name</b></string>
+    <string name="Patient_name_text"><b>Patient Name</b></string>
+    <string name="org_dashboard"><b>Organization Dashboard</b></string>
+    <string name="org_Profile_heading"><b>Organization Profile</b></string>
+    <string name="org_Go_TO_dashboard"><b>Go to Dash</b></string>
+    <string name="org_patient_text"><b>Patients</b></string>
+    <string name="upload_report_btn"><b>Upload Report</b></string>
+    <string name="view_report_btn"><b>View Reports</b></string>
+
+
+
+
 
 </resources>
