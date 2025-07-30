@@ -63,6 +63,7 @@
         android:inputType="textPassword"
         android:hint="@string/Input_field_staff_pass_text"
         android:autofillHints=""
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintTop_toBottomOf="@id/phoneNoInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
