@@ -6,6 +6,7 @@
     import androidx.appcompat.app.AppCompatActivity
     import com.example.documedx.databinding.LoginPageStaffActivityBinding
     import com.example.documedx.databinding.SignUpForStaffActivityBinding
+    import com.example.documedx.staff.StaffDashboardActivity
     import com.google.firebase.Firebase
     import com.google.firebase.database.DatabaseReference
     import com.google.firebase.database.FirebaseDatabase
@@ -73,6 +74,8 @@
                         //passing the value to database
                         database.child(empId).setValue(staff).addOnSuccessListener {
                             Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, StaffDashboardActivity::class.java)
+                            startActivity(intent)
                             clearAllFields()
                         }.addOnFailureListener {
                             Toast.makeText(this, "Error: ${it.message}", Toast.LENGTH_SHORT).show()

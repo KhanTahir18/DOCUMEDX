@@ -7,6 +7,31 @@
     <color name="color_palette_3">#4B9B6E</color>
     <color name="color_palette_4">#2E7D5C</color>
     <color name="color_palette_5">#1B5E3A</color>
+    <color name="color_palette_6">#1F5207</color>
     <color name="Input_field_color">#F0EBEB</color>
     <color name="Input_field_text_color">#A29999</color>
+
+        <!-- Primary Colors -->
+        <color name="primary_green">#4CAF50</color>
+        <color name="primary_green_dark">#388E3C</color>
+        <color name="primary_green_light">#81C784</color>
+
+        <!-- Background Colors -->
+        <color name="background_color">#F5F5F5</color>
+        <color name="card_background">#FFFFFF</color>
+
+        <!-- Text Colors -->
+        <color name="text_primary">#212121</color>
+        <color name="text_secondary">#757575</color>
+        <color name="text_hint">#BDBDBD</color>
+
+        <!-- Status Colors -->
+        <color name="status_active">#4CAF50</color>
+        <color name="status_inactive">#9E9E9E</color>
+        <color name="status_pending">#FF9800</color>
+
+        <!-- Accent Colors -->
+        <color name="accent_blue">#2196F3</color>
+        <color name="accent_red">#F44336</color>
+
 </resources>
