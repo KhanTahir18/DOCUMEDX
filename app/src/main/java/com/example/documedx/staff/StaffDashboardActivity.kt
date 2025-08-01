@@ -30,9 +30,11 @@ class StaffDashboardActivity : AppCompatActivity() {
             // TODO: Implement profile functionality later
             Toast.makeText(this, "Profile feature coming soon", Toast.LENGTH_SHORT).show()
         }
-
+        val empId = intent.getStringExtra("empId")
         patientsCard.setOnClickListener {
-            startActivity(Intent(this, MyPatientsActivity::class.java))
+            val intent = Intent(this, MyPatientsActivity::class.java)
+            intent.putExtra("empId", empId)
+            startActivity(intent)
         }
     }
 }

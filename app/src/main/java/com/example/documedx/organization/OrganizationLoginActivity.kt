@@ -1,10 +1,10 @@
-package com.example.documedx
+package com.example.documedx.organization
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.documedx.databinding.LoginPageStaffActivityBinding
+import com.example.documedx.organization.OrganizationSignUpActivity
 import com.example.documedx.databinding.OrganizationLoginActivityBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -38,6 +38,12 @@ class OrganizationLoginActivity: AppCompatActivity() {
                     //checks if the user pass and database pass are equal
                     if(password == dbpass){
                         val name = snapshot.child("organizationName").value.toString()
+
+                        //Starting the uPload image activity and passing licence to it
+                        val intent = Intent(this, OrganizationDashboardActivity::class.java)
+                        intent.putExtra("licence", licence)
+                        startActivity(intent)
+
                         Toast.makeText(this, "Welcome, $name", Toast.LENGTH_SHORT).show()
                         clearAllFields()
                     }else{

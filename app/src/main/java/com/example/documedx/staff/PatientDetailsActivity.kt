@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -18,7 +19,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.documedx.models.MedicalReport
 import com.example.documedx.utilis.PdfGenerator
 import com.example.documedx.R
+import com.google.firebase.database.DatabaseReference
 import java.text.SimpleDateFormat
+import java.util.*
+import android.annotation.SuppressLint
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.database.FirebaseDatabase
+import android.util.Log
+import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
+import io.appwrite.Client
+import io.appwrite.ID
+import io.appwrite.Role
+import io.appwrite.Permission
+import io.appwrite.models.InputFile
+import io.appwrite.services.Storage
+import kotlinx.coroutines.launch
+import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
 import java.util.*
 
 class PatientDetailsActivity : AppCompatActivity() {
@@ -33,6 +54,10 @@ class PatientDetailsActivity : AppCompatActivity() {
 
     private var patientId: String = ""
     private var patientName: String = ""
+
+    private val bucketId = "688b111000356abeadfb"
+    private val projectId = "6888c59c00344d7b9867"
+    private lateinit var database: DatabaseReference
 
     companion object {
         private const val CAMERA_REQUEST_CODE = 100
@@ -75,7 +100,110 @@ class PatientDetailsActivity : AppCompatActivity() {
         reportsRecyclerView.adapter = reportsAdapter
 
         addPrescriptionBtn.setOnClickListener {
-            checkCameraPermissionAndCapture()
+            //checkCameraPermissionAndCapture()
+            pickImageFromGallery()
+        }
+    }
+
+    private val imagePickerLauncher =
+
+        //Allows the user to Open a Gallery and select an image
+        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            uri?.let { //uri is a Uri type var which can be umm uri?.let only runs if the image is not null
+
+                val file = createTempFileFromUri(it)
+                file?.let { selectedFile ->//file?.let only runs if the image is not null
+                    uploadImageToAppwrite(selectedFile)
+                }
+            }
+        }
+
+    //Pick and image from gallery
+    private fun pickImageFromGallery() {
+        //says to only allow images to be selected
+        imagePickerLauncher.launch("image/*")
+    }
+
+    // 🔹 Convert URI to File
+    private fun createTempFileFromUri(uri: Uri): File? {
+        return try {
+
+            //This lets you read the content of the image (or any file) from the user's device.
+            val inputStream: InputStream? = contentResolver.openInputStream(uri)
+
+            //This line creates a temporary file with a unique name like: f47ac10b-58cc-4372-a567-0e02b2c3d479
+            val file = File(cacheDir, UUID.randomUUID().toString() + ".jpg")
+
+            //Open an output stream that lets you write data into the temporary file.
+            val outputStream = FileOutputStream(file)
+
+            //This line copies the content from the input stream (image from the URI) into the output stream (your new file).
+            //If the inputStream is not null, the image gets copied.
+            inputStream?.copyTo(outputStream)
+
+            //closes the stream
+            inputStream?.close()
+            outputStream.close()
+
+            //return the file
+            file
+
+            //if any error occurs null will be passed
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
+    private fun uploadImageToAppwrite(file: File) {
+        val client = Client(this)
+            .setEndpoint("https://fra.cloud.appwrite.io/v1") // Appwrite Cloud endpoint
+            .setProject(projectId)
+
+        // Initializes the Storage service from Appwrite SDK using the client.
+        //This is the object you'll use to interact with Appwrite Storage API (like uploading or downloading files).
+        val storage = Storage(client)
+
+        //Converts your local File object into InputFile, which is Appwrite's expected format for uploads.
+        val inputFile = InputFile.fromFile(file)
+        val empId = intent.getStringExtra("empId")
+        lifecycleScope.launch {
+            try {
+                val result = storage.createFile(
+                    bucketId = bucketId,     // Replace with your bucket ID
+                    fileId = ID.unique(),
+                    file = inputFile,
+                    permissions = listOf(
+                        Permission.read(Role.any()) // Public read access
+                    )
+                )
+
+                val fileId = result.id
+                val publicUrl =
+                    "https://fra.cloud.appwrite.io/v1/storage/buckets/$bucketId/files/$fileId/view?project=$projectId"
+
+                // Save to Firebase
+
+
+                database = FirebaseDatabase.getInstance().getReference("Staffs")
+                database.child(empId.toString()).get().addOnSuccessListener { snapshot ->
+                    if(snapshot.exists()){
+                        database.child(empId.toString()).child("reportUrl").push().setValue(publicUrl)
+                        Toast.makeText(this@PatientDetailsActivity, "Uploaded & URL saved to Firebase", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(this@PatientDetailsActivity, "licence not found", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+
+                // Display Image
+                //Glide.with(this@MainActivity).load(publicUrl).into(binding.imageViewArea)
+
+
+                Toast.makeText(this@PatientDetailsActivity, "Uploaded & URL saved to Firebase", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(this@PatientDetailsActivity, "Upload failed: ${e.message}", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

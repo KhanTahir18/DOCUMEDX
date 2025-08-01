@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Permissions -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -52,15 +54,7 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan"
-
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            >
-
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -69,17 +63,31 @@
 
         </activity>
         <activity
-            android:name=".OrganizationLoginActivity"
+            android:name=".organization.OrganizationLoginActivity"
             android:windowSoftInputMode="adjustPan"
             >
 
         </activity>
         <activity
-            android:name=".OrganizationSignUpActivity"
+            android:name=".organization.OrganizationSignUpActivity"
             android:windowSoftInputMode="adjustPan"
-            >
-
-        </activity>
+            />
+        <activity
+            android:name=".organization.PatientUnderOrgazinationActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity
+            android:name=".organization.OrganizationDepartmentActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity
+            android:name=".organization.AddDepartmentActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity
+            android:name=".organization.OrganizationDashboardActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
 
         <!-- New Staff Dashboard Activities -->
         <activity
