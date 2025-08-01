@@ -1,9 +1,10 @@
-package com.example.documedx
+package com.example.documedx.organization
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.documedx.Organization
 import com.example.documedx.databinding.OrganizationSignUpPageActivityBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -13,7 +14,7 @@ class OrganizationSignUpActivity: AppCompatActivity() {
     private lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        binding = OrganizationSignUpPageActivityBinding .inflate(layoutInflater)
+        binding = OrganizationSignUpPageActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         database = FirebaseDatabase.getInstance().getReference("Organizations")
 
@@ -55,7 +56,13 @@ class OrganizationSignUpActivity: AppCompatActivity() {
                         licence = licence
                     )
                     database.child(licence).setValue(organization).addOnSuccessListener {
+
+                        val intent = Intent(this, PatientUnderOrgazinationActivity::class.java)
+                        intent.putExtra("licence", licence)
+                        startActivity(intent)
+
                         Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show()
+
                         clearAllFields()
                     }.addOnFailureListener {
                         Toast.makeText(this, "Error: ${it.message}", Toast.LENGTH_SHORT).show()
