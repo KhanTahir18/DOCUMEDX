@@ -40,6 +40,7 @@ class StaffLoginPageActivity: AppCompatActivity()  {
                         val name = snapshot.child("firstName").value.toString()
                         Toast.makeText(this, "Welcome, $name!", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, StaffDashboardActivity::class.java)
+                        intent.putExtra("empId",empId)
                         startActivity(intent)
                         clearAllFields()
                     }else{

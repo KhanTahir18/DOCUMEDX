@@ -31,10 +31,10 @@ class MyPatientsActivity : AppCompatActivity() {
     private fun initViews() {
         recyclerView = findViewById(R.id.recycler_patients)
         recyclerView.layoutManager = LinearLayoutManager(this)
-
+        val empId = intent.getStringExtra("empId")
         patientsAdapter = PatientsAdapter(patientsList) { patient ->
             val intent = Intent(this, PatientDetailsActivity::class.java)
-            intent.putExtra("patient_id", patient.id)
+            intent.putExtra("empId", empId)
             intent.putExtra("patient_name", patient.name)
             startActivity(intent)
         }

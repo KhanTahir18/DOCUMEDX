@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="6dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/tvDepartmentId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID: dept123"
+            android:textSize="14sp"
+            android:textColor="@color/color_palette_5"
+            />
+
+        <TextView
+            android:id="@+id/tvDepartmentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Department Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_palette_5"/>
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/baseline_delete_outline_24"
+            android:contentDescription="Delete"
+            android:background="@color/white"
+            android:layout_gravity="end"
+            android:layout_marginTop="-40dp"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

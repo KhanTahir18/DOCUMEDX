@@ -57,7 +57,7 @@ class OrganizationSignUpActivity: AppCompatActivity() {
                     )
                     database.child(licence).setValue(organization).addOnSuccessListener {
 
-                        val intent = Intent(this, PatientUnderOrgazinationActivity::class.java)
+                        val intent = Intent(this, OrganizationDashboardActivity::class.java)
                         intent.putExtra("licence", licence)
                         startActivity(intent)
 

@@ -75,6 +75,7 @@
                         database.child(empId).setValue(staff).addOnSuccessListener {
                             Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, StaffDashboardActivity::class.java)
+                            intent.putExtra("empId",empId)
                             startActivity(intent)
                             clearAllFields()
                         }.addOnFailureListener {

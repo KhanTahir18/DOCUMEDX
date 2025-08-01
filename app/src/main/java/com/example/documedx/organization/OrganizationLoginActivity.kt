@@ -40,7 +40,7 @@ class OrganizationLoginActivity: AppCompatActivity() {
                         val name = snapshot.child("organizationName").value.toString()
 
                         //Starting the uPload image activity and passing licence to it
-                        val intent = Intent(this, PatientUnderOrgazinationActivity::class.java)
+                        val intent = Intent(this, OrganizationDashboardActivity::class.java)
                         intent.putExtra("licence", licence)
                         startActivity(intent)
 
