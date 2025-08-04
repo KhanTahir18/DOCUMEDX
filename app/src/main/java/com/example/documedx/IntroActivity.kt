@@ -25,7 +25,7 @@ class IntroActivity: AppCompatActivity() {
         }
 
         binding.patientBtn.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, LoadingActivity::class.java)
             startActivity(intent)
         }
 

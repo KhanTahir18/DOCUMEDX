@@ -30,6 +30,7 @@
     <string name="Continue_btn_text"><b>Continue</b></string>
 
     <!--For Login page of staff-->
+    <string name="Empty_Edit_Text"><b></b></string>
     <string name="staff_Login_text"><b>Login</b></string>
     <string name="Input_field_staff_id_text"><b>Staff Id</b></string>
     <string name="Input_field_staff_pass_text"><b>Password</b></string>
@@ -100,5 +101,9 @@
         <string name="loading">Loading...</string>
         <string name="error_occurred">An error occurred</string>
         <string name="try_again">Try Again</string>
+
+        <string name="dp_day">Day</string>
+        <string name="dp_month">Month</string>
+        <string name="dp_Year">Year</string>
 
 </resources>

@@ -77,6 +77,10 @@
             android:windowSoftInputMode="adjustPan"
             />
         <activity
+            android:name=".LoadingActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity
             android:name=".organization.OrganizationDepartmentActivity"
             android:windowSoftInputMode="adjustPan"
             />
