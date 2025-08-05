@@ -177,8 +177,7 @@ class SignUpActivity: AppCompatActivity() {
                         // Shared pref
                         val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
                         sharedPref.edit {
-                            putString("role", "patient")
-                            putString("phoneNo", binding.phoneInputField.text.toString())}
+                            putString("phoneNo", phoneNo)}
 
                         val intent = Intent(this, MainActivity::class.java)
                         intent.putExtra("phoneNo", phoneNo)

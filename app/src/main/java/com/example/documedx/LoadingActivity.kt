@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.documedx.databinding.ActivityLoadingBinding
+import com.example.documedx.organization.OrganizationDashboardActivity
 
 class LoadingActivity: AppCompatActivity() {
     private lateinit var binding: ActivityLoadingBinding
@@ -19,6 +20,7 @@ class LoadingActivity: AppCompatActivity() {
             val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
             val role = sharedPref.getString("role", null)
             val phoneNo = sharedPref.getString("phoneNo", null)
+            val licence = sharedPref.getString("licence", null)
 
             if (role != null) {
                 when (role) {
@@ -34,12 +36,15 @@ class LoadingActivity: AppCompatActivity() {
                     }
 
                     "organization" -> {
-                        Toast.makeText(this, "Organization Dashboard", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Organization Dashboard $licence", Toast.LENGTH_SHORT).show()
+                        intent = Intent(this, OrganizationDashboardActivity::class.java)
+                        intent.putExtra("licence", licence)
+                        startActivity(intent)
                     }
                 }
                 finish()
             } else {
-                val intent = Intent(this, SignUpActivity::class.java)
+                val intent = Intent(this, IntroActivity::class.java)
                 startActivity(intent)
                 finish()
             }

@@ -54,7 +54,7 @@
     <string name="Profile_Text"><b>Profile</b></string>
     <string name="Staff_text"><b>Staffs</b></string>
     <string name="org_name_text"><b>Name</b></string>
-    <string name="org_type"><b>Type</b></string>
+    <string name="org_type"><b>Type(Clinic, Govt, Pvt)</b></string>
     <string name="org_phone_text"><b>Phone no</b></string>
     <string name="org_email_text"><b>Email</b></string>
     <string name="org_Licence_text"><b>Licence</b></string>
