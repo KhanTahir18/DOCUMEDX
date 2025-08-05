@@ -62,11 +62,13 @@
     <string name="Staff_name_text"><b>Staff Name</b></string>
     <string name="Patient_name_text"><b>Patient Name</b></string>
     <string name="org_dashboard"><b>Organization Dashboard</b></string>
+    <string name="dashboard"><b>Dashboard</b></string>
     <string name="org_Profile_heading"><b>Organization Profile</b></string>
     <string name="org_Go_TO_dashboard"><b>Go to Dash</b></string>
     <string name="org_patient_text"><b>Patients</b></string>
     <string name="upload_report_btn"><b>Upload Report</b></string>
     <string name="view_report_btn"><b>View Reports</b></string>
+    <string name ="Org_subTitle">Documedx - Secure Medical Reports Manager</string>
 
 
 
