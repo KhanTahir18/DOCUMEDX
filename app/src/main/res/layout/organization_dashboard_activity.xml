@@ -78,7 +78,8 @@
                 android:id="@+id/cardViewSConstarintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:paddingBottom="20dp">
 
 <!--                Profile Image-->
                 <ImageView
@@ -88,40 +89,141 @@
                     android:background="@drawable/round_hospital_image"
                     android:clipToOutline="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/hospital_image"
+                    android:src="@drawable/ic_profile"
                     app:layout_constraintStart_toStartOf="@id/cardViewSConstarintLayout"
                     app:layout_constraintTop_toTopOf="@id/cardViewSConstarintLayout"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"/>
 
 <!--                orgName-->
+
+                <!--                type org-->
+
                 <TextView
                     android:id="@+id/orgNameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Input_field_Hospital_Name_text"
-                    android:textColor="@color/color_palette_5"
-                    app:layout_constraintStart_toEndOf="@id/hospitalImageView"
-                    app:layout_constraintTop_toTopOf="@+id/hospitalImageView"
-                    android:textSize="18sp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    />
+                    android:text="-----"
+                    android:textColor="@color/color_palette_5"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/hospitalImageView"
+                    app:layout_constraintTop_toTopOf="@+id/hospitalImageView" />
 
-<!--                type org-->
                 <TextView
                     android:id="@+id/orgTypeTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="-2dp"
-                    android:text="Type(Govt, Pvt, Clinic)"
+                    android:text="----"
                     android:textColor="@color/black"
                     android:textSize="13sp"
                     app:layout_constraintStart_toEndOf="@id/hospitalImageView"
                     app:layout_constraintTop_toBottomOf="@+id/orgNameTextView" />
 
 <!--                Image button for edit profile-->
+                <ImageButton
+                    android:id="@+id/editProImgBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/edit_text_ic"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintBottom_toBottomOf="@id/hospitalImageView"
+                    app:layout_constraintTop_toTopOf="@id/hospitalImageView"
+                    app:layout_constraintEnd_toEndOf="@id/cardViewSConstarintLayout" />
+
+<!--                phone text-->
+                <TextView
+                    android:id="@+id/orgPhoneText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone No: "
+                    android:fontFamily="@font/robotoblack"
+                    app:layout_constraintTop_toBottomOf="@id/hospitalImageView"
+                    app:layout_constraintStart_toStartOf="@id/hospitalImageView"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    />
+                <TextView
+                    android:id="@+id/orgPhoneTextDynamic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-----"
+                    app:layout_constraintTop_toTopOf="@id/orgPhoneText"
+                    app:layout_constraintStart_toEndOf="@id/orgPhoneText"
+                    android:textColor="@color/black"
+                    />
+
+<!--                address-->
+                <TextView
+                    android:id="@+id/orgAddressText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address: "
+                    android:fontFamily="@font/robotoblack"
+                    app:layout_constraintTop_toBottomOf="@id/orgPhoneText"
+                    app:layout_constraintStart_toStartOf="@id/hospitalImageView"
+                    android:layout_marginTop="-2dp"
+                    android:textColor="@color/black"
+                    />
+                <TextView
+                    android:id="@+id/orgAddressTextDynamic"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="-----"
+                    app:layout_constraintTop_toTopOf="@id/orgAddressText"
+                    app:layout_constraintStart_toEndOf="@id/orgAddressText"
+                    android:textColor="@color/black"
+                    />
+<!--email-->
+                <TextView
+                    android:id="@+id/emailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email Id: "
+                    android:fontFamily="@font/robotoblack"
+                    app:layout_constraintTop_toBottomOf="@id/orgAddressTextDynamic"
+                    app:layout_constraintStart_toStartOf="@id/hospitalImageView"
+                    android:layout_marginTop="-2dp"
+                    android:textColor="@color/black"
+                    />
+                <TextView
+                    android:id="@+id/emailTextDynamic"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="-----"
+                    app:layout_constraintTop_toTopOf="@id/emailText"
+                    app:layout_constraintStart_toEndOf="@id/emailText"
+                    android:textColor="@color/black"
+                    />
+
+<!--                licence-->
+                <TextView
+                    android:id="@+id/licenceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Licence: "
+                    android:fontFamily="@font/robotoblack"
+                    app:layout_constraintTop_toBottomOf="@id/emailText"
+                    app:layout_constraintStart_toStartOf="@id/hospitalImageView"
+                    android:layout_marginTop="-2dp"
+                    android:textColor="@color/black"
+                    />
+                <TextView
+                    android:id="@+id/licenceTextDynamic"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="-----"
+                    app:layout_constraintTop_toTopOf="@id/licenceText"
+                    app:layout_constraintStart_toEndOf="@id/licenceText"
+                    android:textColor="@color/black"
+                    />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
