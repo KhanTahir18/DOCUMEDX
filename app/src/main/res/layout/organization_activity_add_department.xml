@@ -4,49 +4,204 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:background="@color/white"
+    >
 
-    <EditText
-        android:id="@+id/etDeptId"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/Heading"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Department ID"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="Add Department"
+        android:textColor="@color/color_palette_5"
+        android:fontFamily="@font/robotoblack"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        style="@style/signUpPageEditTextStyles"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="40dp"
+        />
+
+    <!--First Name Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/deptNameInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Input_field_text_color"
+        android:text="Department Name"
+        app:layout_constraintBottom_toTopOf="@+id/etDeptName"
+        app:layout_constraintStart_toStartOf="@+id/etDeptName"
+        app:layout_constraintTop_toBottomOf="@+id/Heading"
+        android:layout_marginTop="30dp"/>
 
     <EditText
         android:id="@+id/etDeptName"
-        android:layout_width="0dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        style="@style/signUpPageEditTextStyles"
-        android:hint="Department Name"
-        app:layout_constraintTop_toBottomOf="@id/etDeptId"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:paddingTop="3dp"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@id/Heading"
+        app:layout_constraintTop_toBottomOf="@id/deptNameInputFieldText" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCancel"
-        android:padding="18dp"
+    <!-- Bottom border -->
+    <View
+        android:id="@+id/view"
         android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintEnd_toEndOf="@id/etDeptName"
+        app:layout_constraintStart_toStartOf="@id/etDeptName"
+        app:layout_constraintTop_toBottomOf="@id/etDeptName" />
+
+    <!--Id-->
+    <TextView
+        android:id="@+id/deptIdInputFieldText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
-        app:layout_constraintTop_toBottomOf="@id/etDeptName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnSave"
+        android:textColor="@color/Input_field_text_color"
+        android:text="Department Id"
+        app:layout_constraintBottom_toTopOf="@+id/etDeptId"
+        app:layout_constraintStart_toStartOf="@+id/etDeptId"
+        app:layout_constraintTop_toBottomOf="@+id/etDeptName"
         android:layout_marginTop="20dp"/>
 
+    <EditText
+        android:id="@+id/etDeptId"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:paddingTop="3dp"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@id/Heading"
+        app:layout_constraintTop_toBottomOf="@id/deptIdInputFieldText" />
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintEnd_toEndOf="@id/etDeptId"
+        app:layout_constraintStart_toStartOf="@id/etDeptId"
+        app:layout_constraintTop_toBottomOf="@id/etDeptId" />
+
+    <!--Description Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/descriptionInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Input_field_text_color"
+        android:text="Desription"
+        app:layout_constraintBottom_toTopOf="@+id/etDescription"
+        app:layout_constraintStart_toStartOf="@+id/etDescription"
+        app:layout_constraintTop_toBottomOf="@+id/etDeptId"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:paddingTop="3dp"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@id/Heading"
+        app:layout_constraintTop_toBottomOf="@id/descriptionInputFieldText" />
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintEnd_toEndOf="@id/etDescription"
+        app:layout_constraintStart_toStartOf="@id/etDescription"
+        app:layout_constraintTop_toBottomOf="@id/etDescription" />
+
+  <!--  btns-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCancel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        style="@style/signUpPageEditTextStyles"
+        android:text="Cancel"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/etDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSave"
-        android:layout_width="0dp"
-        style="@style/buttonStyle"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        style="@style/buttonStyle"
         android:text="Save"
-        app:layout_constraintTop_toBottomOf="@id/etDeptName"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/etDescription"
         app:layout_constraintStart_toEndOf="@id/btnCancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        />
+
+
+    <!--    <EditText-->
+<!--        android:id="@+id/etDeptId"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Department ID"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        style="@style/signUpPageEditTextStyles"/>-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/etDeptName"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="@style/signUpPageEditTextStyles"-->
+<!--        android:hint="Department Name"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/etDeptId"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="16dp"/>-->
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/btnCancel"-->
+<!--        android:padding="18dp"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Cancel"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/etDeptName"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/btnSave"-->
+<!--        android:layout_marginTop="20dp"/>-->
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/btnSave"-->
+<!--        android:layout_width="0dp"-->
+<!--        style="@style/buttonStyle"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Save"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/etDeptName"-->
+<!--        app:layout_constraintStart_toEndOf="@id/btnCancel"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="24dp"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

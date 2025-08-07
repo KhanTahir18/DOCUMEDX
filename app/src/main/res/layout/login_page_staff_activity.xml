@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/Input_field_text_color"
-        android:text="@string/Input_field_Hospital_Name_text"
+        android:text="Hospital Licence"
         app:layout_constraintBottom_toTopOf="@+id/hospitalNameInputField"
         app:layout_constraintStart_toStartOf="@+id/hospitalNameInputField"
         app:layout_constraintTop_toBottomOf="@+id/LoginPageTitle"
@@ -74,6 +74,43 @@
         app:layout_constraintEnd_toEndOf="@id/hospitalNameInputField"
         app:layout_constraintStart_toStartOf="@id/hospitalNameInputField"
         app:layout_constraintTop_toBottomOf="@id/hospitalNameInputField"/>
+    <!--DeptId-->
+    <TextView
+        android:id="@+id/deptIdInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Input_field_text_color"
+        android:text="Dept Id"
+        app:layout_constraintBottom_toTopOf="@+id/deptIDInputField"
+        app:layout_constraintStart_toStartOf="@+id/deptIDInputField"
+        app:layout_constraintTop_toBottomOf="@+id/hospitalNameInputField"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:id="@+id/deptIDInputField"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:paddingTop="3dp"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deptIdInputFieldText" />
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintEnd_toEndOf="@id/deptIDInputField"
+        app:layout_constraintStart_toStartOf="@id/deptIDInputField"
+        app:layout_constraintTop_toBottomOf="@id/deptIDInputField"/>
 
     <!--EmpId Name Text, EditText and Bottom border-->
     <TextView
@@ -84,7 +121,7 @@
         android:text="@string/Input_field_employee_id_text"
         app:layout_constraintBottom_toTopOf="@+id/empIdInputField"
         app:layout_constraintStart_toStartOf="@+id/empIdInputField"
-        app:layout_constraintTop_toBottomOf="@+id/hospitalNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/deptIDInputField"
         android:layout_marginTop="30dp"/>
 
     <EditText

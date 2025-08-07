@@ -86,9 +86,7 @@ class OrganizationDepartmentActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private var licence: String? = null
 
-    companion object {
-        const val ADD_DEPARTMENT_REQUEST = 101
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,12 +106,7 @@ class OrganizationDepartmentActivity : AppCompatActivity() {
         // Load departments from Firebase
         loadDepartmentsFromFirebase()
 
-        // Add department button click
-        binding.addDeptBtn.setOnClickListener {
-            val intent = Intent(this, AddDepartmentActivity::class.java)
-            intent.putExtra("licence", licence)
-            startActivityForResult(intent, ADD_DEPARTMENT_REQUEST)
-        }
+
     }
 
     private fun loadDepartmentsFromFirebase() {
@@ -128,9 +121,13 @@ class OrganizationDepartmentActivity : AppCompatActivity() {
         //This includes when data is added, updated, or deleted
         database.addValueEventListener(object : ValueEventListener {
 
+
             //This function runs whenever the data at that path is changed.
             override fun onDataChange(snapshot: DataSnapshot) {
-
+                departmentList.clear()
+                if (!snapshot.exists()) {
+                    Toast.makeText(this@OrganizationDepartmentActivity, "No departments found in DB", Toast.LENGTH_SHORT).show()
+                }
                 //cleans the old  list so we can replace it with fresh data.
                 departmentList.clear()
 

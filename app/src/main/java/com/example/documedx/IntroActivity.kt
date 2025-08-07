@@ -19,6 +19,7 @@ class IntroActivity: AppCompatActivity() {
         val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
         val phoneNo = sharedPref.getString("phoneNo", null)
         val licence = sharedPref.getString("licence", null)
+        val empId = sharedPref.getString("empId", null)
 
 
         binding = ActivityIntroBinding.inflate(layoutInflater)
@@ -26,9 +27,18 @@ class IntroActivity: AppCompatActivity() {
 
         //Continue as a patient
         binding.staffBtn.setOnClickListener {
+            sharedPref.edit {
+                putString("role", "staff")
+            }
+            if (empId == null) {
             val intent = Intent(this, StaffLoginPageActivity::class.java)
             startActivity(intent)
+            }else{
+                val intent = Intent(this, LoadingActivity::class.java)
+                startActivity(intent)
+            }
         }
+
 
         binding.patientBtn.setOnClickListener {
             sharedPref.edit {

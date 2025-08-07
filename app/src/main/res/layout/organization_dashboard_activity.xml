@@ -66,7 +66,9 @@
         <!--Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/profileCard"
-            android:layout_width="370dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/orgDashboardSubText"
             app:layout_constraintStart_toStartOf="parent"
@@ -227,62 +229,80 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/departmentsCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/profileCard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="20dp"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/deparmentCardConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:paddingBottom="20dp"
+                >
+                <TextView
+                    android:id="@+id/DepartmentsCardTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Departments"
+                    android:fontFamily="@font/robotoblack"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/deparmentCardConstraint"
+                    app:layout_constraintTop_toTopOf="@id/deparmentCardConstraint"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/color_palette_5"
+                    />
+                <TextView
+                    android:id="@+id/deptSubTextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/DepartmentsCardTextView"
+                    app:layout_constraintStart_toStartOf="@id/DepartmentsCardTextView"
+                    android:textColor="@color/Input_field_text_color"
+                    android:text="View your Departments and add new Departments"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/viewDeptBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintEnd_toEndOf="@id/deparmentCardConstraint"
+                    app:layout_constraintTop_toTopOf="@id/DepartmentsCardTextView"
+                    android:text="View"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_view_more"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="20dp"
+                    />
 
 
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addDeptBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add Department"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_button_primary"
+                    app:layout_constraintTop_toBottomOf="@id/deptSubTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
 
-<!--        &lt;!&ndash;Your profie&ndash;&gt;-->
-<!--        <TextView-->
-<!--            android:id="@+id/profileText"-->
-<!--            android:layout_width="250dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            style="@style/signUpPageEditTextStyles"-->
-<!--            android:textColor="@color/color_palette_5"-->
-<!--            android:text="@string/Profile_Text"-->
-<!--            android:textSize="20sp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/orgDashboardText"-->
-<!--            app:layout_constraintHorizontal_bias="0.2"-->
-<!--            android:layout_marginTop="70dp"/>-->
-
-<!--        &lt;!&ndash;View more btn&ndash;&gt;-->
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/viewMoreBtnProfile"-->
-<!--            android:layout_width="100dp"-->
-<!--            style="@style/buttonStyle"-->
-<!--            android:textSize="12sp"-->
-<!--            android:layout_height="57dp"-->
-<!--            android:text="@string/Veiw_more_text"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/profileText"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/profileText"-->
-<!--            app:layout_constraintStart_toEndOf="@id/profileText"/>-->
-
-<!--        &lt;!&ndash;Staff&ndash;&gt;-->
-<!--        <TextView-->
-<!--            android:id="@+id/deptText"-->
-<!--            android:layout_width="250dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            style="@style/signUpPageEditTextStyles"-->
-<!--            android:textColor="@color/color_palette_5"-->
-<!--            android:text="@string/Input_field_employee_department_text"-->
-<!--            android:textSize="20sp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/profileText"-->
-<!--            app:layout_constraintHorizontal_bias="0.2"-->
-<!--            android:layout_marginTop="30dp"/>-->
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/viewMoreBtnStaff"-->
-<!--            style="@style/buttonStyle"-->
-<!--            android:textSize="12sp"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="57dp"-->
-<!--            android:text="@string/Veiw_more_text"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/deptText"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/deptText"-->
-<!--            app:layout_constraintStart_toEndOf="@id/deptText"/>-->
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

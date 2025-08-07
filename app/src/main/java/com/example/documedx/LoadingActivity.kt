@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.documedx.databinding.ActivityLoadingBinding
 import com.example.documedx.organization.OrganizationDashboardActivity
+import com.example.documedx.staff.StaffDashboardActivity
 
 class LoadingActivity: AppCompatActivity() {
     private lateinit var binding: ActivityLoadingBinding
@@ -21,6 +22,9 @@ class LoadingActivity: AppCompatActivity() {
             val role = sharedPref.getString("role", null)
             val phoneNo = sharedPref.getString("phoneNo", null)
             val licence = sharedPref.getString("licence", null)
+            val empId = sharedPref.getString("empId", null)
+            val empDeptId = sharedPref.getString("empDeptId", null)
+            val empLicence = sharedPref.getString("empLicence", null)
 
             if (role != null) {
                 when (role) {
@@ -32,7 +36,12 @@ class LoadingActivity: AppCompatActivity() {
                     }
 
                     "staff" -> {
-                        Toast.makeText(this, "Staff Dashboard", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Id:${empId} Dept:${empDeptId} Licence:${empLicence}", Toast.LENGTH_SHORT).show()
+                        intent = Intent(this, StaffDashboardActivity::class.java)
+                        intent.putExtra("empId", empId)
+                        intent.putExtra("empLicence", empLicence)
+                        intent.putExtra("empDeptId", empDeptId)
+                        startActivity(intent)
                     }
 
                     "organization" -> {

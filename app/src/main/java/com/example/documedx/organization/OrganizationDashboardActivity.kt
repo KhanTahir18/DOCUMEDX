@@ -7,6 +7,7 @@ import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.documedx.databinding.OrganizationDashboardActivityBinding
+import com.example.documedx.organization.OrganizationDashboardActivity.Companion.ADD_DEPARTMENT_REQUEST
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -18,6 +19,9 @@ class OrganizationDashboardActivity: AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private var licence: String? = null
     private var publicUrl: String? = null
+    companion object {
+        const val ADD_DEPARTMENT_REQUEST = 101
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +61,18 @@ class OrganizationDashboardActivity: AppCompatActivity() {
 //            intent.putExtra("licence", licence)
 //            startActivity(intent)
 //        }
+
+        binding.viewDeptBtn.setOnClickListener {
+            val intent = Intent(this, OrganizationDepartmentActivity::class.java)
+            intent.putExtra("licence", licence)
+            startActivity(intent)
+        }
+
+        binding.addDeptBtn.setOnClickListener {
+            val intent = Intent(this, AddDepartmentActivity::class.java)
+            intent.putExtra("licence", licence)
+            startActivityForResult(intent, ADD_DEPARTMENT_REQUEST)
+        }
 
         onBackPressedDispatcher.addCallback(this) {
             finishAffinity() // Or whatever you want to do on back press
