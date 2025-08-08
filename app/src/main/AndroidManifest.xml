@@ -74,8 +74,9 @@
             />
         <activity
             android:name=".organization.PatientUnderOrgazinationActivity"
-            android:windowSoftInputMode="adjustPan"
-            />
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+
         <activity
             android:name=".LoadingActivity"
             android:windowSoftInputMode="adjustPan"
