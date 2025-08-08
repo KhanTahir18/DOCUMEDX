@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="@android:color/white">
+
+        <!-- Time -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_report_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:00"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Share Icon -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_share_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_share"
+            android:tint="@color/color_palette_3"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Report Icon/Folder -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_report_icon"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_folder_report"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/tv_report_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Report Name -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_report_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Blood Test"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginTop="8dp"
+            android:gravity="start"
+            app:layout_constraintTop_toBottomOf="@id/iv_report_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Report ID -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_report_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Id: BO-1"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_report_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Date -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_report_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dd/mm/yyyy"
+            android:textSize="10sp"
+            android:textColor="#757575"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_report_id"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- From Hospital (for shared reports) -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_from_hospital"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="From: Hospital name"
+            android:textSize="10sp"
+            android:textColor="#4CAF50"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tv_report_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Prescription Label (for shared reports) -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_prescription_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="prescription"
+            android:textSize="10sp"
+            android:textColor="@android:color/white"
+            android:background="#4CAF50"
+            android:padding="4dp"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tv_from_hospital"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
