@@ -35,9 +35,11 @@
                 val empId = binding.employeeIdInputField.text.toString().trim()
                 val department = binding.departmentInputField.text.toString().trim()
                 val role = binding.employeeRoleInputField.text.toString().trim()
+                val associatedHospital = binding.associatedHospitalInputField.text.toString()
+                val qualification = binding.qualificationInputField.text.toString().trim()
 
                 //checking if any fields are empty
-                if(firstName.isEmpty() || lastName.isEmpty() || phoneNo.isEmpty() || setPass.isEmpty() || confirmPass.isEmpty() || emailId.isEmpty() || sex.isEmpty() || dateOfBirth.isEmpty() || empId.isEmpty() || department.isEmpty() || role.isEmpty()){
+                if(firstName.isEmpty()|| qualification.isEmpty() || associatedHospital.isEmpty() || lastName.isEmpty() || phoneNo.isEmpty() || setPass.isEmpty() || confirmPass.isEmpty() || emailId.isEmpty() || sex.isEmpty() || dateOfBirth.isEmpty() || empId.isEmpty() || department.isEmpty() || role.isEmpty()){
                     Toast.makeText(this, "Fill all the fields", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
@@ -49,10 +51,10 @@
                 }
 
                 //To make sure there are no staff with duplicate phone numbers
-                database.child(phoneNo).get().addOnSuccessListener { snapshot ->
+                database.child(empId).get().addOnSuccessListener { snapshot ->
                     if (snapshot.exists()){
                         //msg when duplicate numbers are detected
-                        Toast.makeText(this, "Phone no already exists", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "EmpId already exists", Toast.LENGTH_SHORT).show()
                     }else{
                         //set values in data class
                         val staff = Staff(
@@ -65,9 +67,11 @@
                             dateOfBirth = dateOfBirth,
                             employeeId = empId,
                             department = department,
-                            role = role)
+                            designation = role,
+                            associatedHospital = associatedHospital,
+                            qualification = qualification)
                         //passing the value to database
-                        database.child(phoneNo).setValue(staff).addOnSuccessListener {
+                        database.child(empId).setValue(staff).addOnSuccessListener {
                             Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show()
                             clearAllFields()
                         }.addOnFailureListener {
@@ -94,6 +98,8 @@
             binding.employeeIdInputField.text.clear()
             binding.departmentInputField.text.clear()
             binding.employeeRoleInputField.text.clear()
+            binding.associatedHospitalInputField.text.clear()
+            binding.qualificationInputField.text.clear()
         }
     }
 
