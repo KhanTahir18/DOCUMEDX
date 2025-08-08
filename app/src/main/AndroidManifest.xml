@@ -74,6 +74,22 @@
             />
         <activity
             android:name=".organization.PatientUnderOrgazinationActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+
+        <activity
+            android:name=".LoadingActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity android:name=".organization.OrganizationEditProfileActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+
+        <activity android:name=".organization.AddStaffToDeptActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+
+        <activity android:name=".organization.ViewStaffActivity"
             android:windowSoftInputMode="adjustPan"
             />
         <activity

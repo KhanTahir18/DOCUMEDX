@@ -6,90 +6,239 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <!-- Logo -->
+
     <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:contentDescription="@string/app_name_for_intro"
+        android:id="@+id/appLogo"
+        android:layout_width="300dp"
+        android:layout_height="190dp"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/documedx"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Login Title -->
-    <TextView
-        android:id="@+id/loginTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/staff_Login_text"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoImage" />
-
-    <!-- Phone No Input -->
-    <EditText
-        android:id="@+id/phoneEditText"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/Input_field_Phone_no_text"
-        style="@style/signUpPageEditTextStyles"
-        android:backgroundTint="#F0EBEB"
-        android:inputType="phone"
-        app:layout_constraintTop_toBottomOf="@id/loginTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
-
-    <!-- Password Input -->
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/Input_field_staff_pass_text"
-        android:backgroundTint="#F0EBEB"
-        style="@style/signUpPageEditTextStyles"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/phoneEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
-
-    <!-- Login Button -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginButton"
-        style="@style/buttonStyle"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:text="@string/staff_Login_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditText"
-        app:layout_constraintWidth_percent="0.7" />
-
-    <!-- Sign Up Redirect Text -->
-    <TextView
-        android:id="@+id/createAccText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Create_staff_acc"
-        android:textColor="@color/black"
-        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06" />
 
-    <!-- Sign Up Link -->
+    <!--Sign up Title-->
+    <TextView
+        android:id="@+id/LoginPageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/staff_Login_text"
+        android:textColor="@color/color_palette_5"
+        android:textSize="30sp"
+        android:fontFamily="@font/robotoblack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appLogo" />
+
+    <!--PPnohe Name Text, EditText and Bottom border-->
+
+    <TextView
+        android:id="@+id/phoneInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="-37dp"
+        android:text="@string/org_phone_text"
+        android:textColor="@color/Input_field_text_color"
+        app:layout_constraintBottom_toTopOf="@+id/phoneInputField"
+        app:layout_constraintStart_toStartOf="@+id/phoneInputField"
+        app:layout_constraintTop_toBottomOf="@+id/LoginPageTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="91+"
+        android:textColor="@color/color_palette_5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneInputField"
+        app:layout_constraintEnd_toStartOf="@+id/phoneInputField" />
+
+    <EditText
+        android:id="@+id/phoneInputField"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:inputType="phone"
+        android:paddingTop="3dp"
+        android:paddingBottom="1dp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneInputFieldText" />
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/phoneInputField"
+        app:layout_constraintStart_toStartOf="@id/phoneInputField"
+        app:layout_constraintEnd_toEndOf="@id/phoneInputField" />
+
+    <!--SetPas Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/setPassNameInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Input_field_text_color"
+        android:text="@string/Input_field_staff_pass_text"
+        app:layout_constraintBottom_toTopOf="@+id/setPassNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/setPassNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/phoneInputField"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/setPassNameInputField"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:paddingTop="3dp"
+        android:textStyle="bold"
+        android:inputType="textPassword"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setPassNameInputFieldText"
+        android:drawableEnd="@drawable/ic_eye_closed"/>
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/setPassNameInputField"
+        app:layout_constraintStart_toStartOf="@id/setPassNameInputField"
+        app:layout_constraintEnd_toEndOf="@id/setPassNameInputField" />
+
+    <!-- Sign Up Redirect Text -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginBtn"
+        style="@style/buttonStyle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/staff_Login_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setPassNameInputField" />
+
+    <TextView
+            android:id="@+id/createAccText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Create_staff_acc"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginBtn" />
+
+        <!-- Sign Up Link -->
+
+
+
+    <!--old code-->
+<!--    &lt;!&ndash; Logo &ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/logoImage"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:contentDescription="@string/app_name_for_intro"-->
+<!--        android:src="@drawable/documedx"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.1"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+<!--    &lt;!&ndash; Login Title &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/loginTitle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:text="@string/staff_Login_text"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="22sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/logoImage" />-->
+
+<!--    &lt;!&ndash; Phone No Input &ndash;&gt;-->
+<!--    <EditText-->
+<!--        android:id="@+id/phoneEditText"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:autofillHints=""-->
+<!--        android:hint="@string/Input_field_Phone_no_text"-->
+<!--        style="@style/signUpPageEditTextStyles"-->
+<!--        android:backgroundTint="#F0EBEB"-->
+<!--        android:inputType="phone"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/loginTitle"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="20dp"/>-->
+
+<!--    &lt;!&ndash; Password Input &ndash;&gt;-->
+<!--    <EditText-->
+<!--        android:id="@+id/passwordEditText"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:autofillHints=""-->
+<!--        android:hint="@string/Input_field_staff_pass_text"-->
+<!--        android:backgroundTint="#F0EBEB"-->
+<!--        style="@style/signUpPageEditTextStyles"-->
+<!--        android:inputType="textPassword"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/phoneEditText"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="20dp"/>-->
+
+<!--    &lt;!&ndash; Login Button &ndash;&gt;-->
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/loginButton"-->
+<!--        style="@style/buttonStyle"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="65dp"-->
+<!--        android:text="@string/staff_Login_text"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/passwordEditText"-->
+<!--        app:layout_constraintWidth_percent="0.7" />-->
+
+<!--    &lt;!&ndash; Sign Up Redirect Text &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/createAccText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/Create_staff_acc"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/loginButton" />-->
+
+<!--    &lt;!&ndash; Sign Up Link &ndash;&gt;-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

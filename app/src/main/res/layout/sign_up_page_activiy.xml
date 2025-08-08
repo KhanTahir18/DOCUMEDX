@@ -13,11 +13,10 @@
     tools:context=".SignUpActivity"
     android:background="@color/white">
 
-    <!--Adding the main Logo of the app-->
     <ImageView
         android:id="@+id/appLogo"
         android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_height="190dp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/documedx"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,199 +26,509 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06" />
 
-    <!--Sign up Title-->
+        <!--Sign up Title-->
     <TextView
         android:id="@+id/SignUpPageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/SignUp_text"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/appLogo"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/SignUp_text"
+        android:textColor="@color/color_palette_5"
+        android:textSize="30sp"
+        android:fontFamily="@font/robotoblack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        android:textSize="22sp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appLogo" />
 
-    <!--Text Field for user input-->
-    <!--First Name-->
+    <!--First Name Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/firstNameInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Input_field_text_color"
+        android:text="@string/Input_field_first_name_text"
+        app:layout_constraintBottom_toTopOf="@+id/firstNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/firstNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/SignUpPageTitle"
+        android:layout_marginTop="30dp"/>
+
     <EditText
         android:id="@+id/firstNameInputField"
-        style="@style/signUpPageEditTextStyles"
-        android:layout_width="300dp"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:autofillHints=""
-        android:hint="@string/Input_field_first_name_text"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:paddingTop="3dp"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/SignUpPageTitle" />
+        app:layout_constraintTop_toBottomOf="@id/firstNameInputFieldText" />
 
-    <!--Last name-->
+    <!-- Bottom border -->
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintEnd_toEndOf="@id/firstNameInputField"
+        app:layout_constraintStart_toStartOf="@id/firstNameInputField"
+        app:layout_constraintTop_toBottomOf="@id/firstNameInputField" />
+
+    <!--Last Name Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/lastNameInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Input_field_text_color"
+        android:text="@string/Input_field_last_name_text"
+        app:layout_constraintBottom_toTopOf="@+id/lastNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/lastNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameInputField"
+        android:layout_marginTop="20dp"/>
+
     <EditText
         android:id="@+id/lastNameInputField"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="10dp"
+        android:paddingTop="3dp"
+        android:textStyle="bold"
         android:inputType="text"
-        android:hint="@string/Input_field_last_name_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/firstNameInputField"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
-    <!--DOB-->
-    <EditText
-        android:id="@+id/DOBInputField"
-        android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
-        android:inputType="date"
-        android:hint="@string/Input_field_Dob_text"
-        android:autofillHints=""
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lastNameInputFieldText" />
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
         app:layout_constraintTop_toBottomOf="@id/lastNameInputField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
+        app:layout_constraintStart_toStartOf="@id/lastNameInputField"
+        app:layout_constraintEnd_toEndOf="@id/lastNameInputField" />
 
-    <!--Gender-->
-    <EditText
-        android:id="@+id/sexInputField"
+    <!--Address Name Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/addressNameInputFieldText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
+        android:textColor="@color/Input_field_text_color"
+        android:text="@string/Input_field_Address_no_text"
+        app:layout_constraintBottom_toTopOf="@+id/addressNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/addressNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameInputField"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/addressNameInputField"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:paddingTop="3dp"
+        android:textStyle="bold"
         android:inputType="text"
-        android:hint="@string/Input_field_sex_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/DOBInputField"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addressNameInputFieldText" />
 
-    <!--Phone no-->
-    <EditText
-        android:id="@+id/phoneNoInputField"
+    <!-- Bottom border -->
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintEnd_toEndOf="@id/addressNameInputField"
+        app:layout_constraintStart_toStartOf="@id/addressNameInputField"
+        app:layout_constraintTop_toBottomOf="@id/addressNameInputField" />
+
+    <!--Email Name Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/emailNameInputFieldText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
+        android:textColor="@color/Input_field_text_color"
+        android:text="@string/Input_field_Email_Address_text"
+        app:layout_constraintBottom_toTopOf="@+id/emailNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/emailNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/addressNameInputField"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/emailNameInputField"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:paddingTop="3dp"
+        android:textStyle="bold"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailNameInputFieldText" />
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/emailNameInputField"
+        app:layout_constraintStart_toStartOf="@id/emailNameInputField"
+        app:layout_constraintEnd_toEndOf="@id/emailNameInputField" />
+
+    <!--DOB(Day) Name Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/dayDOBNameInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Input_field_text_color"
+        android:text="Day"
+        app:layout_constraintBottom_toTopOf="@+id/dayDOBNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/dayDOBNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/emailNameInputField"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/dayDOBNameInputField"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingBottom="1dp"
+        android:paddingTop="3dp"
+        android:textStyle="bold"
+        android:inputType="date"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dayDOBNameInputFieldText" />
+
+    <!-- Bottom border -->
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintEnd_toEndOf="@id/dayDOBNameInputField"
+        app:layout_constraintStart_toStartOf="@id/dayDOBNameInputField"
+        app:layout_constraintTop_toBottomOf="@id/dayDOBNameInputField" />
+
+    <!--DOB(month) Name Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/monthDOBNameInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Input_field_text_color"
+        android:text="Month"
+        app:layout_constraintBottom_toTopOf="@+id/monthDOBNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/monthDOBNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/emailNameInputField"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/monthDOBNameInputField"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:inputType="date"
+        android:paddingTop="3dp"
+        android:paddingBottom="1dp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/monthDOBNameInputFieldText" />
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/monthDOBNameInputField"
+        app:layout_constraintStart_toStartOf="@id/monthDOBNameInputField"
+        app:layout_constraintEnd_toEndOf="@id/monthDOBNameInputField" />
+
+    <!--DOB(Year) Name Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/yearDOBNameInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Input_field_text_color"
+        android:text="Year"
+        app:layout_constraintBottom_toTopOf="@+id/yearDOBNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/yearDOBNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/emailNameInputField"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/yearDOBNameInputField"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:inputType="date"
+        android:paddingTop="3dp"
+        android:paddingBottom="1dp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yearDOBNameInputFieldText" />
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/yearDOBNameInputField"
+        app:layout_constraintStart_toStartOf="@id/yearDOBNameInputField"
+        app:layout_constraintEnd_toEndOf="@id/yearDOBNameInputField" />
+
+    <!--PPnohe Name Text, EditText and Bottom border-->
+
+    <TextView
+        android:id="@+id/phoneInputFieldText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="-37dp"
+        android:text="@string/org_phone_text"
+        android:textColor="@color/Input_field_text_color"
+        app:layout_constraintBottom_toTopOf="@+id/phoneInputField"
+        app:layout_constraintStart_toStartOf="@+id/phoneInputField"
+        app:layout_constraintTop_toBottomOf="@+id/dayDOBNameInputField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="91+"
+        android:textColor="@color/color_palette_5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneInputField"
+        app:layout_constraintEnd_toStartOf="@+id/phoneInputField" />
+
+    <EditText
+        android:id="@+id/phoneInputField"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
         android:inputType="phone"
-        android:hint="@string/Input_field_Phone_no_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/sexInputField"
-        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="3dp"
+        android:paddingBottom="1dp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneInputFieldText" />
 
-    <!--Set Password-->
-    <EditText
-        android:id="@+id/setPasswordInputField"
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/phoneInputField"
+        app:layout_constraintStart_toStartOf="@id/phoneInputField"
+        app:layout_constraintEnd_toEndOf="@id/phoneInputField" />
+
+    <!--SetPas Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/setPassNameInputFieldText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
+        android:textColor="@color/Input_field_text_color"
+        android:text="@string/Input_field_set_password_text"
+        app:layout_constraintBottom_toTopOf="@+id/setPassNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/setPassNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/phoneInputField"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/setPassNameInputField"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:paddingTop="3dp"
+        android:textStyle="bold"
         android:inputType="textPassword"
-        android:hint="@string/Input_field_set_password_text"
-        android:autofillHints=""
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneNoInputField"
-        android:layout_marginTop="20dp"
-        />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setPassNameInputFieldText"
+        android:drawableEnd="@drawable/ic_eye_closed"/>
 
-    <!--Confirm password-->
-    <EditText
-        android:id="@+id/confirmPasswordInputField"
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/setPassNameInputField"
+        app:layout_constraintStart_toStartOf="@id/setPassNameInputField"
+        app:layout_constraintEnd_toEndOf="@id/setPassNameInputField" />
+
+    <!--ConfirmPass Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/conPassNameInputFieldText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
+        android:textColor="@color/Input_field_text_color"
+        android:text="@string/Input_field_confirm_password_text"
+        app:layout_constraintBottom_toTopOf="@+id/conPassNameInputField"
+        app:layout_constraintStart_toStartOf="@+id/conPassNameInputField"
+        app:layout_constraintTop_toBottomOf="@+id/setPassNameInputField"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/conPassNameInputField"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:paddingTop="3dp"
+        android:textStyle="bold"
         android:inputType="textPassword"
-        android:hint="@string/Input_field_confirm_password_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/setPasswordInputField"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/conPassNameInputFieldText"
+        android:drawableEnd="@drawable/ic_eye_closed"/>
+
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/conPassNameInputField"
+        app:layout_constraintStart_toStartOf="@id/conPassNameInputField"
+        app:layout_constraintEnd_toEndOf="@id/conPassNameInputField" />
+
+    <!--Gender dropdown-->
+    <Spinner
+        android:id="@+id/genderSpinner"
+        android:layout_width="265dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_bg"
+        app:layout_constraintTop_toBottomOf="@id/conPassNameInputField"
+        android:layout_marginTop="27dp"
+
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
         />
 
-    <!--EmailAddress-->
-    <EditText
-        android:id="@+id/userEmailAddressInputField"
+    <!--Medical History Text, EditText and Bottom border-->
+    <TextView
+        android:id="@+id/medHistInputFieldText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
-        android:inputType="textEmailAddress"
-        android:hint="@string/Input_field_Email_Address_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/confirmPasswordInputField"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
+        android:textColor="@color/Input_field_text_color"
+        android:text="@string/Input_field_Medical_history_text"
+        app:layout_constraintBottom_toTopOf="@+id/medHistInputField"
+        app:layout_constraintStart_toStartOf="@+id/medHistInputField"
+        app:layout_constraintTop_toBottomOf="@+id/genderSpinner"
+        android:layout_marginTop="20dp"/>
 
-    <!--Address-->
     <EditText
-        android:id="@+id/userAddressInputField"
+        android:id="@+id/medHistInputField"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
+        android:background="@android:color/transparent"
+        android:hint="@string/Empty_Edit_Text"
+        android:paddingBottom="1dp"
+        android:paddingTop="3dp"
+        android:textStyle="bold"
         android:inputType="textEmailAddress"
-        android:hint="@string/Input_field_Address_no_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/userEmailAddressInputField"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
-
-    <!--Medical History-->
-    <EditText
-        android:id="@+id/medicalHistoryInputField"
-        android:layout_height="wrap_content"
-        android:layout_width="300dp"
-        style="@style/signUpPageEditTextStyles"
-        android:inputType="textEmailAddress"
-        android:hint="@string/Input_field_Medical_history_text"
-        android:autofillHints=""
-        app:layout_constraintTop_toBottomOf="@id/userAddressInputField"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
+        app:layout_constraintTop_toBottomOf="@id/medHistInputFieldText"
+/>
 
-    <!--sign up button-->
+    <!-- Bottom border -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/medHistInputField"
+        app:layout_constraintStart_toStartOf="@id/medHistInputField"
+        app:layout_constraintEnd_toEndOf="@id/medHistInputField" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signUpBtn"
         android:layout_height="wrap_content"
         android:layout_width="300dp"
+        android:text="@string/SignUp_text"
         style="@style/buttonStyle"
-        app:layout_constraintTop_toBottomOf="@+id/medicalHistoryInputField"
+        app:layout_constraintTop_toBottomOf="@id/medHistInputField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/SignUp_text"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         />
 
-    <!--Text to navigate to login page-->
+        <!--Text to navigate to login page-->
+        <TextView
+            android:id="@+id/alreadyAnAccText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/Already_have_an_acc_login"
+            app:layout_constraintTop_toBottomOf="@id/signUpBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="100dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            />
+
     <TextView
-        android:id="@+id/alreadyAnAccText"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/Already_have_an_acc_login"
-        app:layout_constraintTop_toBottomOf="@id/signUpBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="70dp"
-        android:textSize="14sp"
-        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="Gender"
+        app:layout_constraintTop_toTopOf="@id/genderSpinner"
+        app:layout_constraintStart_toStartOf="@id/genderSpinner"
+        android:textColor="@color/color_palette_5"
+        android:layout_marginTop="-10dp"
+        android:layout_marginStart="10dp"
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

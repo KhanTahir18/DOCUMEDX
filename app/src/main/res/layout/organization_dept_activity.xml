@@ -31,29 +31,15 @@
             android:id="@+id/departmentsRecyclerView"
             android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
             app:layout_constraintTop_toBottomOf="@id/orgDepartmentHeading"
-            app:layout_constraintBottom_toTopOf="@id/addDeptBtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:listitem="@layout/item_department"
             />
 
 
-        <!--Go to dashboard btn-->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/addDeptBtn"
-        style="@style/buttonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="ADD DEPARTMENT"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.981" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

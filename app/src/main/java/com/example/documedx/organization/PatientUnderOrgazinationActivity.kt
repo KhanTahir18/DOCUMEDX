@@ -32,6 +32,9 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.util.*
+import android.graphics.BitmapFactory
+import android.graphics.pdf.PdfDocument
+
 
 class PatientUnderOrgazinationActivity: AppCompatActivity() {
     private lateinit var binding: PatientUnderOrganizationActivityBinding
@@ -53,6 +56,8 @@ class PatientUnderOrgazinationActivity: AppCompatActivity() {
         binding.uploadReportBtn.setOnClickListener {
             pickImageFromGallery()
         }
+
+
     }
     private fun requestPermissions() {
         //This is an array of all permissions your app may need.
@@ -88,9 +93,14 @@ class PatientUnderOrgazinationActivity: AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let { //uri is a Uri type var which can be umm uri?.let only runs if the image is not null
 
-                val file = createTempFileFromUri(it)
-                file?.let { selectedFile ->//file?.let only runs if the image is not null
-                    uploadImageToAppwrite(selectedFile)
+                val imageFile = createTempFileFromUri(it)
+                imageFile?.let { selectedImage ->
+                    val pdfFile = convertImageToPdf(selectedImage)
+                    if (pdfFile != null) {
+                        uploadImageToAppwrite(pdfFile)
+                    } else {
+                        Toast.makeText(this, "Failed to convert image to PDF", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
@@ -133,6 +143,46 @@ class PatientUnderOrgazinationActivity: AppCompatActivity() {
         }
     }
 
+    private fun convertImageToPdf(imageFile: File): File? {
+        return try {
+            val bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+
+            val pdfDocument = PdfDocument()
+            val pageInfo = PdfDocument.PageInfo.Builder(bitmap.width, bitmap.height, 1).create()
+            val page = pdfDocument.startPage(pageInfo)
+
+            val canvas = page.canvas
+            canvas.drawBitmap(bitmap, 0f, 0f, null)
+            pdfDocument.finishPage(page)
+
+            // Save the PDF in cache directory
+            val pdfFile = File(cacheDir, UUID.randomUUID().toString() + ".pdf")
+            val outputStream = FileOutputStream(pdfFile)
+            pdfDocument.writeTo(outputStream)
+
+            pdfDocument.close()
+            outputStream.close()
+
+            pdfFile
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
+    private fun openPdfInViewer(pdfUrl: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.setDataAndType(Uri.parse(pdfUrl), "application/pdf")
+        intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY or
+                Intent.FLAG_GRANT_READ_URI_PERMISSION
+
+        try {
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(this, "No app found to open PDF", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private fun uploadImageToAppwrite(file: File) {
         val client = Client(this)
             .setEndpoint("https://fra.cloud.appwrite.io/v1") // Appwrite Cloud endpoint
@@ -161,7 +211,7 @@ class PatientUnderOrgazinationActivity: AppCompatActivity() {
                     "https://fra.cloud.appwrite.io/v1/storage/buckets/$bucketId/files/$fileId/view?project=$projectId"
 
                 // Save to Firebase
-
+                    openPdfInViewer(publicUrl)
 
                     database = FirebaseDatabase.getInstance().getReference("Organizations")
                     database.child(licence).get().addOnSuccessListener { snapshot ->

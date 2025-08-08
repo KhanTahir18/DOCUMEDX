@@ -2,12 +2,15 @@ package com.example.documedx
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.documedx.databinding.ActivityPatientLoginBinding
 import com.example.documedx.databinding.LoginPageStaffActivityBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import androidx.core.content.edit
 
 class LoginActivity: AppCompatActivity() {
     private lateinit var binding: ActivityPatientLoginBinding
@@ -19,13 +22,51 @@ class LoginActivity: AppCompatActivity() {
         binding = ActivityPatientLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Toggle fuction for set pass
+        var isPasswordVisible = false
+        val setPasswordEditTextIc = binding.setPassNameInputField
+
+        setPasswordEditTextIc.setOnTouchListener { v, event ->
+            val DRAWABLE_END = 2
+            if (event.action == MotionEvent.ACTION_UP) {
+                if (event.rawX >= (setPasswordEditTextIc.right - setPasswordEditTextIc.compoundDrawables[DRAWABLE_END].bounds.width())) {
+                    isPasswordVisible = !isPasswordVisible
+                    if (isPasswordVisible) {
+                        setPasswordEditTextIc.inputType =
+                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                        setPasswordEditTextIc.setCompoundDrawablesWithIntrinsicBounds(
+                            0,
+                            0,
+                            R.drawable.ic_eye_open,
+                            0
+                        )
+                    } else {
+                        setPasswordEditTextIc.inputType =
+                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                        setPasswordEditTextIc.setCompoundDrawablesWithIntrinsicBounds(
+                            0,
+                            0,
+                            R.drawable.ic_eye_closed,
+                            0
+                        )
+                    }
+                    // Move cursor to end
+                    setPasswordEditTextIc.setSelection(setPasswordEditTextIc.text.length)
+                    return@setOnTouchListener true
+                }
+            }
+            false
+        }
+
+
+
         //creating the database
         database = FirebaseDatabase.getInstance().getReference("Users")
 
         //adding on click listener on login btn
-        binding.loginButton.setOnClickListener {
-            val phoneNo = binding.phoneEditText.text.toString().trim()
-            val password = binding.passwordEditText.text.toString()
+        binding.loginBtn.setOnClickListener {
+            val phoneNo = binding.phoneInputField.text.toString().trim()
+            val password = binding.setPassNameInputField.text.toString()
 
             //Checking all fields are Filled
             if(phoneNo.isEmpty() || password.isEmpty()){
@@ -41,6 +82,14 @@ class LoginActivity: AppCompatActivity() {
                     if(password == dbpassword){
                         val name = snapshot.child("firstName").value.toString()
                         Toast.makeText(this, "Welcome ${name}", Toast.LENGTH_SHORT).show()
+                        // Shared pref
+                        val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
+                        sharedPref.edit {
+                            putString("phoneNo", phoneNo)}
+
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.putExtra("phoneNo", phoneNo)
+                        startActivity(intent)
                         clearAllFields()
                     }else{
                         Toast.makeText(this, "Incorrct Password", Toast.LENGTH_SHORT).show()
@@ -60,7 +109,7 @@ class LoginActivity: AppCompatActivity() {
         }
     }
     private fun clearAllFields() {
-        binding.phoneEditText.text.clear()
-        binding.passwordEditText.text.clear()
+        binding.phoneInputField.text.clear()
+        binding.setPassNameInputField.text.clear()
     }
 }

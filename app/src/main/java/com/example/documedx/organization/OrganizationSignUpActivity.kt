@@ -2,9 +2,13 @@ package com.example.documedx.organization
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import com.example.documedx.Organization
+import com.example.documedx.R
 import com.example.documedx.databinding.OrganizationSignUpPageActivityBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -16,18 +20,87 @@ class OrganizationSignUpActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = OrganizationSignUpPageActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        var isPasswordVisible = false
+        val setPasswordEditTextIc = binding.setPassNameInputField
+        val conPasswordEditTextIc = binding.conPassNameInputField
+
+        //Toggle fuction for set pass
+        setPasswordEditTextIc.setOnTouchListener { v, event ->
+            val DRAWABLE_END = 2
+            if (event.action == MotionEvent.ACTION_UP) {
+                if (event.rawX >= (setPasswordEditTextIc.right - setPasswordEditTextIc.compoundDrawables[DRAWABLE_END].bounds.width())) {
+                    isPasswordVisible = !isPasswordVisible
+                    if (isPasswordVisible) {
+                        setPasswordEditTextIc.inputType =
+                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                        setPasswordEditTextIc.setCompoundDrawablesWithIntrinsicBounds(
+                            0,
+                            0,
+                            R.drawable.ic_eye_open,
+                            0
+                        )
+                    } else {
+                        setPasswordEditTextIc.inputType =
+                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                        setPasswordEditTextIc.setCompoundDrawablesWithIntrinsicBounds(
+                            0,
+                            0,
+                            R.drawable.ic_eye_closed,
+                            0
+                        )
+                    }
+                    // Move cursor to end
+                    setPasswordEditTextIc.setSelection(setPasswordEditTextIc.text.length)
+                    return@setOnTouchListener true
+                }
+            }
+            false
+        }
+        //Toggle fuction for confirm pass
+        conPasswordEditTextIc.setOnTouchListener { v, event ->
+            val DRAWABLE_END = 2
+            if (event.action == MotionEvent.ACTION_UP) {
+                if (event.rawX >= (conPasswordEditTextIc.right - conPasswordEditTextIc.compoundDrawables[DRAWABLE_END].bounds.width())) {
+                    isPasswordVisible = !isPasswordVisible
+                    if (isPasswordVisible) {
+                        conPasswordEditTextIc.inputType =
+                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                        conPasswordEditTextIc.setCompoundDrawablesWithIntrinsicBounds(
+                            0,
+                            0,
+                            R.drawable.ic_eye_open,
+                            0
+                        )
+                    } else {
+                        conPasswordEditTextIc.inputType =
+                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                        conPasswordEditTextIc.setCompoundDrawablesWithIntrinsicBounds(
+                            0,
+                            0,
+                            R.drawable.ic_eye_closed,
+                            0
+                        )
+                    }
+                    // Move cursor to end
+                    conPasswordEditTextIc.setSelection(conPasswordEditTextIc.text.length)
+                    return@setOnTouchListener true
+                }
+            }
+            false
+        }
         database = FirebaseDatabase.getInstance().getReference("Organizations")
 
         //When sign up button is clicked
         binding.signUpBtn.setOnClickListener {
-            val orgName = binding.orgNameInputField.text.toString()
-            val address = binding.orgAddressInputField.text.toString()
-            val phoneNo = binding.argPhoneInputField.text.toString()
-            val emailId = binding.orgEmailAddressInputField.text.toString()
-            val setPass = binding.orgSetPassInputField.text.toString()
-            val confirmPass = binding.orgConfirmPassInputField.text.toString()
-            val licence = binding.orgLicenceInputField.text.toString()
-            val orgType = binding.orgTypeInputField.text.toString()
+            val orgName = binding.hospitalNameInputField.text.toString()
+            val address = binding.addressNameInputField.text.toString()
+            val phoneNo = binding.phoneInputField.text.toString()
+            val emailId = binding.emailNameInputField.text.toString().trim()
+            val setPass = binding.setPassNameInputField.text.toString()
+            val confirmPass = binding.conPassNameInputField.text.toString()
+            val licence = binding.licenceInputField.text.toString().trim()
+            val orgType = binding.orgTypeInputField.text.toString().trim()
 
             //All fields are filled
             if(orgName.isEmpty() || address.isEmpty() || phoneNo.isEmpty() || emailId.isEmpty() || setPass.isEmpty() || confirmPass.isEmpty() || licence.isEmpty() || orgType.isEmpty()){
@@ -57,6 +130,11 @@ class OrganizationSignUpActivity: AppCompatActivity() {
                     )
                     database.child(licence).setValue(organization).addOnSuccessListener {
 
+                        val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
+                        sharedPref.edit {
+                            putString("licence", licence)
+                        }
+
                         val intent = Intent(this, OrganizationDashboardActivity::class.java)
                         intent.putExtra("licence", licence)
                         startActivity(intent)
@@ -78,13 +156,13 @@ class OrganizationSignUpActivity: AppCompatActivity() {
         }
     }
     private fun clearAllFields() {
-        binding.orgNameInputField.text.clear()
-        binding.argPhoneInputField.text.clear()
-        binding.orgAddressInputField.text.clear()
-        binding.orgEmailAddressInputField.text.clear()
-        binding.orgSetPassInputField.text.clear()
-        binding.orgConfirmPassInputField.text.clear()
-        binding.orgLicenceInputField.text.clear()
+        binding.hospitalNameInputField.text.clear()
+        binding.phoneInputField.text.clear()
+        binding.addressNameInputField.text.clear()
+        binding.emailNameInputField.text.clear()
+        binding.setPassNameInputField.text.clear()
+        binding.conPassNameInputField.text.clear()
+        binding.licenceInputField.text.clear()
         binding.orgTypeInputField.text.clear()
 
     }

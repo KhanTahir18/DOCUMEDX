@@ -8,8 +8,8 @@
     <color name="color_palette_4">#2E7D5C</color>
     <color name="color_palette_5">#1B5E3A</color>
     <color name="color_palette_6">#1F5207</color>
-    <color name="Input_field_color">#F0EBEB</color>
-    <color name="Input_field_text_color">#A29999</color>
+    <color name="Input_field_color">#DEDEDE</color>
+    <color name="Input_field_text_color">#ADADAD</color>
 
         <!-- Primary Colors -->
         <color name="primary_green">#4CAF50</color>
