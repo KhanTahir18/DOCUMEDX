@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="20dp"
+    card_view:cardElevation="6dp"
+    android:background="@color/white"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/tvDepartmentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Department Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="24sp"
+            android:fontFamily="@font/robotoblack"
+            android:textColor="@color/color_palette_5"/>
+
+        <TextView
+            android:id="@+id/tvDepartmentId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID: dept123"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tvDepartmentName"
+            app:layout_constraintStart_toStartOf="@id/tvDepartmentName"
+            android:textSize="14sp"
+            android:textColor="@color/color_palette_5"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/viewDeptBtn"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvDepartmentName"
+            android:text="View"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_view_more"
+            android:textSize="12sp"
+            />
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="9dp"
+            android:background="@drawable/baseline_delete_outline_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/addStaffBtn"
+            app:layout_constraintStart_toEndOf="@id/addStaffBtn"
+            app:layout_constraintTop_toTopOf="@id/addStaffBtn" />
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvDepartmentId"
+            app:layout_constraintStart_toStartOf="@id/tvDepartmentName"
+            android:textColor="@color/Input_field_text_color"
+            android:text="View your Departments and add new Departments"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addStaffBtn"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button_primary"
+            android:text="Add Staff"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

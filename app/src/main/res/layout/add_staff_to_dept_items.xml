@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:background="@color/white"
+    app:cardCornerRadius="15dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:padding="8dp">
+    <ImageView
+        android:id="@+id/staffProPic"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/round_hospital_image"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_profile"
+        android:padding="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/staffName"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Marguw baller"
+        app:layout_constraintStart_toEndOf="@id/staffProPic"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/staffProPic"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/color_palette_5"
+        />
+        <TextView
+            android:id="@+id/staffId"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="ID: "
+            app:layout_constraintTop_toBottomOf="@id/staffName"
+            app:layout_constraintStart_toStartOf="@id/staffName"
+            android:textColor="@color/Input_field_text_color"
+            />
+
+        <TextView
+            android:id="@+id/deleteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DELETE"
+            android:textColor="@color/accent_red"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>>
+</androidx.cardview.widget.CardView>

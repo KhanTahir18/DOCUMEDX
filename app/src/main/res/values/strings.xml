@@ -30,6 +30,7 @@
     <string name="Continue_btn_text"><b>Continue</b></string>
 
     <!--For Login page of staff-->
+    <string name="Empty_Edit_Text"><b></b></string>
     <string name="staff_Login_text"><b>Login</b></string>
     <string name="Input_field_staff_id_text"><b>Staff Id</b></string>
     <string name="Input_field_staff_pass_text"><b>Password</b></string>
@@ -53,7 +54,7 @@
     <string name="Profile_Text"><b>Profile</b></string>
     <string name="Staff_text"><b>Staffs</b></string>
     <string name="org_name_text"><b>Name</b></string>
-    <string name="org_type"><b>Type</b></string>
+    <string name="org_type"><b>Type(Clinic, Govt, Pvt)</b></string>
     <string name="org_phone_text"><b>Phone no</b></string>
     <string name="org_email_text"><b>Email</b></string>
     <string name="org_Licence_text"><b>Licence</b></string>
@@ -61,11 +62,13 @@
     <string name="Staff_name_text"><b>Staff Name</b></string>
     <string name="Patient_name_text"><b>Patient Name</b></string>
     <string name="org_dashboard"><b>Organization Dashboard</b></string>
+    <string name="dashboard"><b>Dashboard</b></string>
     <string name="org_Profile_heading"><b>Organization Profile</b></string>
     <string name="org_Go_TO_dashboard"><b>Go to Dash</b></string>
     <string name="org_patient_text"><b>Patients</b></string>
     <string name="upload_report_btn"><b>Upload Report</b></string>
     <string name="view_report_btn"><b>View Reports</b></string>
+    <string name ="Org_subTitle">Documedx - Secure Medical Reports Manager</string>
 
 
 
@@ -100,5 +103,9 @@
         <string name="loading">Loading...</string>
         <string name="error_occurred">An error occurred</string>
         <string name="try_again">Try Again</string>
+
+        <string name="dp_day">Day</string>
+        <string name="dp_month">Month</string>
+        <string name="dp_Year">Year</string>
 
 </resources>

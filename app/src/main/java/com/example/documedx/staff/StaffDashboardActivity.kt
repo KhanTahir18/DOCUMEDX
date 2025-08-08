@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.cardview.widget.CardView
 import com.example.documedx.R
 
@@ -18,6 +19,10 @@ class StaffDashboardActivity : AppCompatActivity() {
 
         initViews()
         setupClickListeners()
+
+        onBackPressedDispatcher.addCallback(this) {
+            finishAffinity() // Or whatever you want to do on back press
+        }
     }
 
     private fun initViews() {
@@ -30,9 +35,11 @@ class StaffDashboardActivity : AppCompatActivity() {
             // TODO: Implement profile functionality later
             Toast.makeText(this, "Profile feature coming soon", Toast.LENGTH_SHORT).show()
         }
-
+        val empId = intent.getStringExtra("empId")
         patientsCard.setOnClickListener {
-            startActivity(Intent(this, MyPatientsActivity::class.java))
+            val intent = Intent(this, MyPatientsActivity::class.java)
+            intent.putExtra("empId", empId)
+            startActivity(intent)
         }
     }
 }
