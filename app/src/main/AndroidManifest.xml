@@ -105,6 +105,19 @@
             android:windowSoftInputMode="adjustPan"
             />
 
+        <activity
+            android:name=".patient.EditProfileActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity
+            android:name=".patient.PatientDashboardActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+
+        <activity
+            android:name=".patient.ViewReportsActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
         <!-- New Staff Dashboard Activities -->
         <activity
             android:name=".staff.StaffDashboardActivity"
@@ -122,6 +135,8 @@
             android:exported="false"
             android:parentActivityName=".staff.MyPatientsActivity"
             android:screenOrientation="portrait" />
+
+
 
         <!-- File Provider for PDF sharing -->
         <provider

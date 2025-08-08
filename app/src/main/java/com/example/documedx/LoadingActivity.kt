@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.documedx.databinding.ActivityLoadingBinding
 import com.example.documedx.organization.OrganizationDashboardActivity
+import com.example.documedx.patient.PatientDashboardActivity
 import com.example.documedx.staff.StaffDashboardActivity
 
 class LoadingActivity: AppCompatActivity() {
@@ -30,7 +31,7 @@ class LoadingActivity: AppCompatActivity() {
                 when (role) {
                     "patient" -> {
                         Toast.makeText(this, "Patient Dashboard $phoneNo", Toast.LENGTH_SHORT).show()
-                        intent = Intent(this, MainActivity::class.java)
+                        intent = Intent(this, PatientDashboardActivity::class.java)
                         intent.putExtra("phoneNo", phoneNo)
                         startActivity(intent)
                     }

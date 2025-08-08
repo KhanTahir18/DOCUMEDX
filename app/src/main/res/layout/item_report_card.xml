@@ -33,7 +33,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_share"
-            android:tint="@color/color_palette_3"
+            android:tint="@color/color_palette_5"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
