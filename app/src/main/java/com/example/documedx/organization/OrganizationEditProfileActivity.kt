@@ -23,6 +23,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.text.set
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import io.appwrite.Client
@@ -49,6 +50,7 @@ class OrganizationEditProfileActivity: AppCompatActivity() {
         binding = EditProfileOrganizationActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        binding.hospitalNameInputField.setText("hello")
         database = FirebaseDatabase.getInstance().getReference("Organizations")
         val licence = intent.getStringExtra("licence").toString()
         database.child(licence).get().addOnSuccessListener { snapshot ->
