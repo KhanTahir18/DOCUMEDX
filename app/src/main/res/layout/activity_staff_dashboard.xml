@@ -115,7 +115,7 @@
                 android:background="@drawable/round_hospital_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_profile"
+                android:src="@drawable/hospital_image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -162,7 +162,7 @@
                 android:id="@+id/addressTextLabel"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:background="@color/white"
                 android:fontFamily="@font/robotoblack"
                 android:scaleType="centerCrop"
@@ -264,8 +264,8 @@
     <!-- Patients Card - My Patients section -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_patients"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="16dp"
@@ -288,9 +288,9 @@
             <!-- Patients Icon -->
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_patients"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_patients"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/patient_ic"
                 android:tint="@color/color_palette_5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -308,9 +308,16 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintStart_toEndOf="@id/iv_patients"
-                app:layout_constraintEnd_toStartOf="@id/tv_view_more_patients"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/iv_patients" />
+<!--            Description text-->
+            <TextView
+                android:id="@+id/viewPatientDescription"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_patients"
+                app:layout_constraintStart_toStartOf="@id/tv_patients"
+                android:text="View your patients and their reports and send prescription"
+                />
 
             <!-- View More Button for Patients -->
             <androidx.appcompat.widget.AppCompatTextView
@@ -323,8 +330,8 @@
                 android:background="@drawable/bg_view_more"
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/iv_patients"
+                app:layout_constraintBottom_toBottomOf="@id/iv_patients" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

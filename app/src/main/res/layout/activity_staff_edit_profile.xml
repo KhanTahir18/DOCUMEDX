@@ -1,6 +1,451 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/Input_field_color"
+    android:fillViewport="true"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main"
+        android:background="@color/Input_field_color">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--Navbar-->
+        <TextView
+            android:id="@+id/editProText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:background="@color/color_palette_4"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="20dp"
+            android:fontFamily="@font/robotoblack"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <!--Blank view-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintTop_toBottomOf="@id/editProText"
+            android:background="@color/color_palette_3"
+            />
+
+        <!--Profile image-->
+        <ImageView
+            android:id="@+id/hospitalImageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/round_hospital_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.17"
+            />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/editInfoCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/editProText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="220dp"
+        >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardViewSConstarintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingBottom="50dp">
+        <!--First Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/firstNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_first_name_text"
+            app:layout_constraintBottom_toTopOf="@+id/firstNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/firstNameInputField"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/firstNameInputField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="1dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingTop="3dp"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/firstNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintEnd_toEndOf="@id/firstNameInputField"
+            app:layout_constraintStart_toStartOf="@id/firstNameInputField"
+            app:layout_constraintTop_toBottomOf="@id/firstNameInputField" />
+
+        <!--Last Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/lastNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_last_name_text"
+            app:layout_constraintBottom_toTopOf="@+id/lastNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/lastNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/firstNameInputField"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/lastNameInputField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="10dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lastNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/lastNameInputField"
+            app:layout_constraintStart_toStartOf="@id/lastNameInputField"
+            app:layout_constraintEnd_toEndOf="@id/lastNameInputField" />
+
+        <!--PPnohe Name Text, EditText and Bottom border-->
+
+        <TextView
+            android:id="@+id/phoneInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="-37dp"
+            android:text="@string/org_phone_text"
+            android:textColor="@color/Input_field_text_color"
+            app:layout_constraintBottom_toTopOf="@+id/phoneInputField"
+            app:layout_constraintStart_toStartOf="@+id/phoneInputField"
+            app:layout_constraintTop_toBottomOf="@+id/lastNameInputField" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="91+"
+            android:textColor="@color/color_palette_5"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/phoneInputField"
+            app:layout_constraintEnd_toStartOf="@+id/phoneInputField" />
+
+        <EditText
+            android:id="@+id/phoneInputField"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:inputType="phone"
+            android:paddingTop="3dp"
+            android:paddingBottom="1dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phoneInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/phoneInputField"
+            app:layout_constraintStart_toStartOf="@id/phoneInputField"
+            app:layout_constraintEnd_toEndOf="@id/phoneInputField" />
+
+
+        <!--Email Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/emailNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_Email_Address_text"
+            app:layout_constraintBottom_toTopOf="@+id/emailNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/emailNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/phoneInputField"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/emailNameInputField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/emailNameInputField"
+            app:layout_constraintStart_toStartOf="@id/emailNameInputField"
+            app:layout_constraintEnd_toEndOf="@id/emailNameInputField" />
+
+        <!--address Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/addressNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_Address_no_text"
+            app:layout_constraintBottom_toTopOf="@+id/addressNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/addressNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/emailNameInputField"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/addressNameInputField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addressNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/addressNameInputField"
+            app:layout_constraintStart_toStartOf="@id/addressNameInputField"
+            app:layout_constraintEnd_toEndOf="@id/addressNameInputField" />
+
+        <!--Gender dropdown-->
+        <Spinner
+            android:id="@+id/genderSpinner"
+            android:layout_width="265dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:background="@drawable/edit_text_bg"
+            app:layout_constraintTop_toBottomOf="@id/addressNameInputField"
+            android:layout_marginTop="27dp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:text="Gender"
+            app:layout_constraintTop_toTopOf="@id/genderSpinner"
+            app:layout_constraintStart_toStartOf="@id/genderSpinner"
+            android:textColor="@color/color_palette_5"
+            android:layout_marginTop="-10dp"
+            android:layout_marginStart="10dp"
+            />
+
+
+        <!--DOB(Day) Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/dayDOBNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="Day"
+            app:layout_constraintBottom_toTopOf="@+id/dayDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/dayDOBNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/genderSpinner"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/dayDOBNameInputField"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="date"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.22"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dayDOBNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintEnd_toEndOf="@id/dayDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@id/dayDOBNameInputField"
+            app:layout_constraintTop_toBottomOf="@id/dayDOBNameInputField" />
+
+        <!--DOB(month) Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/monthDOBNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="Month"
+            app:layout_constraintBottom_toTopOf="@+id/monthDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/monthDOBNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/genderSpinner"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/monthDOBNameInputField"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:inputType="date"
+            android:paddingTop="3dp"
+            android:paddingBottom="1dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/monthDOBNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/monthDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@id/monthDOBNameInputField"
+            app:layout_constraintEnd_toEndOf="@id/monthDOBNameInputField" />
+
+        <!--DOB(Year) Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/yearDOBNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="Year"
+            app:layout_constraintBottom_toTopOf="@+id/yearDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/yearDOBNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/genderSpinner"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/yearDOBNameInputField"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:inputType="date"
+            android:paddingTop="3dp"
+            android:paddingBottom="1dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.78"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/yearDOBNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/yearDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@id/yearDOBNameInputField"
+            app:layout_constraintEnd_toEndOf="@id/yearDOBNameInputField" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancelBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            style="@style/signUpPageEditTextStyles"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/dayDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@id/cardViewSConstarintLayout"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="50dp"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/saveBtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            style="@style/buttonStyle"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/dayDOBNameInputField"
+            app:layout_constraintStart_toEndOf="@id/cancelBtn"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
