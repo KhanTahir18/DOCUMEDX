@@ -24,8 +24,7 @@ class LoadingActivity: AppCompatActivity() {
             val phoneNo = sharedPref.getString("phoneNo", null)
             val licence = sharedPref.getString("licence", null)
             val empId = sharedPref.getString("empId", null)
-            val empDeptId = sharedPref.getString("empDeptId", null)
-            val empLicence = sharedPref.getString("empLicence", null)
+            val assosiatedHospital = sharedPref.getString("associatedHospital", null)
 
             if (role != null) {
                 when (role) {
@@ -37,11 +36,10 @@ class LoadingActivity: AppCompatActivity() {
                     }
 
                     "staff" -> {
-                        Toast.makeText(this, "Id:${empId} Dept:${empDeptId} Licence:${empLicence}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Id:${empId} Licence:${assosiatedHospital}", Toast.LENGTH_SHORT).show()
                         intent = Intent(this, StaffDashboardActivity::class.java)
                         intent.putExtra("empId", empId)
-                        intent.putExtra("empLicence", empLicence)
-                        intent.putExtra("empDeptId", empDeptId)
+                        intent.putExtra("associatedHospital", assosiatedHospital)
                         startActivity(intent)
                     }
 
