@@ -74,6 +74,12 @@ class OrganizationDashboardActivity: AppCompatActivity() {
             startActivityForResult(intent, ADD_DEPARTMENT_REQUEST)
         }
 
+        binding.settingCardView.setOnClickListener {
+            val intent = Intent(this, OrganizationSettingsActivity::class.java)
+            intent.putExtra("licence", licence)
+            startActivity(intent)
+        }
+
         onBackPressedDispatcher.addCallback(this) {
             finishAffinity() // Or whatever you want to do on back press
         }
