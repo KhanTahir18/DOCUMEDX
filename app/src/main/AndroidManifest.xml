@@ -118,6 +118,11 @@
             android:name=".patient.ViewReportsActivity"
             android:windowSoftInputMode="adjustPan"
             />
+
+        <activity
+            android:name=".staff.EditStaffProfileActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
         <!-- New Staff Dashboard Activities -->
         <activity
             android:name=".staff.StaffDashboardActivity"

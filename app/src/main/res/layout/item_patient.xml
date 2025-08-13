@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:background="@color/white"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
     android:clickable="true"
@@ -13,43 +14,55 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:padding="16dp">
 
-        <View
-            android:id="@+id/view_status_indicator"
-            android:layout_width="4dp"
-            android:layout_height="0dp"
-            android:background="@color/primary_green"
+        <ImageView
+            android:id="@+id/PatientProPic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_hospital_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_profile"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_patient_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Patient Name"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/text_primary"
-            android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@id/view_status_indicator"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_report_count"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="2 Reports Available"
-            android:textSize="14sp"
-            android:textColor="@color/primary_green"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@id/view_status_indicator"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ViewMoreBtn"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="view more"
+            android:background="@drawable/bg_view_more"
+            android:textColor="@color/white"
+
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_patient_name"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/PatientProPic"
+            app:layout_constraintBottom_toBottomOf="@id/PatientProPic"
+
+            />
+
+        <TextView
+            android:id="@+id/patientNameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Patient Name"
+            android:textColor="@color/color_palette_5"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/PatientProPic"
+            app:layout_constraintTop_toTopOf="@id/PatientProPic" />
+
+        <TextView
+            android:id="@+id/patientAgeAndGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age/Gender"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/patientNameTV"
+            app:layout_constraintTop_toBottomOf="@id/patientNameTV" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
