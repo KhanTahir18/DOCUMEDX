@@ -11,6 +11,7 @@ import com.example.documedx.databinding.LoginPageStaffActivityBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import androidx.core.content.edit
+import com.example.documedx.patient.PatientDashboardActivity
 
 class LoginActivity: AppCompatActivity() {
     private lateinit var binding: ActivityPatientLoginBinding
@@ -87,7 +88,7 @@ class LoginActivity: AppCompatActivity() {
                         sharedPref.edit {
                             putString("phoneNo", phoneNo)}
 
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, PatientDashboardActivity::class.java)
                         intent.putExtra("phoneNo", phoneNo)
                         startActivity(intent)
                         clearAllFields()

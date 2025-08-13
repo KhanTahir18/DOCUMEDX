@@ -7,59 +7,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.documedx.models.Patient
 import com.example.documedx.R
+import com.example.documedx.databinding.ActivityMyPatientsBinding
+import com.example.documedx.organization.DepartmentAdapter
 
 class MyPatientsActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var patientsAdapter: PatientsAdapter
-    private val patientsList = mutableListOf<Patient>()
+    private lateinit var binding: ActivityMyPatientsBinding
+    private var empId: String? = null
+    private  var associatedHospital: String? = null
+    private lateinit var adapter: DepartmentAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_my_patients)
+        binding = ActivityMyPatientsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        setupToolbar()
-        initViews()
-        loadPatients()
-    }
+        empId = intent.getStringExtra("empId").toString()
+        associatedHospital = intent.getStringExtra("associatedHospital").toString()
 
-    private fun setupToolbar() {
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.my_patients)
-    }
-
-    private fun initViews() {
-        recyclerView = findViewById(R.id.recycler_patients)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        val empId = intent.getStringExtra("empId")
-        patientsAdapter = PatientsAdapter(patientsList) { patient ->
-            val intent = Intent(this, PatientDetailsActivity::class.java)
-            intent.putExtra("empId", empId)
-            intent.putExtra("patient_name", patient.name)
-            startActivity(intent)
-        }
-
-        recyclerView.adapter = patientsAdapter
-    }
-
-    private fun loadPatients() {
-        // TODO: Load from database/API
-        // For now, using dummy data
-        patientsList.clear()
-        patientsList.addAll(getDummyPatients())
-        patientsAdapter.notifyDataSetChanged()
-    }
-
-    private fun getDummyPatients(): List<Patient> {
-        return listOf(
-            Patient("1", "John Doe", 2),
-            Patient("2", "Jane Smith", 1),
-            Patient("3", "Mike Johnson", 0)
-        )
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
     }
 }

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Navbar-->
+    <TextView
+        android:id="@+id/Heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Patient Profile"
+        android:background="@color/color_palette_4"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <!--Profile image-->
+    <ImageView
+        android:id="@+id/hospitalImageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/round_hospital_image"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        />
+
+    <TextView
+        android:id="@+id/patientName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patient Name"
+        android:textColor="@color/color_palette_5"
+        android:textSize="26sp"
+        android:gravity="center"
+        android:fontFamily="@font/robotoblack"
+        app:layout_constraintTop_toBottomOf="@id/hospitalImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        />
+<!--    Medical Hostory-->
+    <TextView
+        android:id="@+id/medHistoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medical History: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/patientName"
+        app:layout_constraintStart_toStartOf="@id/patientName"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/medHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Piles"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/medHistoryLabel"
+        app:layout_constraintTop_toTopOf="@id/medHistoryLabel"
+        app:layout_constraintBottom_toBottomOf="@id/medHistoryLabel"
+        />
+
+<!--    Age-->
+    <TextView
+        android:id="@+id/ageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/medHistory"
+        app:layout_constraintStart_toStartOf="@id/patientName"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/ageHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="65"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/ageLabel"
+        app:layout_constraintTop_toTopOf="@id/ageLabel"
+        app:layout_constraintBottom_toBottomOf="@id/ageLabel"
+        />
+
+<!--    Gender-->
+    <TextView
+        android:id="@+id/genderLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/ageLabel"
+        app:layout_constraintStart_toStartOf="@id/patientName"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/genderLabel"
+        app:layout_constraintTop_toTopOf="@id/genderLabel"
+        app:layout_constraintBottom_toBottomOf="@id/genderLabel"
+        />
+
+    <!--reports-->
+    <TextView
+        android:id="@+id/ReportsTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reports"
+        app:layout_constraintTop_toBottomOf="@id/gender"
+        app:layout_constraintStart_toStartOf="@id/patientName"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_patients_reports"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ReportsTV"
+        app:layout_constraintStart_toStartOf="@id/patientName"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/activity_view_report_item"/>
+
+    <!--loction-->
+    <ImageButton
+        android:id="@+id/addressTextLabel"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/white"
+        android:fontFamily="@font/robotoblack"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img"
+        app:layout_constraintStart_toStartOf="@id/patientName"
+        app:layout_constraintTop_toBottomOf="@id/recycler_patients_reports" />
+
+    <TextView
+        android:id="@+id/AddressTextDynamic"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Kalina"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/addressTextLabel"
+        app:layout_constraintStart_toEndOf="@id/addressTextLabel"
+        app:layout_constraintTop_toTopOf="@id/addressTextLabel" />
+
+    <!--phone-->
+    <ImageButton
+        android:id="@+id/phoneTextLabel"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:fontFamily="@font/robotoblack"
+        android:scaleType="centerCrop"
+        android:src="@drawable/phone_ic"
+        app:layout_constraintStart_toStartOf="@id/patientName"
+        app:layout_constraintTop_toBottomOf="@id/AddressTextDynamic" />
+
+    <TextView
+        android:id="@+id/phoneTextDynamic"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="098098928"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/phoneTextLabel"
+        app:layout_constraintStart_toEndOf="@id/phoneTextLabel"
+        app:layout_constraintTop_toTopOf="@id/phoneTextLabel" />
+
+    <!--Email-->
+    <ImageButton
+        android:id="@+id/emailTextLabel"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:fontFamily="@font/robotoblack"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mail_ic"
+        app:layout_constraintStart_toStartOf="@id/patientName"
+        app:layout_constraintTop_toBottomOf="@id/phoneTextDynamic" />
+
+    <TextView
+        android:id="@+id/emailTextDynamic"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="staff@gmail.com"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/emailTextLabel"
+        app:layout_constraintStart_toEndOf="@id/emailTextLabel"
+        app:layout_constraintTop_toTopOf="@id/emailTextLabel" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,6 +37,8 @@ class IntroActivity: AppCompatActivity() {
                 val intent = Intent(this, LoadingActivity::class.java)
                 startActivity(intent)
             }
+//            val intent = Intent(this, StaffSignUpActivity::class.java)
+//            startActivity(intent)
         }
 
 

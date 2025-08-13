@@ -17,6 +17,7 @@ import kotlin.toString
 import android.text.InputType
 import android.widget.EditText
 import androidx.core.content.edit
+import com.example.documedx.patient.PatientDashboardActivity
 
 class SignUpActivity: AppCompatActivity() {
     private lateinit var binding: SignUpPageActiviyBinding
@@ -179,7 +180,7 @@ class SignUpActivity: AppCompatActivity() {
                         sharedPref.edit {
                             putString("phoneNo", phoneNo)}
 
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, PatientDashboardActivity::class.java)
                         intent.putExtra("phoneNo", phoneNo)
                         startActivity(intent)
                         clearAllFields()
