@@ -304,11 +304,88 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+        <!--Add staff-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/StaffsCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/departmentsCardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="20dp"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/staffCardConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:paddingBottom="20dp"
+                >
+                <TextView
+                    android:id="@+id/StaffCardTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Staffs"
+                    android:fontFamily="@font/robotoblack"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/color_palette_5"
+                    />
+                <TextView
+                    android:id="@+id/staffSubTextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/StaffCardTextView"
+                    app:layout_constraintStart_toStartOf="@id/StaffCardTextView"
+                    android:textColor="@color/Input_field_text_color"
+                    android:text="View your Departments and add new Departments"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/viewStaffBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/StaffCardTextView"
+                    android:text="View"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_view_more"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="20dp"
+                    />
+
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addStaffBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add Staff"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_button_primary"
+                    app:layout_constraintTop_toBottomOf="@id/staffSubTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
+
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/settingCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/departmentsCardView"
+            app:layout_constraintTop_toBottomOf="@id/StaffsCardView"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

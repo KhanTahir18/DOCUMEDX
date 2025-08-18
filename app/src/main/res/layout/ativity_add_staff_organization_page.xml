@@ -520,6 +520,23 @@
         app:layout_constraintStart_toStartOf="@id/empIdField"
         app:layout_constraintEnd_toEndOf="@id/empIdField" />
 
+    <!--generate password-->
+    <TextView
+        android:id="@+id/generatePassText"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
+        android:text="@string/password"
+        android:paddingStart="15dp"
+        android:background="@drawable/gen_password_bg"
+        android:textStyle="bold"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/empIdField"
+        app:layout_constraintStart_toStartOf="@id/empIdField"
+        />
     <!--Role-->
     <TextView
         android:id="@+id/roleFieldText"
@@ -529,7 +546,7 @@
         android:text="@string/Input_field_employee_role_text"
         app:layout_constraintBottom_toTopOf="@+id/roleField"
         app:layout_constraintStart_toStartOf="@+id/roleField"
-        app:layout_constraintTop_toBottomOf="@+id/empIdField"
+        app:layout_constraintTop_toBottomOf="@+id/generatePassText"
         android:layout_marginTop="20dp"/>
 
     <EditText

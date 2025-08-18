@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingBottom="100dp">
+
+
+
+        <!--AddStaff-->
+        <TextView
+            android:id="@+id/SunHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Staff"
+            android:textSize="30sp"
+            android:fontFamily="@font/robotoblack"
+            android:textColor="@color/color_palette_5"
+            android:textStyle="bold"
+            android:layout_marginTop="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.28"
+            />
+
+        <!--Description-->
+        <TextView
+            android:id="@+id/DescriptionTV"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:text="Description about the department and how it works"
+            android:textSize="18sp"
+            android:textColor="@color/Input_field_text_color"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/SunHeading"
+            app:layout_constraintTop_toBottomOf="@id/SunHeading"
+            />
+
+        <!--Edit text-->
+        <!--First Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/firstNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_first_name_text"
+            app:layout_constraintBottom_toTopOf="@+id/firstNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/firstNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/DescriptionTV"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/firstNameInputField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="1dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingTop="3dp"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="@id/DescriptionTV"
+            app:layout_constraintTop_toBottomOf="@id/firstNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintEnd_toEndOf="@id/firstNameInputField"
+            app:layout_constraintStart_toStartOf="@id/firstNameInputField"
+            app:layout_constraintTop_toBottomOf="@id/firstNameInputField" />
+
+        <!--Last Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/lastNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_last_name_text"
+            app:layout_constraintBottom_toTopOf="@+id/lastNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/lastNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/firstNameInputField"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/lastNameInputField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="10dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/DescriptionTV"
+            app:layout_constraintTop_toBottomOf="@id/lastNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/lastNameInputField"
+            app:layout_constraintStart_toStartOf="@id/lastNameInputField"
+            app:layout_constraintEnd_toEndOf="@id/lastNameInputField" />
+
+        <!--Address Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/addressNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_Address_no_text"
+            app:layout_constraintBottom_toTopOf="@+id/addressNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/addressNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/lastNameInputField"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/addressNameInputField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/DescriptionTV"
+            app:layout_constraintTop_toBottomOf="@id/addressNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintEnd_toEndOf="@id/addressNameInputField"
+            app:layout_constraintStart_toStartOf="@id/addressNameInputField"
+            app:layout_constraintTop_toBottomOf="@id/addressNameInputField" />
+
+        <!--Email Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/emailNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_Email_Address_text"
+            app:layout_constraintBottom_toTopOf="@+id/emailNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/emailNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/addressNameInputField"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/emailNameInputField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/DescriptionTV"
+            app:layout_constraintTop_toBottomOf="@id/emailNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/emailNameInputField"
+            app:layout_constraintStart_toStartOf="@id/emailNameInputField"
+            app:layout_constraintEnd_toEndOf="@id/emailNameInputField" />
+
+        <!--DOB(Day) Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/dayDOBNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="Day"
+            app:layout_constraintBottom_toTopOf="@+id/dayDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/dayDOBNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/emailNameInputField"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/dayDOBNameInputField"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="date"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/DescriptionTV"
+            app:layout_constraintTop_toBottomOf="@id/dayDOBNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintEnd_toEndOf="@id/dayDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@id/dayDOBNameInputField"
+            app:layout_constraintTop_toBottomOf="@id/dayDOBNameInputField" />
+
+        <!--DOB(month) Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/monthDOBNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="Month"
+            app:layout_constraintBottom_toTopOf="@+id/monthDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/monthDOBNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/emailNameInputField"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Bottom border -->
+        <EditText
+            android:id="@+id/monthDOBNameInputField"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:inputType="date"
+            android:paddingTop="3dp"
+            android:paddingBottom="1dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/monthDOBNameInputFieldText" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/monthDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@id/monthDOBNameInputField"
+            app:layout_constraintEnd_toEndOf="@id/monthDOBNameInputField" />
+
+        <!--DOB(Year) Name Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/yearDOBNameInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="Year"
+            app:layout_constraintBottom_toTopOf="@+id/yearDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@+id/yearDOBNameInputField"
+            app:layout_constraintTop_toBottomOf="@+id/emailNameInputField"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/yearDOBNameInputField"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:inputType="date"
+            android:paddingTop="3dp"
+            android:paddingBottom="1dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.78"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/yearDOBNameInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/yearDOBNameInputField"
+            app:layout_constraintStart_toStartOf="@id/yearDOBNameInputField"
+            app:layout_constraintEnd_toEndOf="@id/yearDOBNameInputField" />
+
+        <!--PPnohe Name Text, EditText and Bottom border-->
+
+        <TextView
+            android:id="@+id/phoneInputFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="-37dp"
+            android:text="@string/org_phone_text"
+            android:textColor="@color/Input_field_text_color"
+            app:layout_constraintBottom_toTopOf="@+id/phoneInputField"
+            app:layout_constraintStart_toStartOf="@+id/phoneInputField"
+            app:layout_constraintTop_toBottomOf="@+id/dayDOBNameInputField" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="91+"
+            android:textColor="@color/color_palette_5"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/phoneInputField"
+            app:layout_constraintEnd_toStartOf="@+id/phoneInputField" />
+
+        <EditText
+            android:id="@+id/phoneInputField"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:inputType="phone"
+            android:paddingTop="3dp"
+            android:paddingBottom="1dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.64"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phoneInputFieldText" />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/phoneInputField"
+            app:layout_constraintStart_toStartOf="@id/phoneInputField"
+            app:layout_constraintEnd_toEndOf="@id/phoneInputField" />
+
+        <!--Gender dropdown-->
+        <Spinner
+            android:id="@+id/genderSpinner"
+            android:layout_width="265dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:background="@drawable/edit_text_bg"
+            app:layout_constraintTop_toBottomOf="@id/phoneInputField"
+            android:layout_marginTop="27dp"
+            app:layout_constraintStart_toStartOf="@id/DescriptionTV"
+            />
+
+        <!--Medical History Text, EditText and Bottom border-->
+        <TextView
+            android:id="@+id/QualificationFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_Qualification_text"
+            app:layout_constraintBottom_toTopOf="@+id/QualificationField"
+            app:layout_constraintStart_toStartOf="@+id/QualificationField"
+            app:layout_constraintTop_toBottomOf="@+id/genderSpinner"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/QualificationField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/DescriptionTV"
+            app:layout_constraintTop_toBottomOf="@id/QualificationFieldText"
+            />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/QualificationField"
+            app:layout_constraintStart_toStartOf="@id/QualificationField"
+            app:layout_constraintEnd_toEndOf="@id/QualificationField" />
+
+        <!--IdEmp-->
+        <TextView
+            android:id="@+id/empIdFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_employee_id_text"
+            app:layout_constraintBottom_toTopOf="@+id/empIdField"
+            app:layout_constraintStart_toStartOf="@+id/empIdField"
+            app:layout_constraintTop_toBottomOf="@+id/QualificationField"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/empIdField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/DescriptionTV"
+            app:layout_constraintTop_toBottomOf="@id/empIdFieldText"
+            />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/empIdField"
+            app:layout_constraintStart_toStartOf="@id/empIdField"
+            app:layout_constraintEnd_toEndOf="@id/empIdField" />
+
+        <!--generate password-->
+        <TextView
+            android:id="@+id/generatePassText"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:text="@string/password"
+            android:paddingStart="15dp"
+            android:background="@drawable/gen_password_bg"
+            android:textStyle="bold"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/empIdField"
+            app:layout_constraintStart_toStartOf="@id/empIdField"
+            />
+        <ImageButton
+            android:id="@+id/generatePassBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/generate_ic"
+            app:layout_constraintTop_toTopOf="@id/generatePassText"
+            app:layout_constraintEnd_toEndOf="@id/generatePassText"
+            android:background="@color/white"
+            android:tint="@color/color_palette_3"
+            app:layout_constraintBottom_toBottomOf="@id/generatePassText"
+            android:layout_marginEnd="10dp"
+            />
+
+        <!--Role-->
+        <TextView
+            android:id="@+id/roleFieldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Input_field_text_color"
+            android:text="@string/Input_field_employee_role_text"
+            app:layout_constraintBottom_toTopOf="@+id/roleField"
+            app:layout_constraintStart_toStartOf="@+id/roleField"
+            app:layout_constraintTop_toBottomOf="@+id/generatePassText"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/roleField"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/Empty_Edit_Text"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
+            android:textStyle="bold"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/DescriptionTV"
+            app:layout_constraintTop_toBottomOf="@id/roleFieldText"
+            />
+
+        <!-- Bottom border -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/color_palette_5"
+            app:layout_constraintTop_toBottomOf="@id/roleField"
+            app:layout_constraintStart_toStartOf="@id/roleField"
+            app:layout_constraintEnd_toEndOf="@id/roleField" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            style="@style/signUpPageEditTextStyles"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/roleField"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="80dp"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            style="@style/buttonStyle"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/roleField"
+            app:layout_constraintStart_toEndOf="@id/btnCancel"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="80dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
