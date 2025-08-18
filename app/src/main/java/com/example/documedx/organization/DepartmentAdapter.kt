@@ -27,9 +27,22 @@ class DepartmentAdapter(
         holder.binding.tvDepartmentId.text = "ID: ${department.deptId}"
         holder.binding.tvDepartmentName.text = department.deptName
         holder.binding.descriptionTextView.text = department.description
+
         holder.binding.btnDelete.setOnClickListener {
-            onDeleteClick(department)
+            val builder = android.app.AlertDialog.Builder(holder.itemView.context   )
+            builder.setTitle("Confirm Delete")
+            builder.setMessage("Are you sure you want to Delete ${department.deptId}?")
+
+            builder.setPositiveButton("Delete") { _, _ ->
+                onDeleteClick(department)
+            }
+            builder.setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss() // Do nothing, stay on the page
+            }
+
+            builder.create().show()
         }
+
         holder.binding.viewDeptBtn.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, ViewStaffActivity::class.java)

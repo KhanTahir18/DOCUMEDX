@@ -141,6 +141,11 @@ class AddStaffInOrganizationActivity: AppCompatActivity() {
             builder.create().show()
         }
 
+        //when cancel is clicked
+        binding.btnCancel.setOnClickListener {
+            finish()
+        }
+
     }
 
     private fun generateRandomPassword(length: Int = 10): String {

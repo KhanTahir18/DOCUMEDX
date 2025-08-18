@@ -47,7 +47,7 @@ class ViewStaffActivity: AppCompatActivity() {
 
 
     private fun loadStaffFromFirebase() {
-        if (licence.isNullOrEmpty()) return
+        if (licence.isNullOrEmpty() || deptId.isNullOrEmpty()) return
 
         database = FirebaseDatabase.getInstance()
             .getReference("Organizations")
@@ -59,28 +59,36 @@ class ViewStaffActivity: AppCompatActivity() {
         //Whenever the data at the "Departments" node changes, this callback is triggered automatically.
         //This includes when data is added, updated, or deleted
         database.addValueEventListener(object : ValueEventListener {
-
-
             //This function runs whenever the data at that path is changed.
             override fun onDataChange(snapshot: DataSnapshot) {
                 staffList.clear()
                 if (!snapshot.exists()) {
-                    Toast.makeText(this@ViewStaffActivity, "No departments found in DB", Toast.LENGTH_SHORT).show()
+                    showOrHideRecycler()
+                    Toast.makeText(this@ViewStaffActivity, "No staff found in this department", Toast.LENGTH_SHORT).show()
+                    return
                 }
-                //cleans the old  list so we can replace it with fresh data.
-                staffList.clear()
 
-                //Loops through each department under "Departments".
-                //getValue(Department::class.java) converts the Firebase snapshot into your Department data class.
-                //If it's not null, it’s added to the list.
-                for (deptSnapshot in snapshot.children) {
-                    val staff = deptSnapshot.getValue(Staff::class.java)
-                    if (staff != null) {
-                        staffList.add(staff)
+                val orgStaffRef = FirebaseDatabase.getInstance()
+                    .getReference("Organizations")
+                    .child(licence!!)
+                    .child("Staffs")
+
+                // Loop through empIds inside this dept
+                for (staffSnapshot in snapshot.children) {
+                    val empId = staffSnapshot.key ?: continue
+
+                    orgStaffRef.child(empId).get().addOnSuccessListener { staffData ->
+                        val staff = staffData.getValue(Staff::class.java)
+                        if (staff != null) {
+                            //check if the empId already exists in the staffList
+                            if (!staffList.any { it.employeeId == staff.employeeId }) {
+                                staffList.add(staff)
+                                adapter.notifyDataSetChanged()
+                                showOrHideRecycler()
+                            }
+                        }
                     }
                 }
-                adapter.notifyDataSetChanged()
-                showOrHideRecycler()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -90,23 +98,28 @@ class ViewStaffActivity: AppCompatActivity() {
     }
 
     private fun deleteStaffFromFirebase(staff: Staff) {
-        if (!licence.isNullOrEmpty()) {
-            val dbRef = FirebaseDatabase.getInstance()
+        if (!licence.isNullOrEmpty() && !deptId.isNullOrEmpty()) {
+            val deptRef = FirebaseDatabase.getInstance()
                 .getReference("Organizations")
                 .child(licence!!)
                 .child("Departments")
-                .child(deptId.toString())
+                .child(deptId!!)
                 .child("Staff")
-                .child(staff.employeeId.toString())
+                .child(staff.employeeId!!)
 
-            dbRef.removeValue().addOnSuccessListener {
-                Toast.makeText(this, "Staff deleted", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener {
-                Toast.makeText(this, "Failed to delete", Toast.LENGTH_SHORT).show()
-            }
+            val orgStaffRef = FirebaseDatabase.getInstance()
+                .getReference("Organizations")
+                .child(licence!!)
+                .child("Staffs")
+                .child(staff.employeeId!!)
+                .child("Departments")
+                .child(deptId!!)
+
+            deptRef.removeValue()
+            orgStaffRef.removeValue()
+            Toast.makeText(this, "Staff removed from department", Toast.LENGTH_SHORT).show()
         }
     }
-
 
     private fun showOrHideRecycler() {
         binding.staffsRecyclerView.visibility =

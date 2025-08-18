@@ -30,7 +30,18 @@ class StaffAdapter(
         holder.binding.staffName.text = "${staff.firstName} ${staff.lastName}"
 
         holder.binding.deleteBtn.setOnClickListener {
+            val builder = android.app.AlertDialog.Builder(holder.itemView.context   )
+            builder.setTitle("Confirm Delete")
+            builder.setMessage("Are you sure you want to Delete ${staff.employeeId}?")
+
+            builder.setPositiveButton("Delete") { _, _ ->
             onDeleteClick(staff)
+            }
+            builder.setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss() // Do nothing, stay on the page
+            }
+
+            builder.create().show()
         }
 
     }
