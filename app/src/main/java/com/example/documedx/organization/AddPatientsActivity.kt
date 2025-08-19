@@ -30,35 +30,47 @@ class AddPatientsActivity: AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             val patientPhoneNo = binding.etPatientPhoneNo.text.toString()
 
-            database.child(patientPhoneNo).get().addOnSuccessListener { snapshot ->
+
+            val orgReference = FirebaseDatabase.getInstance().getReference("Organizations").child(licence!!).child("Patients")
+            orgReference.child(patientPhoneNo).get().addOnSuccessListener { snapshot ->
                 if(snapshot.exists()){
-                    val builder = android.app.AlertDialog.Builder(this@AddPatientsActivity)
-                    builder.setTitle("Add Patient")
-                    builder.setMessage("Are you sure you want to Add ${patientPhoneNo}?")
-
-                    builder.setPositiveButton("Add") { _, _ ->
-                        val orgRef = FirebaseDatabase.getInstance().getReference("Organizations").child(licence!!).child("Patients")
-                        orgRef.child(patientPhoneNo).setValue(true)
-                        Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show()
-
-                        val patientRef = FirebaseDatabase.getInstance().getReference("Users").child(patientPhoneNo).child("Organizations")
-                        patientRef.child(licence!!).setValue(true)
-
-                        binding.etPatientPhoneNo.text.clear()
-                        finish()
-                    }
-                    builder.setNegativeButton("Cancel") { dialog, _ ->
-                        dialog.dismiss() // Do nothing, stay on the page
-                    }
-
-                    builder.create().show()
-                }else{
-                    Toast.makeText(this, "Phone no not exist", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Patient already in organization", Toast.LENGTH_SHORT).show()
                     binding.etPatientPhoneNo.text.clear()
                     return@addOnSuccessListener
-                }
+                }else{
+                    database.child(patientPhoneNo).get().addOnSuccessListener { snapshot ->
+                        if(snapshot.exists()){
+                            val builder = android.app.AlertDialog.Builder(this@AddPatientsActivity)
+                            builder.setTitle("Add Patient")
+                            builder.setMessage("Are you sure you want to Add ${patientPhoneNo}?")
 
+                            builder.setPositiveButton("Add") { _, _ ->
+                                val orgRef = FirebaseDatabase.getInstance().getReference("Organizations").child(licence!!).child("Patients")
+                                orgRef.child(patientPhoneNo).setValue(true)
+                                Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show()
+
+                                val patientRef = FirebaseDatabase.getInstance().getReference("Users").child(patientPhoneNo).child("Organizations")
+                                patientRef.child(licence!!).setValue(true)
+
+                                binding.etPatientPhoneNo.text.clear()
+                                finish()
+                            }
+                            builder.setNegativeButton("Cancel") { dialog, _ ->
+                                dialog.dismiss() // Do nothing, stay on the page
+                            }
+
+                            builder.create().show()
+                        }else{
+                            Toast.makeText(this, "Phone no not exist", Toast.LENGTH_SHORT).show()
+                            binding.etPatientPhoneNo.text.clear()
+                            return@addOnSuccessListener
+                        }
+
+                    }
+                }
             }
+
+
         }
         binding.btnCancel.setOnClickListener {
             setResult(Activity.RESULT_CANCELED)
