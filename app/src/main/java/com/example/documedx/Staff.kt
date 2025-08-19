@@ -13,5 +13,6 @@ data class Staff(
     val designation: String? = null,
     val associatedHospital: String? = null,
     val qualification: String? = null,
-    val address: String? = null
+    val address: String? = null,
+    val isFirstTimeLogin:Boolean = true
 )

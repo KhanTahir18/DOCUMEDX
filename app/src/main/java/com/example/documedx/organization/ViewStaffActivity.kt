@@ -24,6 +24,7 @@ class ViewStaffActivity: AppCompatActivity() {
     private lateinit var database: DatabaseReference
 
     private var deptId: String? = null
+    private var deptName: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
@@ -33,14 +34,15 @@ class ViewStaffActivity: AppCompatActivity() {
         setContentView(binding.root)
         deptId = intent.getStringExtra("deptId")
         Toast.makeText(this, "$deptId,$licence", Toast.LENGTH_SHORT).show()
-
+        deptName = intent.getStringExtra("deptName")
         // Set up RecyclerView and Adapter
         adapter = StaffAdapter(staffList){department ->
             deleteStaffFromFirebase(department)
         }
         binding.staffsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.staffsRecyclerView.adapter = adapter
-
+        binding.Heading.setText(deptName)
+        binding.subHeading.setText(deptId)
         loadStaffFromFirebase()
 
     }
@@ -73,6 +75,7 @@ class ViewStaffActivity: AppCompatActivity() {
                     .child(licence!!)
                     .child("Staffs")
 
+                val tempList = mutableListOf<Staff>()
                 // Loop through empIds inside this dept
                 for (staffSnapshot in snapshot.children) {
                     val empId = staffSnapshot.key ?: continue
@@ -81,8 +84,14 @@ class ViewStaffActivity: AppCompatActivity() {
                         val staff = staffData.getValue(Staff::class.java)
                         if (staff != null) {
                             //check if the empId already exists in the staffList
-                            if (!staffList.any { it.employeeId == staff.employeeId }) {
-                                staffList.add(staff)
+                            if (staff != null && !tempList.any { it.employeeId == staff.employeeId }) {
+                                tempList.add(staff)
+                            }
+
+                            // when last child finishes loading, update adapter
+                            if (empId == snapshot.children.last().key) {
+                                staffList.clear()
+                                staffList.addAll(tempList)
                                 adapter.notifyDataSetChanged()
                                 showOrHideRecycler()
                             }
@@ -111,7 +120,7 @@ class ViewStaffActivity: AppCompatActivity() {
                 .getReference("Organizations")
                 .child(licence!!)
                 .child("Staffs")
-                .child(staff.employeeId!!)
+                .child(staff.employeeId)
                 .child("Departments")
                 .child(deptId!!)
 

@@ -41,7 +41,7 @@ class StaffDashboardActivity : AppCompatActivity() {
         associatedHospital = intent.getStringExtra("associatedHospital").toString()
         Toast.makeText(this,"${empId}, ${associatedHospital}", Toast.LENGTH_SHORT).show()
 
-        database = FirebaseDatabase.getInstance().getReference("Staffs").child(empId!!)
+        database = FirebaseDatabase.getInstance().getReference("Organizations").child(associatedHospital!!).child("Staffs").child(empId!!)
 
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {

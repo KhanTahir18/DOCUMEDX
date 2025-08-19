@@ -49,7 +49,7 @@ class EditStaffProfileActivity: AppCompatActivity() {
         empId = intent.getStringExtra("empId").toString()
         associatedHospital = intent.getStringExtra("associatedHospital").toString()
         Toast.makeText(this,"${empId}, ${associatedHospital}", Toast.LENGTH_SHORT).show()
-        database = FirebaseDatabase.getInstance().getReference("Staffs").child(empId!!)
+        database = FirebaseDatabase.getInstance().getReference("Organizations").child(associatedHospital!!).child("Staffs").child(empId!!)
         database.get().addOnSuccessListener { snapshot ->
             if(snapshot.exists()){
                 publicUrl = snapshot.child("ProfileURL").value?.toString()
@@ -133,7 +133,10 @@ class EditStaffProfileActivity: AppCompatActivity() {
 
             builder.create().show()
         }
-
+        binding.cancelBtn.setOnClickListener {
+            setResult(Activity.RESULT_CANCELED)
+            finish()
+        }
         requestPermissions()
         binding.hospitalImageView.setOnClickListener {
             pickImageFromGallery()

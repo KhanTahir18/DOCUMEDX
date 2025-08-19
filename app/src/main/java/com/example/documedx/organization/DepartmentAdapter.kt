@@ -47,6 +47,7 @@ class DepartmentAdapter(
             val context = holder.itemView.context
             val intent = Intent(context, ViewStaffActivity::class.java)
             intent.putExtra("deptId", department.deptId)
+            intent.putExtra("deptName", department.deptName)
             context.startActivity(intent)
         }
         holder.binding.addStaffBtn.setOnClickListener {

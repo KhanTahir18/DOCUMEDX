@@ -381,11 +381,87 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+        <!--Add patients-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/patientCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/StaffsCardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="20dp"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/patientCardConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:paddingBottom="20dp"
+                >
+                <TextView
+                    android:id="@+id/patientCardTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patients"
+                    android:fontFamily="@font/robotoblack"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/color_palette_5"
+                    />
+                <TextView
+                    android:id="@+id/patientSubTextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/patientCardTextView"
+                    app:layout_constraintStart_toStartOf="@id/patientCardTextView"
+                    android:textColor="@color/Input_field_text_color"
+                    android:text="View your Patients and add new Patients"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/viewPatientBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/patientCardTextView"
+                    android:text="View"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_view_more"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="20dp"
+                    />
+
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addPatientBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add Patient"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_button_primary"
+                    app:layout_constraintTop_toBottomOf="@id/patientSubTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
+
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/settingCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/StaffsCardView"
+            app:layout_constraintTop_toBottomOf="@id/patientCardView"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

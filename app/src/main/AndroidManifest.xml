@@ -73,7 +73,7 @@
             android:windowSoftInputMode="adjustPan"
             />
         <activity
-            android:name=".organization.PatientUnderOrgazinationActivity"
+            android:name=".organization.AddPatientsActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
 
