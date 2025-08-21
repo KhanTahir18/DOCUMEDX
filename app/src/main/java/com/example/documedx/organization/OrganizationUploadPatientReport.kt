@@ -54,6 +54,8 @@ class OrganizationUploadPatientReport: AppCompatActivity() {
     private lateinit var orgDb: DatabaseReference
     private lateinit var patientDb: DatabaseReference
 
+
+
     private val pdfPickerLauncher =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let {
@@ -76,6 +78,7 @@ class OrganizationUploadPatientReport: AppCompatActivity() {
         patientDb = FirebaseDatabase.getInstance().getReference("Users").child(patientPhoneNo!!).child("Organizations")
         Toast.makeText(this, "$licence and $patientPhoneNo", Toast.LENGTH_SHORT).show()
         requestPermissions()
+
         binding.uploadReportIV.setOnClickListener {
             val reportIdId = binding.reportId.text.toString().trim()
             if (reportIdId.isEmpty()) {
@@ -162,6 +165,8 @@ class OrganizationUploadPatientReport: AppCompatActivity() {
 
                     orgDb.child(patientPhoneNo!!).child("Reports").child(reportId).setValue(report)
                     patientDb.child(licence!!).child("Received Reports").child(reportId).setValue(report)
+                    val userDB = FirebaseDatabase.getInstance().getReference("Users").child(patientPhoneNo!!).child("Reports").child("Received Reports").child(reportId)
+                        .setValue(report)
                     binding.reportId.text.clear()
                     Toast.makeText(
                         this@OrganizationUploadPatientReport,

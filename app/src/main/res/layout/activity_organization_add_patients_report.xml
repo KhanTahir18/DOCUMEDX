@@ -156,6 +156,19 @@
         />
 
     <!--Report card-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/patientReportRecyclerView"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ReportTv"
+        app:layout_constraintStart_toStartOf="@id/ReportTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_report_card"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        />
 
 
 
