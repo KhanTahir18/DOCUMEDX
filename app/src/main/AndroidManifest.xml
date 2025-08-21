@@ -73,7 +73,15 @@
             android:windowSoftInputMode="adjustPan"
             />
         <activity
-            android:name=".organization.PatientUnderOrgazinationActivity"
+            android:name=".organization.OrganizationPatientsDetailsActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity
+            android:name=".organization.AddPatientsActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:name=".organization.OrganizationUploadPatientReport"
             android:windowSoftInputMode="adjustPan">
         </activity>
 
@@ -81,7 +89,18 @@
             android:name=".LoadingActivity"
             android:windowSoftInputMode="adjustPan"
             />
+        <activity
+            android:name=".organization.AddStaffInOrganizationActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity android:name=".organization.OrganizationEditProfileActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity android:name=".organization.ViewPatientActivitty"
+            android:windowSoftInputMode="adjustPan"
+            />
+
+        <activity android:name=".organization.OrganizationSettingsActivity"
             android:windowSoftInputMode="adjustPan"
             />
 

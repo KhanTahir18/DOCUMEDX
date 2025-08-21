@@ -130,7 +130,9 @@ class PatientDashboardActivity : AppCompatActivity() {
         }
 
         viewReportsCard.setOnClickListener {
-            startActivity(Intent(this, ViewReportsActivity::class.java))
+            val intent = Intent(this, ViewReportsActivity::class.java)
+            intent.putExtra("phoneNo",phoneNo)
+            startActivity(intent)
         }
 
         uploadReportsCard.setOnClickListener {

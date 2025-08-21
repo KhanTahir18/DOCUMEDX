@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    app:cardElevation="6dp"
+    android:background="@color/white"
+    app:cardCornerRadius="15dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:padding="18dp">
+        <ImageView
+            android:id="@+id/patientProPic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_hospital_image"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_profile"
+            android:padding="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/patientName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Marguw baller"
+            app:layout_constraintStart_toEndOf="@id/patientProPic"
+            android:layout_marginStart="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/patientProPic"
+            android:textColor="@color/color_palette_5"
+            />
+        <TextView
+            android:id="@+id/patientGender"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Gender: "
+            android:textStyle="bold"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/patientName"
+            app:layout_constraintStart_toStartOf="@id/patientName"
+            android:textColor="@color/Input_field_text_color"
+            />
+
+        <ImageButton
+            android:id="@+id/deleteBtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/remove_ic"
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>>
+</androidx.cardview.widget.CardView>
