@@ -1,50 +1,33 @@
-package com.example.documedx.staff
+package com.example.documedx.organization
 
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.documedx.models.Patient
-import com.example.documedx.R
+import com.example.documedx.Department
+import com.example.documedx.Staff
+import com.example.documedx.User
+import com.example.documedx.databinding.ItemDepartmentBinding
+import com.example.documedx.databinding.ItemPatientBinding
 
 class PatientsAdapter(
-    private val patients: List<Patient>,
-    private val onPatientClick: (Patient) -> Unit
-) : RecyclerView.Adapter<PatientsAdapter.PatientViewHolder>() {
+    private val patientList: List<User>,
+    private val onDeleteClick: (User) -> Unit // <-- Add this line
+): RecyclerView.Adapter<PatientsAdapter.PatientViewHolder>() {
 
-    class PatientViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val patientName: TextView = itemView.findViewById(R.id.tv_patient_name)
-        val reportCount: TextView = itemView.findViewById(R.id.tv_report_count)
-        val statusIndicator: View = itemView.findViewById(R.id.view_status_indicator)
-    }
+    inner class PatientViewHolder(val binding: ItemPatientBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PatientViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_patient, parent, false)
-        return PatientViewHolder(view)
+        val binding = ItemPatientBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PatientViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PatientViewHolder, position: Int) {
-        val patient = patients[position]
-
-        holder.patientName.text = patient.name
-
-        val context = holder.itemView.context
-        if (patient.reportCount > 0) {
-            holder.reportCount.text = context.getString(R.string.reports_count, patient.reportCount)
-            holder.reportCount.setTextColor(context.getColor(R.color.color_palette_5))
-            holder.statusIndicator.setBackgroundColor(context.getColor(R.color.color_palette_5))
-        } else {
-            holder.reportCount.text = context.getString(R.string.no_reports_available)
-            holder.reportCount.setTextColor(context.getColor(R.color.color_palette_4))
-            holder.statusIndicator.setBackgroundColor(context.getColor(R.color.black))
-        }
-
-        holder.itemView.setOnClickListener {
-            onPatientClick(patient)
-        }
+        val patient = patientList[position]
+        holder.binding.patientNameTV.text = "${patient.firstName} ${patient.lastName}"
     }
 
-    override fun getItemCount() = patients.size
+
+    override fun getItemCount(): Int = patientList.size
 }

@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Staff Dashboard Main Layout - Uses ConstraintLayout for better performance -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
+    android:background="@color/Input_field_color"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/Input_field_color">
 
     <!-- Header Section - Top navigation bar -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,8 +86,8 @@
     <!-- Profile Card - My Profile section -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_profile"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
@@ -98,49 +104,158 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
-            android:background="@color/card_background">
+            android:background="@color/card_background"
+            android:padding="20dp">
 
             <!-- Profile Icon -->
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_profile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_profile"
-                android:tint="@color/primary_green"
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/round_hospital_image"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hospital_image"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Profile Text -->
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_profile"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/my_profile"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintStart_toEndOf="@id/iv_profile"
-                app:layout_constraintEnd_toStartOf="@id/tv_view_more_profile"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
-            <!-- View More Button for Profile -->
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_view_more_profile"
+            <TextView
+                android:id="@+id/NameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/view_more"
-                android:textSize="12sp"
-                android:textColor="@android:color/white"
-                android:background="@drawable/bg_view_more"
-                android:padding="8dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="Mrguy"
+                android:textColor="@color/color_palette_5"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/profileImageView"
+                app:layout_constraintTop_toTopOf="@+id/profileImageView" />
+
+            <TextView
+                android:id="@+id/genderAndAgeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-2dp"
+                android:text="gender/Age"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintStart_toEndOf="@id/profileImageView"
+                app:layout_constraintTop_toBottomOf="@+id/NameTextView" />
+
+            <!--EditPeofile-->
+            <ImageButton
+                android:id="@+id/editProImgBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/edit_text_ic"
+                app:layout_constraintBottom_toBottomOf="@id/profileImageView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/profileImageView" />
+
+
+            <!--loction-->
+            <ImageButton
+                android:id="@+id/addressTextLabel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:fontFamily="@font/robotoblack"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileImageView" />
+
+            <TextView
+                android:id="@+id/AddressTextDynamic"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Kalina"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/addressTextLabel"
+                app:layout_constraintStart_toEndOf="@id/addressTextLabel"
+                app:layout_constraintTop_toTopOf="@id/addressTextLabel" />
+
+            <!--phone-->
+            <ImageButton
+                android:id="@+id/phoneTextLabel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:fontFamily="@font/robotoblack"
+                android:scaleType="centerCrop"
+                android:src="@drawable/phone_ic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/AddressTextDynamic" />
+
+            <TextView
+                android:id="@+id/phoneTextDynamic"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="098098928"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/phoneTextLabel"
+                app:layout_constraintStart_toEndOf="@id/phoneTextLabel"
+                app:layout_constraintTop_toTopOf="@id/phoneTextLabel" />
+
+            <!--Email-->
+            <ImageButton
+                android:id="@+id/emailTextLabel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:fontFamily="@font/robotoblack"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mail_ic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phoneTextDynamic" />
+
+            <TextView
+                android:id="@+id/emailTextDynamic"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="staff@gmail.com"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/emailTextLabel"
+                app:layout_constraintStart_toEndOf="@id/emailTextLabel"
+                app:layout_constraintTop_toTopOf="@id/emailTextLabel" />
+
+            <ImageButton
+                android:id="@+id/empIdTextLabel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/white"
+                android:fontFamily="@font/robotoblack"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/emailTextDynamic" />
+
+            <TextView
+                android:id="@+id/empIdTextDynamic"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="EMPhgu"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/empIdTextLabel"
+                app:layout_constraintStart_toEndOf="@id/empIdTextLabel"
+                app:layout_constraintTop_toTopOf="@id/empIdTextLabel" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -149,8 +264,8 @@
     <!-- Patients Card - My Patients section -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_patients"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="16dp"
@@ -173,10 +288,10 @@
             <!-- Patients Icon -->
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_patients"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_patients"
-                android:tint="@color/primary_green"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/patient_ic"
+                android:tint="@color/color_palette_5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
@@ -193,9 +308,16 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintStart_toEndOf="@id/iv_patients"
-                app:layout_constraintEnd_toStartOf="@id/tv_view_more_patients"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/iv_patients" />
+<!--            Description text-->
+            <TextView
+                android:id="@+id/viewPatientDescription"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_patients"
+                app:layout_constraintStart_toStartOf="@id/tv_patients"
+                android:text="View your patients and their reports and send prescription"
+                />
 
             <!-- View More Button for Patients -->
             <androidx.appcompat.widget.AppCompatTextView
@@ -208,11 +330,12 @@
                 android:background="@drawable/bg_view_more"
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/iv_patients"
+                app:layout_constraintBottom_toBottomOf="@id/iv_patients" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

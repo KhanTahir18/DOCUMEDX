@@ -1,77 +1,107 @@
-package com.example.documedx.organization
+package com.example.documedx.staff
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.edit
-import com.example.documedx.Organization
-import com.example.documedx.databinding.EditProfileOrganizationActivityBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.example.documedx.databinding.PatientUnderOrganizationActivityBinding
-import android.Manifest
-import android.annotation.SuppressLint
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.util.Log
+import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.text.set
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
+import com.example.documedx.databinding.ActivityStaffEditProfileBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import io.appwrite.Client
 import io.appwrite.ID
-import io.appwrite.Role
 import io.appwrite.Permission
+import io.appwrite.Role
 import io.appwrite.models.InputFile
 import io.appwrite.services.Storage
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
-import java.util.*
+import java.util.UUID
 
-class OrganizationEditProfileActivity: AppCompatActivity() {
-    private lateinit var binding: EditProfileOrganizationActivityBinding
-
+class EditStaffProfileActivity: AppCompatActivity() {
+    private lateinit var binding: ActivityStaffEditProfileBinding
+    private lateinit var database: DatabaseReference
+    private lateinit var spinner: Spinner
+    private var empId: String? = null
+    private var associatedHospital: String? = null
     private val bucketId = "688b111000356abeadfb"
     private val projectId = "6888c59c00344d7b9867"
     private var publicUrl: String? = null
-    private lateinit var database: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = EditProfileOrganizationActivityBinding.inflate(layoutInflater)
+        binding = ActivityStaffEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-//        binding.hospitalNameInputField.setText("hello")
-        database = FirebaseDatabase.getInstance().getReference("Organizations")
-        val licence = intent.getStringExtra("licence").toString()
-        database.child(licence).get().addOnSuccessListener { snapshot ->
+        empId = intent.getStringExtra("empId").toString()
+        associatedHospital = intent.getStringExtra("associatedHospital").toString()
+        Toast.makeText(this,"${empId}, ${associatedHospital}", Toast.LENGTH_SHORT).show()
+        database = FirebaseDatabase.getInstance().getReference("Staffs").child(empId!!)
+        database.get().addOnSuccessListener { snapshot ->
             if(snapshot.exists()){
                 publicUrl = snapshot.child("ProfileURL").value?.toString()
             }
             if(publicUrl== null){
                 //doNothing
             }else{
-                Glide.with(this@OrganizationEditProfileActivity).load(publicUrl).into(binding.hospitalImageView)
+               Glide.with(this@EditStaffProfileActivity).load(publicUrl).into(binding.hospitalImageView)
+            }
+
+            binding.firstNameInputField.setText(snapshot.child("firstName").value?.toString() ?: "")
+            binding.lastNameInputField.setText(snapshot.child("lastName").value?.toString() ?: "")
+            binding.phoneInputField.setText(snapshot.child("phoneNo").value?.toString() ?: "")
+            binding.emailNameInputField.setText(snapshot.child("emailId").value?.toString() ?: "")
+            binding.addressNameInputField.setText(snapshot.child("address").value?.toString() ?: "")
+
+        }
+        spinner = binding.genderSpinner
+        val listItems = arrayOf("Male", "Female", "Other")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, listItems)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedItem = parent.getItemAtPosition(position).toString()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
             }
         }
         binding.saveBtn.setOnClickListener {
-            val orgName = binding.hospitalNameInputField.text.toString()
-            val address = binding.addressNameInputField.text.toString()
-            val phoneNo = binding.phoneInputField.text.toString()
+            val firstName = binding.firstNameInputField.text.toString().trim()
+            val lastName = binding.lastNameInputField.text.toString().trim()
+            val phoneNo = binding.phoneInputField.text.toString().trim()
             val emailId = binding.emailNameInputField.text.toString().trim()
-            val orgType = binding.orgTypeInputField.text.toString().trim()
+            val address = binding.addressNameInputField.text.toString()
+            val gender = binding.genderSpinner.selectedItem.toString()
+            val day = binding.dayDOBNameInputField.text.toString().trim()
+            val month = binding.monthDOBNameInputField.text.toString().trim()
+            val year = binding.yearDOBNameInputField.text.toString().trim()
+
+
 
             // If all fields are empty, show warning and stop
-            if (orgName.isEmpty() && address.isEmpty() && phoneNo.isEmpty() && emailId.isEmpty() && orgType.isEmpty()) {
+            if (gender.isEmpty() && firstName.isEmpty() && lastName.isEmpty() && phoneNo.isEmpty() && emailId.isEmpty() && address.isEmpty()) {
                 Toast.makeText(this, "Please fill at least one field", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -84,12 +114,15 @@ class OrganizationEditProfileActivity: AppCompatActivity() {
             builder.setPositiveButton("Save") { _, _ ->
                 // Only save and finish when user confirms
                 val resultIntent = Intent()
-                if (orgName.isNotEmpty()) resultIntent.putExtra("orgName", orgName)
+                if (firstName.isNotEmpty()) resultIntent.putExtra("firstName", firstName)
+                if (lastName.isNotEmpty()) resultIntent.putExtra("lastName", lastName)
                 if (address.isNotEmpty()) resultIntent.putExtra("address", address)
                 if (phoneNo.isNotEmpty()) resultIntent.putExtra("phoneNo", phoneNo)
                 if (emailId.isNotEmpty()) resultIntent.putExtra("emailId", emailId)
-                if (orgType.isNotEmpty()) resultIntent.putExtra("orgType", orgType)
-
+                if (gender.isNotEmpty()) resultIntent.putExtra("gender", gender)
+                if (day.isNotEmpty() && month.isNotEmpty() && year.isNotEmpty()) {
+                    resultIntent.putExtra("dob", "${day}/${month}/${year}")
+                }
                 setResult(Activity.RESULT_OK, resultIntent)
                 finish() // FINISH only after confirmation
             }
@@ -101,17 +134,10 @@ class OrganizationEditProfileActivity: AppCompatActivity() {
             builder.create().show()
         }
 
-        binding.cancelBtn.setOnClickListener {
-            setResult(Activity.RESULT_CANCELED)
-            finish()
-        }
         requestPermissions()
-        binding.uploadImgBtn.setOnClickListener {
+        binding.hospitalImageView.setOnClickListener {
             pickImageFromGallery()
         }
-
-
-
 
     }
     private fun requestPermissions() {
@@ -203,7 +229,6 @@ class OrganizationEditProfileActivity: AppCompatActivity() {
 
         //Converts your local File object into InputFile, which is Appwrite's expected format for uploads.
         val inputFile = InputFile.fromFile(file)
-        val licence = intent.getStringExtra("licence") ?: ""
         lifecycleScope.launch {
             try {
                 val result = storage.createFile(
@@ -223,24 +248,23 @@ class OrganizationEditProfileActivity: AppCompatActivity() {
 
 
 
-                database.child(licence).get().addOnSuccessListener { snapshot ->
+                database.get().addOnSuccessListener { snapshot ->
                     if(snapshot.exists()){
-                        database.child(licence).child("ProfileURL").setValue(publicUrl)
-                        Toast.makeText(this@OrganizationEditProfileActivity, "Uploaded & URL saved to Firebase", Toast.LENGTH_SHORT).show()
+                        database.child("ProfileURL").setValue(publicUrl)
+                        Toast.makeText(this@EditStaffProfileActivity, "Uploaded & URL saved to Firebase", Toast.LENGTH_SHORT).show()
                     }else{
-                        Toast.makeText(this@OrganizationEditProfileActivity, "licence not found", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@EditStaffProfileActivity, "licence not found", Toast.LENGTH_SHORT).show()
                     }
                 }
 
 
                 // Display Image
-                Glide.with(this@OrganizationEditProfileActivity).load(publicUrl).into(binding.hospitalImageView)
+                Glide.with(this@EditStaffProfileActivity).load(publicUrl).into(binding.hospitalImageView)
 
 
 
-                Toast.makeText(this@OrganizationEditProfileActivity, "Uploaded & URL saved to Firebase", Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
-                Toast.makeText(this@OrganizationEditProfileActivity, "Upload failed: ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@EditStaffProfileActivity, "Upload failed: ${e.message}", Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.documedx.databinding.ActivityLoadingBinding
 import com.example.documedx.organization.OrganizationDashboardActivity
+import com.example.documedx.patient.PatientDashboardActivity
 import com.example.documedx.staff.StaffDashboardActivity
 
 class LoadingActivity: AppCompatActivity() {
@@ -23,24 +24,22 @@ class LoadingActivity: AppCompatActivity() {
             val phoneNo = sharedPref.getString("phoneNo", null)
             val licence = sharedPref.getString("licence", null)
             val empId = sharedPref.getString("empId", null)
-            val empDeptId = sharedPref.getString("empDeptId", null)
-            val empLicence = sharedPref.getString("empLicence", null)
+            val assosiatedHospital = sharedPref.getString("associatedHospital", null)
 
             if (role != null) {
                 when (role) {
                     "patient" -> {
                         Toast.makeText(this, "Patient Dashboard $phoneNo", Toast.LENGTH_SHORT).show()
-                        intent = Intent(this, MainActivity::class.java)
+                        intent = Intent(this, PatientDashboardActivity::class.java)
                         intent.putExtra("phoneNo", phoneNo)
                         startActivity(intent)
                     }
 
                     "staff" -> {
-                        Toast.makeText(this, "Id:${empId} Dept:${empDeptId} Licence:${empLicence}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Id:${empId} Licence:${assosiatedHospital}", Toast.LENGTH_SHORT).show()
                         intent = Intent(this, StaffDashboardActivity::class.java)
                         intent.putExtra("empId", empId)
-                        intent.putExtra("empLicence", empLicence)
-                        intent.putExtra("empDeptId", empDeptId)
+                        intent.putExtra("associatedHospital", assosiatedHospital)
                         startActivity(intent)
                     }
 
