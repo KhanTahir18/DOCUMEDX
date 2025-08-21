@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white">
+
+    <!--Navbar-->
+    <TextView
+        android:id="@+id/Heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Patients"
+        android:background="@color/color_palette_4"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:fontFamily="@font/robotoblack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/profileImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:src="@drawable/ic_profile"
+        android:background="@drawable/round_hospital_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.17"
+        />
+    <!--Name-->
+    <TextView
+        android:id="@+id/patientNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maryu Nebe"
+        android:textSize="30sp"
+        android:fontFamily="@font/robotoblack"
+        android:textColor="@color/color_palette_5"
+        app:layout_constraintTop_toBottomOf="@id/profileImg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        android:layout_marginTop="20dp"
+        />
+    <!--Med history-->
+    <TextView
+        android:id="@+id/medicalHistoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medical History: "
+        android:textSize="20sp"
+        android:fontFamily="@font/robotoblack"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/patientNameTV"
+        app:layout_constraintStart_toStartOf="@id/patientNameTV"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/medicalHistoryTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Piles"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/medicalHistoryLabel"
+        app:layout_constraintStart_toEndOf="@id/medicalHistoryLabel"
+        />
+
+    <!--Age-->
+    <TextView
+        android:id="@+id/ageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DOB: "
+        android:textSize="20sp"
+        android:fontFamily="@font/robotoblack"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/medicalHistoryLabel"
+        app:layout_constraintStart_toStartOf="@id/medicalHistoryLabel"
+        />
+
+    <TextView
+        android:id="@+id/ageTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/ageLabel"
+        app:layout_constraintStart_toEndOf="@id/ageLabel"
+        />
+
+    <!--Gender-->
+    <TextView
+        android:id="@+id/genderLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender: "
+        android:textSize="20sp"
+        android:fontFamily="@font/robotoblack"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/ageLabel"
+        app:layout_constraintStart_toStartOf="@id/ageLabel"
+        />
+
+    <TextView
+        android:id="@+id/genderTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/genderLabel"
+        app:layout_constraintStart_toEndOf="@id/genderLabel"
+        />
+
+    <TextView
+        android:id="@+id/ReportTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reports"
+        android:textSize="22sp"
+        android:fontFamily="@font/robotoblack"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/genderLabel"
+        app:layout_constraintStart_toStartOf="@id/genderLabel"
+        android:layout_marginTop="15dp"
+        />
+
+    <ImageButton
+        android:id="@+id/uploadBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/upload_ic"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ReportTv"
+        app:layout_constraintBottom_toBottomOf="@id/ReportTv"
+        android:layout_marginEnd="35dp"
+        />
+
+    <!--Report card-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/patientReportRecyclerView"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ReportTv"
+        app:layout_constraintStart_toStartOf="@id/ReportTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_report_card"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

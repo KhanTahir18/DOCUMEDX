@@ -107,5 +107,6 @@
         <string name="dp_day">Day</string>
         <string name="dp_month">Month</string>
         <string name="dp_Year">Year</string>
+    <string name="password">Password</string>
 
 </resources>

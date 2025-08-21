@@ -59,7 +59,7 @@ class StaffLoginPageActivity: AppCompatActivity() {
         }
 
         //creating the database
-        database = FirebaseDatabase.getInstance().getReference("Staffs")
+        database = FirebaseDatabase.getInstance().getReference("Organizations")
 
         binding.loginBtn.setOnClickListener {
             val hospitalName = binding.hospitalNameInputField.text.toString()
@@ -72,38 +72,74 @@ class StaffLoginPageActivity: AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            database.child(empId).get().addOnSuccessListener { snapshot ->
+            database.child(hospitalName).get().addOnSuccessListener { snapshot ->
                 if(snapshot.exists()){
-                    val dbhospitalName = snapshot.child("associatedHospital").value.toString()
-                    val dbpassword = snapshot.child("password").value.toString()
+                //check if the empId exists in the database
+//                    val dbEmpId = snapshot.child("Staffs").child(empId).child("employeeId").value.toString()
+//
 
-                    if(hospitalName != dbhospitalName){
-                        Toast.makeText(this, "not the correct org", Toast.LENGTH_SHORT).show()
-                        return@addOnSuccessListener
-                    }
-                    if(password == dbpassword){
-                        val name = snapshot.child("firstName").value.toString()
+                    val dbPassword = snapshot.child("Staffs").child(empId).child("password").value.toString()
+                    val isFirstTimeLogin = snapshot.child("Staffs").child(empId).child("isFirstTimeLogin").getValue(Boolean::class.java) ?: false
+                    if(password == dbPassword){
+                        val name = snapshot.child("Staffs").child(empId).child("firstName").value.toString()
                         Toast.makeText(this, "Welcome ${name}", Toast.LENGTH_SHORT).show()
                         // Shared pref
-                        val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
-                        sharedPref.edit {
-                            putString("empId", empId)
-                            putString("associatedHospital", hospitalName)
-                        }
-                        val intent = Intent(this, StaffDashboardActivity::class.java)
-                        intent.putExtra("empId", empId)
-                        intent.putExtra("associatedHospital", hospitalName)
-                        startActivity(intent)
-                        clearAllFields()
-
+//                        if(isFirstTimeLogin) {
+//                            //code to be written
+//                        }else{
+                            val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
+                            sharedPref.edit {
+                                putString("empId", empId)
+                                putString("associatedHospital", hospitalName)
+                            }
+                            val intent = Intent(this, StaffDashboardActivity::class.java)
+                            intent.putExtra("empId", empId)
+                            intent.putExtra("associatedHospital", hospitalName)
+                            startActivity(intent)
+                            clearAllFields()
+//                        }
+                    }else{
+                        Toast.makeText(this, "Incorrect Password", Toast.LENGTH_SHORT).show()
                     }
+                }else{
+                    Toast.makeText(this, "Hospital does not exist", Toast.LENGTH_SHORT).show()
                 }
+            }.addOnFailureListener {
+                Toast.makeText(this, "Error: ${it.message}", Toast.LENGTH_SHORT).show()
             }
+
+//            database.child(empId).get().addOnSuccessListener { snapshot ->
+//                if(snapshot.exists()){
+//                    val dbhospitalName = snapshot.child("associatedHospital").value.toString()
+//                    val dbpassword = snapshot.child("password").value.toString()
+//
+//                    if(hospitalName != dbhospitalName){
+//                        Toast.makeText(this, "not the correct org", Toast.LENGTH_SHORT).show()
+//                        return@addOnSuccessListener
+//                    }
+//                    if(password == dbpassword){
+//                        val name = snapshot.child("firstName").value.toString()
+//                        Toast.makeText(this, "Welcome ${name}", Toast.LENGTH_SHORT).show()
+//                        // Shared pref
+//                        val sharedPref = getSharedPreferences("UserData", MODE_PRIVATE)
+//                        sharedPref.edit {
+//                            putString("empId", empId)
+//                            putString("associatedHospital", hospitalName)
+//                        }
+//                        val intent = Intent(this, StaffDashboardActivity::class.java)
+//                        intent.putExtra("empId", empId)
+//                        intent.putExtra("associatedHospital", hospitalName)
+//                        startActivity(intent)
+//                        clearAllFields()
+//
+//                    }
+//                }
+//            }
         }
-        binding.createAnAccText.setOnClickListener {
-            val intent = Intent(this, StaffSignUpActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.createAnAccText.setOnClickListener {
+//            val intent = Intent(this, StaffSignUpActivity::class.java)
+//            startActivity(intent)
+//        }
     }
     private fun clearAllFields() {
         binding.hospitalNameInputField.text.clear()
