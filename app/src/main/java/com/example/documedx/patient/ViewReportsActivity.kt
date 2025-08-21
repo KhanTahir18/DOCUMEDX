@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -177,11 +178,15 @@ class ViewReportsActivity : AppCompatActivity() {
             // Handle error - no PDF viewer found
         }
     }
-
     private fun showQRDialog(report: Report) {
+        Toast.makeText(this, "Opening QR for: ${report.title}", Toast.LENGTH_SHORT).show()
         val qrFragment = QRShareFragment.newInstance(report.id, report.title)
         qrFragment.show(supportFragmentManager, "QRShareDialog")
     }
+//    private fun showQRDialog(report: Report) {
+//        val qrFragment = QRShareFragment.newInstance(report.id, report.title)
+//        qrFragment.show(supportFragmentManager, "QRShareDialog")
+//    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
