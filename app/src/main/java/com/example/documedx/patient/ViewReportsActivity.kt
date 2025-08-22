@@ -178,10 +178,14 @@ class ViewReportsActivity : AppCompatActivity() {
         }
     }
 
-    private fun showQRDialog(report: OrganizationReport) {
-        val qrFragment = QRShareFragment.newInstance(report.id)
-        qrFragment.show(supportFragmentManager, "QRShareDialog")
-    }
+//    private fun showQRDialog(report: OrganizationReport) {
+//        val qrFragment = QRShareFragment.newInstance(report.id)
+//        qrFragment.show(supportFragmentManager, "QRShareDialog")
+//    }
+//    private fun showQRDialog(report: Report) {
+//        val qrFragment = QRShareFragment.newInstance(report.id, report.title)
+//        qrFragment.show(supportFragmentManager, "QRShareDialog")
+//    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
