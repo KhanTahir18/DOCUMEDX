@@ -3,11 +3,14 @@ package com.example.documedx.organization
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.documedx.OrganizationReport
 import com.example.documedx.databinding.ItemReportCardBinding
+import com.example.documedx.patient.ShareDialogFragment
 
 class OrganizationReportAdapter(
     private val context: Context,
@@ -36,6 +39,20 @@ class OrganizationReportAdapter(
                 report.reportUrl?.let { url ->
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                     context.startActivity(intent)
+                }
+            }
+            ivShareIcon.setOnClickListener {
+                val fragment = ShareDialogFragment().apply {
+                    arguments = Bundle().apply {
+                        putString("reportId", report.id ?: "null")
+                        putString("patientId", report.toPatient ?: "null")
+                        putString("fromOrg", report.fromOrg ?: "null")
+                        putString("reportUrl", report.reportUrl ?: "null")
+                        putString("prescriptionUrl", report.prescriptionUrl ?: "null")
+                    }
+                }
+                (context as? AppCompatActivity)?.supportFragmentManager?.let {
+                    fragment.show(it, "ShareDialog")
                 }
             }
         }

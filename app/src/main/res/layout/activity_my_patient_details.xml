@@ -150,7 +150,7 @@
         app:layout_constraintTop_toBottomOf="@id/ReportsTV"
         app:layout_constraintStart_toStartOf="@id/patientName"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/activity_view_report_item"/>
+        tools:listitem="@layout/item_report_card"/>
 
     <!--loction-->
     <ImageButton
