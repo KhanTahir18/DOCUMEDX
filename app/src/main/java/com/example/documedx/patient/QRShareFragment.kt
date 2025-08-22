@@ -28,11 +28,10 @@ class QRShareFragment : DialogFragment() {
     private var reportName: String = ""
 
     companion object {
-        fun newInstance(reportId: String, reportName: String): QRShareFragment {
+        fun newInstance(reportId: String?): QRShareFragment {
             val fragment = QRShareFragment()
             val args = Bundle()
             args.putString("report_id", reportId)
-            args.putString("report_name", reportName)
             fragment.arguments = args
             return fragment
         }
@@ -42,7 +41,6 @@ class QRShareFragment : DialogFragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             reportId = it.getString("report_id", "")
-            reportName = it.getString("report_name", "")
         }
     }
 

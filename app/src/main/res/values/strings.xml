@@ -68,45 +68,45 @@
     <string name="org_patient_text"><b>Patients</b></string>
     <string name="upload_report_btn"><b>Upload Report</b></string>
     <string name="view_report_btn"><b>View Reports</b></string>
-    <string name ="Org_subTitle">Documedx - Secure Medical Reports Manager</string>
+    <string name="Org_subTitle">Documedx - Secure Medical Reports Manager</string>
 
 
+    <!-- Dashboard Strings -->
+    <string name="medical_dashboard">Medical Dashboard</string>
+    <string name="professional_portal">Professional Portal</string>
+    <string name="documedx_subtitle">DocuMedX - Secure Medical Document Management</string>
+    <string name="my_profile">My Profile</string>
+    <string name="my_patients">My Patients</string>
+    <string name="view_more">VIEW MORE</string>
 
+    <!-- Patient Related Strings -->
+    <string name="patient_details">Patient Details</string>
+    <string name="reports_count">%d Reports Available</string>
+    <string name="no_reports_available">No reports available</string>
+    <string name="add_prescription">Add Prescription</string>
 
-        <!-- Dashboard Strings -->
-        <string name="medical_dashboard">Medical Dashboard</string>
-        <string name="professional_portal">Professional Portal</string>
-        <string name="documedx_subtitle">DocuMedX - Secure Medical Document Management</string>
-        <string name="my_profile">My Profile</string>
-        <string name="my_patients">My Patients</string>
-        <string name="view_more">VIEW MORE</string>
+    <!-- Report Related Strings -->
+    <string name="report_received_on">Received on: %s</string>
+    <string name="view_report">View Report</string>
 
-        <!-- Patient Related Strings -->
-        <string name="patient_details">Patient Details</string>
-        <string name="reports_count">%d Reports Available</string>
-        <string name="no_reports_available">No reports available</string>
-        <string name="add_prescription">Add Prescription</string>
+    <!-- Camera & PDF Strings -->
+    <string name="camera_not_available">Camera not available</string>
+    <string name="camera_permission_required">Camera permission is required to capture prescription</string>
+    <string name="prescription_sent_successfully">Prescription sent successfully</string>
+    <string name="error_creating_pdf">Error creating PDF</string>
+    <string name="error_processing_image">Error processing image</string>
+    <string name="no_pdf_viewer_found">No PDF viewer found</string>
 
-        <!-- Report Related Strings -->
-        <string name="report_received_on">Received on: %s</string>
-        <string name="view_report">View Report</string>
+    <!-- General Strings -->
+    <string name="loading">Loading...</string>
+    <string name="error_occurred">An error occurred</string>
+    <string name="try_again">Try Again</string>
 
-        <!-- Camera & PDF Strings -->
-        <string name="camera_not_available">Camera not available</string>
-        <string name="camera_permission_required">Camera permission is required to capture prescription</string>
-        <string name="prescription_sent_successfully">Prescription sent successfully</string>
-        <string name="error_creating_pdf">Error creating PDF</string>
-        <string name="error_processing_image">Error processing image</string>
-        <string name="no_pdf_viewer_found">No PDF viewer found</string>
-
-        <!-- General Strings -->
-        <string name="loading">Loading...</string>
-        <string name="error_occurred">An error occurred</string>
-        <string name="try_again">Try Again</string>
-
-        <string name="dp_day">Day</string>
-        <string name="dp_month">Month</string>
-        <string name="dp_Year">Year</string>
+    <string name="dp_day">Day</string>
+    <string name="dp_month">Month</string>
+    <string name="dp_Year">Year</string>
     <string name="password">Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -70,8 +70,8 @@ class ViewReportsActivity : AppCompatActivity() {
 
         // ADDED: Received section - Setup received reports section
         setupReceivedReports()
-        setupUploadedReports()
-        setupSharedReports()
+//        setupUploadedReports()
+//        setupSharedReports()
     }
 
     // ADDED: Received section - Setup received reports from organizations
@@ -81,23 +81,23 @@ class ViewReportsActivity : AppCompatActivity() {
         receivedReportsRecycler.adapter = receivedAdapter
     }
 
-    private fun setupUploadedReports() {
-        uploadedReportsRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        uploadedAdapter = ReportsAdapter(uploadedReports,
-            onReportClick = { report -> openPdf(report.filePath) },
-            onShareClick = { report -> showQRDialog(report) }
-        )
-        uploadedReportsRecycler.adapter = uploadedAdapter
-    }
+//    private fun setupUploadedReports() {
+//        uploadedReportsRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        uploadedAdapter = ReportsAdapter(uploadedReports,
+//            onReportClick = { report -> openPdf(report.filePath) },
+//            onShareClick = { report -> showQRDialog(report) }
+//        )
+//        uploadedReportsRecycler.adapter = uploadedAdapter
+//    }
 
-    private fun setupSharedReports() {
-        sharedReportsRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        sharedAdapter = ReportsAdapter(sharedReports,
-            onReportClick = { report -> openPdf(report.filePath) },
-            onShareClick = { report -> showQRDialog(report) }
-        )
-        sharedReportsRecycler.adapter = sharedAdapter
-    }
+//    private fun setupSharedReports() {
+//        sharedReportsRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        sharedAdapter = ReportsAdapter(sharedReports,
+//            onReportClick = { report -> openPdf(report.filePath) },
+//            onShareClick = { report -> showQRDialog(report) }
+//        )
+//        sharedReportsRecycler.adapter = sharedAdapter
+//    }
 
     private fun loadReports() {
         // ADDED: Load received reports from organizations
@@ -105,15 +105,15 @@ class ViewReportsActivity : AppCompatActivity() {
         getActualReports()
         receivedAdapter.notifyDataSetChanged()
 
-        // Load uploaded reports (from organizations)
-        uploadedReports.clear()
-        uploadedReports.addAll(getDummyUploadedReports())
-        uploadedAdapter.notifyDataSetChanged()
-
-        // Load shared reports (sent to doctors)
-        sharedReports.clear()
-        sharedReports.addAll(getDummySharedReports())
-        sharedAdapter.notifyDataSetChanged()
+//        // Load uploaded reports (from organizations)
+//        uploadedReports.clear()
+//        uploadedReports.addAll(getDummyUploadedReports())
+//        uploadedAdapter.notifyDataSetChanged()
+//
+//        // Load shared reports (sent to doctors)
+//        sharedReports.clear()
+//        sharedReports.addAll(getDummySharedReports())
+//        sharedAdapter.notifyDataSetChanged()
     }
 
     private fun getActualReports(){
@@ -178,8 +178,8 @@ class ViewReportsActivity : AppCompatActivity() {
         }
     }
 
-    private fun showQRDialog(report: Report) {
-        val qrFragment = QRShareFragment.newInstance(report.id, report.title)
+    private fun showQRDialog(report: OrganizationReport) {
+        val qrFragment = QRShareFragment.newInstance(report.id)
         qrFragment.show(supportFragmentManager, "QRShareDialog")
     }
 

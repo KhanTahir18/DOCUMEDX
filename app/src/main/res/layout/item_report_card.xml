@@ -111,15 +111,16 @@
         <!-- Prescription Label (for shared reports) -->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_prescription_label"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="prescription"
+            android:textAlignment="center"
+            android:text="see prescription"
             android:textSize="10sp"
             android:textColor="@android:color/white"
-            android:background="#4CAF50"
+            android:background="@drawable/bg_view_more"
             android:padding="4dp"
             android:layout_marginTop="4dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintTop_toBottomOf="@id/tv_from_hospital"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
