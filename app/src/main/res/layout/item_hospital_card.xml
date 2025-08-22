@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@android:color/white">
+
+        <!-- Hospital Image -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_hospital_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_hospital_placeholder"
+            android:scaleType="centerCrop"
+            android:background="#F0F0F0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Hospital Name -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_hospital_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Millat"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@id/iv_hospital_image"
+            app:layout_constraintEnd_toStartOf="@id/btn_schedule"
+            app:layout_constraintTop_toTopOf="@id/iv_hospital_image" />
+
+        <!-- Hospital Type -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_hospital_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Govt"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@id/tv_hospital_name"
+            app:layout_constraintEnd_toEndOf="@id/tv_hospital_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_hospital_name" />
+
+        <!-- Phone Number -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_phone_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHONE NO:"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/tv_hospital_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_hospital_type" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="9898765456"
+            android:textSize="12sp"
+            android:textColor="#212121"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/tv_phone_label"
+            app:layout_constraintEnd_toEndOf="@id/tv_hospital_name"
+            app:layout_constraintTop_toTopOf="@id/tv_phone_label" />
+
+        <!-- Email -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_email_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EMAIL:"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#757575"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@id/tv_hospital_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone_label" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Patient@gmail.com"
+            android:textSize="12sp"
+            android:textColor="#212121"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/tv_email_label"
+            app:layout_constraintEnd_toEndOf="@id/tv_hospital_name"
+            app:layout_constraintTop_toTopOf="@id/tv_email_label" />
+
+        <!-- Schedule Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Schedule"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/curved_btn"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
