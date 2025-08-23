@@ -1,61 +1,46 @@
 package com.example.documedx.patient
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.documedx.Organization
+import com.example.documedx.OrganizationReport
 import com.example.documedx.R
 import com.example.documedx.databinding.ItemHospitalCardBinding
+import com.example.documedx.databinding.ItemReportCardBinding
 
 class HospitalsAdapter(
-    private var hospitalsList: List<Hospital>,
-    private val onScheduleClick: (Hospital) -> Unit
+    private var hospitalsList: List<Organization>,
 ) : RecyclerView.Adapter<HospitalsAdapter.HospitalViewHolder>() {
 
-    class HospitalViewHolder(private val binding: ItemHospitalCardBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(hospital: Hospital, onScheduleClick: (Hospital) -> Unit) {
-            binding.tvHospitalName.text = hospital.name
-            binding.tvHospitalType.text = hospital.type
-            binding.tvPhoneNumber.text = hospital.phoneNumber
-            binding.tvEmail.text = hospital.email
-
-            // Load hospital image
-            if (hospital.imageRes != 0) {
-                binding.ivHospitalImage.setImageResource(hospital.imageRes)
-            } else if (hospital.imageUrl.isNotEmpty()) {
-                Glide.with(binding.root.context)
-                    .load(hospital.imageUrl)
-                    .placeholder(R.drawable.ic_hospital_placeholder)
-                    .error(R.drawable.ic_hospital_placeholder)
-                    .into(binding.ivHospitalImage)
-            } else {
-                binding.ivHospitalImage.setImageResource(R.drawable.ic_hospital_placeholder)
-            }
-
-            // Schedule button click
-            binding.btnSchedule.setOnClickListener {
-                onScheduleClick(hospital)
-            }
-        }
-    }
+    inner class HospitalViewHolder(val binding: ItemHospitalCardBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HospitalViewHolder {
-        val binding = ItemHospitalCardBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
+        val binding = ItemHospitalCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HospitalViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: HospitalViewHolder, position: Int) {
-        holder.bind(hospitalsList[position], onScheduleClick)
+        val hospital = hospitalsList[position]
+        holder.binding.apply {
+            tvHospitalName.text = hospital.organizationName ?: "Unknown"
+            tvHospitalType.text = hospital.organizationType ?: "-"
+            tvPhoneNumber.text = hospital.phoneNo ?: "-"
+            tvEmail.text = hospital.emailId ?: "-"
+        }
+
+
     }
 
-    override fun getItemCount(): Int = hospitalsList.size
+    override fun getItemCount() = hospitalsList.size
 
-    fun updateList(newList: List<Hospital>) {
-        hospitalsList = newList
-        notifyDataSetChanged()
+    fun updateList(newList: List<OrganizationReport>) {
+//        hospitalsList.clear()
+//        hospitalsList.addAll(newList)
+//        notifyDataSetChanged()
     }
 }
