@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.documedx.OrganizationReport
 import com.example.documedx.User
 import com.example.documedx.databinding.ActivityMyPatientsBinding
-import com.example.documedx.organization.MyPatientAdapter
+import com.example.documedx.staff.MyPatientAdapter
 import com.google.firebase.database.*
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanOptions
@@ -114,7 +114,16 @@ class MyPatientsActivity : AppCompatActivity() {
 
         userRef.setValue(true)
 
-        Toast.makeText(this, "Patient Added Successfully", Toast.LENGTH_SHORT).show()
+        val userReportDb = FirebaseDatabase.getInstance()
+            .getReference("Users")
+            .child(patientId)
+            .child("Reports")
+            .child("Sharred Reports")
+            .child(reportId)
+
+        userReportDb.setValue(report)
+
+//        Toast.makeText(this, "Patient Added Successfully", Toast.LENGTH_SHORT).show()
     }
 
     private fun deletePatientFromFirebase(user: User) {

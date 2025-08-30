@@ -136,7 +136,9 @@ class PatientDashboardActivity : AppCompatActivity() {
         }
 
         uploadReportsCard.setOnClickListener {
-            Toast.makeText(this, "Upload Reports - Coming Soon", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ActivityUploadFiles::class.java)
+            intent.putExtra("phoneNo",phoneNo)
+            startActivity(intent)
         }
 
         appointmentsCard.setOnClickListener {

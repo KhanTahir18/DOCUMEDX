@@ -1,22 +1,15 @@
-package com.example.documedx.organization
+package com.example.documedx.staff
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.documedx.Department
-import com.example.documedx.Staff
 import com.example.documedx.User
-import com.example.documedx.databinding.AddStaffToDeptItemsBinding
-import com.example.documedx.databinding.ItemDepartmentBinding
 import com.example.documedx.databinding.ViewPatientsItemsBinding
-import com.example.documedx.organization.DepartmentAdapter.DepartmentViewHolder
-import com.example.documedx.staff.PatientDetailsActivity
-import com.example.documedx.staff.StaffDashboardActivity
 
 class MyPatientAdapter(
-    private val patietList: List<User>,
+    private val patientList: List<User>,
     private val onDeleteClick: (User) -> Unit // <-- Add this line
 ): RecyclerView.Adapter<MyPatientAdapter.PatientViewHolder>() {
 
@@ -29,12 +22,12 @@ class MyPatientAdapter(
     }
 
     override fun onBindViewHolder(holder: PatientViewHolder, position: Int) {
-        val user = patietList[position]
+        val user = patientList[position]
         holder.binding.patientGender.text = "${user.gender}"
         holder.binding.patientName.text = "${user.firstName} ${user.lastName}"
 
         holder.binding.deleteBtn.setOnClickListener {
-            val builder = android.app.AlertDialog.Builder(holder.itemView.context   )
+            val builder = AlertDialog.Builder(holder.itemView.context   )
             builder.setTitle("Remove Patient")
             builder.setMessage("Are you sure you want to remove ${user.firstName}?")
 
@@ -58,5 +51,5 @@ class MyPatientAdapter(
 
 
     }
-    override fun getItemCount(): Int = patietList.size
+    override fun getItemCount(): Int = patientList.size
 }
