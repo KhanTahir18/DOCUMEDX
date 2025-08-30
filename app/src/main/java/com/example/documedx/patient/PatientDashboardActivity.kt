@@ -152,10 +152,10 @@ class PatientDashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // ADDED: Set click listener for MedGenie card
+        // ADDED: MedGenie click listener in setupClickListeners()
         medgenieCard.setOnClickListener {
-            // TODO: Launch MedGenie chat activity
-            Toast.makeText(this, "MedGenie - Coming Soon", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MedGenieActivity::class.java)
+            startActivity(intent)
         }
 
         settingsCard.setOnClickListener {

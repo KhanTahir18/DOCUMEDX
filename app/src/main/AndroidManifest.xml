@@ -143,6 +143,11 @@
             />
 
         <activity
+            android:name=".patient.MedGenieActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+
+        <activity
             android:name=".staff.EditStaffProfileActivity"
             android:windowSoftInputMode="adjustPan"
             />
