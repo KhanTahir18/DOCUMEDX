@@ -109,4 +109,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+        <!-- Gemini api key -->
+    <string name="gemini_api_key">AIzaSyAaC2tx2A8jUXH42OtMAWghEoHhd7qQljQ</string>
+
 </resources>
