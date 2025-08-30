@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +12,8 @@ import com.example.documedx.OrganizationReport
 import com.example.documedx.R
 import com.example.documedx.databinding.ActivityViewReportsBinding
 import com.example.documedx.organization.OrganizationReportAdapter
+import com.example.documedx.organization.UploadReportAdapter
+import com.google.firebase.Firebase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -28,13 +29,13 @@ class ViewReportsActivity : AppCompatActivity() {
 
     // ADDED: Adapter for received reports
     private lateinit var receivedAdapter: OrganizationReportAdapter
-    private lateinit var uploadedAdapter: ReportsAdapter
-    private lateinit var sharedAdapter: ReportsAdapter
+    private lateinit var uploadedAdapter: UploadReportAdapter
+    private lateinit var sharedAdapter: OrganizationReportAdapter
 
     // ADDED: List for received reports from organizations
     private val receivedReports = mutableListOf<OrganizationReport>()
-    private val uploadedReports = mutableListOf<Report>()
-    private val sharedReports = mutableListOf<Report>()
+    private val uploadedReports = mutableListOf<OrganizationReport>()
+    private val sharedReports = mutableListOf<OrganizationReport>()
 
     private lateinit var userDb: DatabaseReference
 
@@ -83,20 +84,14 @@ class ViewReportsActivity : AppCompatActivity() {
     }
 
     private fun setupUploadedReports() {
-        uploadedReportsRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        uploadedAdapter = ReportsAdapter(uploadedReports,
-            onReportClick = { report -> openPdf(report.filePath) },
-            onShareClick = { report -> showQRDialog(report) }
-        )
+        uploadedReportsRecycler.layoutManager = LinearLayoutManager(this@ViewReportsActivity, LinearLayoutManager.HORIZONTAL, false)
+        uploadedAdapter = UploadReportAdapter(this, uploadedReports)
         uploadedReportsRecycler.adapter = uploadedAdapter
     }
 
     private fun setupSharedReports() {
         sharedReportsRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        sharedAdapter = ReportsAdapter(sharedReports,
-            onReportClick = { report -> openPdf(report.filePath) },
-            onShareClick = { report -> showQRDialog(report) }
-        )
+        sharedAdapter = OrganizationReportAdapter(this, sharedReports)
         sharedReportsRecycler.adapter = sharedAdapter
     }
 
@@ -108,15 +103,42 @@ class ViewReportsActivity : AppCompatActivity() {
 
         // Load uploaded reports (from organizations)
         uploadedReports.clear()
-        uploadedReports.addAll(getDummyUploadedReports())
+        getUploadedReports()
         uploadedAdapter.notifyDataSetChanged()
-
-        // Load shared reports (sent to doctors)
+//
+//        // Load shared reports (sent to doctors)
         sharedReports.clear()
-        sharedReports.addAll(getDummySharedReports())
+        getActualSharedReports()
         sharedAdapter.notifyDataSetChanged()
     }
 
+    private fun getUploadedReports(){
+        userDb = FirebaseDatabase.getInstance().getReference("Users")
+            .child(phoneNo!!)
+            .child("Reports")
+            .child("Uploaded Reports")
+
+        userDb.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val tempList = mutableListOf<OrganizationReport>()
+                for (reportSnap in snapshot.children) {
+                    val report = reportSnap.getValue(OrganizationReport::class.java)
+                    report?.let { tempList.add(it) }
+                }
+                if (tempList.isNotEmpty()) {
+                    binding.recyclerUploadedReports.visibility = View.VISIBLE
+                } else {
+                    binding.recyclerUploadedReports.visibility = View.GONE
+                }
+                uploadedAdapter.updateList(tempList)
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@ViewReportsActivity,
+                    "Failed to load reports: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+    }
     private fun getActualReports(){
         Toast.makeText(this, "${phoneNo}", Toast.LENGTH_SHORT).show()
         userDb = FirebaseDatabase.getInstance().getReference("Users")
@@ -146,6 +168,35 @@ class ViewReportsActivity : AppCompatActivity() {
 
     }
 
+
+    private fun getActualSharedReports(){
+        Toast.makeText(this, "${phoneNo}", Toast.LENGTH_SHORT).show()
+        userDb = FirebaseDatabase.getInstance().getReference("Users")
+            .child(phoneNo!!)
+            .child("Reports")
+            .child("Sharred Reports")
+
+        userDb.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val tempList = mutableListOf<OrganizationReport>()
+                for (reportSnap in snapshot.children) {
+                    val report = reportSnap.getValue(OrganizationReport::class.java)
+                    report?.let { tempList.add(it) }
+                }
+                if (tempList.isNotEmpty()) {
+                    binding.recyclerSharedReports.visibility = View.VISIBLE
+                } else {
+                    binding.recyclerSharedReports.visibility = View.GONE
+                }
+                sharedAdapter.updateList(tempList)
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@ViewReportsActivity,
+                    "Failed to load reports: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
     private fun getDummyUploadedReports(): List<Report> {
         return listOf(
             Report("1", "Blood Test", "12:09", "dd/mm/yyyy", "blood_test.pdf", "BO-1"),
@@ -153,20 +204,7 @@ class ViewReportsActivity : AppCompatActivity() {
         )
     }
 
-    // ADDED: Dummy data for received reports from organizations
-//    private fun getDummyReceivedReports(): List<Report> {
-//        return listOf(
-//            Report("1", "Lab Results", "09:15", "dd/mm/yyyy", "lab_results.pdf", "LR-001", "City Hospital", false),
-//            Report("2", "X-Ray Scan", "14:22", "dd/mm/yyyy", "xray_scan.pdf", "XR-002", "Medical Center", false),
-//            Report("3", "Blood Work", "11:45", "dd/mm/yyyy", "blood_work.pdf", "BW-003", "Diagnostic Lab", false)
-//        )
 //    }
-
-    private fun getDummySharedReports(): List<Report> {
-        return listOf(
-            Report("3", "Blood Test", "21:34", "dd/mm/yyyy", "shared_blood.pdf", "BO-1", "Hospital name", true)
-        )
-    }
 
     private fun openPdf(filePath: String) {
         try {
@@ -178,11 +216,11 @@ class ViewReportsActivity : AppCompatActivity() {
             // Handle error - no PDF viewer found
         }
     }
-    private fun showQRDialog(report: Report) {
-        Toast.makeText(this, "Opening QR for: ${report.title}", Toast.LENGTH_SHORT).show()
-        val qrFragment = QRShareFragment.newInstance(report.id, report.title)
-        qrFragment.show(supportFragmentManager, "QRShareDialog")
-    }
+
+//    private fun showQRDialog(report: OrganizationReport) {
+//        val qrFragment = QRShareFragment.newInstance(report.id)
+//        qrFragment.show(supportFragmentManager, "QRShareDialog")
+//    }
 //    private fun showQRDialog(report: Report) {
 //        val qrFragment = QRShareFragment.newInstance(report.id, report.title)
 //        qrFragment.show(supportFragmentManager, "QRShareDialog")

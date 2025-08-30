@@ -8,5 +8,6 @@ data class OrganizationReport(
     val toPatient: String? = null,
     val dateWhenSharred: String? = null,
     val timeWhenShared: String? = null,
-    val reportUrl: String? = null
+    val reportUrl: String? = null,
+    val prescriptionUrl: String? = null
 )

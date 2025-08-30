@@ -12,10 +12,10 @@ import com.example.documedx.OrganizationReport
 import com.example.documedx.databinding.ItemReportCardBinding
 import com.example.documedx.patient.ShareDialogFragment
 
-class OrganizationReportAdapter(
+class UploadReportAdapter(
     private val context: Context,
     private val reportsList: MutableList<OrganizationReport>
-) : RecyclerView.Adapter<OrganizationReportAdapter.ReportViewHolder>() {
+) : RecyclerView.Adapter<UploadReportAdapter.ReportViewHolder>() {
 
     inner class ReportViewHolder(val binding: ItemReportCardBinding) :
         RecyclerView.ViewHolder(binding.root)

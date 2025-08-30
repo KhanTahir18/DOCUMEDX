@@ -62,7 +62,6 @@
             android:background="@color/white"
             android:src="@drawable/scanner_ic"
             android:scaleType="centerCrop"
-
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -70,15 +69,15 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_patients"
+        android:id="@+id/patientRecyclerView"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/subHeading"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_patient"/>
+        tools:listitem="@layout/view_patients_items"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
