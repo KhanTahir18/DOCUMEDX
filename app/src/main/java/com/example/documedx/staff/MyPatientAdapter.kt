@@ -43,7 +43,7 @@ class MyPatientAdapter(
 
         holder.binding.patientName.setOnClickListener {
             val intent = Intent(holder.itemView.context, PatientDetailsActivity::class.java)
-            intent.putExtra("empId", user.phoneNo)
+            intent.putExtra("phoneNo", user.phoneNo)
             holder.itemView.context.startActivity(intent)
         }
 
