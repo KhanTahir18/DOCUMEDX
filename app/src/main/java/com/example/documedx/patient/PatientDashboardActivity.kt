@@ -25,6 +25,8 @@ class PatientDashboardActivity : AppCompatActivity() {
     private lateinit var uploadReportsCard: CardView
     private lateinit var appointmentsCard: CardView
     private lateinit var searchHospitalsCard: CardView
+    // ADDED: MedGenie card variable
+    private lateinit var medgenieCard: CardView
     private lateinit var settingsCard: CardView
     private lateinit var database: DatabaseReference
 
@@ -82,6 +84,8 @@ class PatientDashboardActivity : AppCompatActivity() {
         uploadReportsCard = findViewById(R.id.card_upload_reports)
         appointmentsCard = findViewById(R.id.card_appointments)
         searchHospitalsCard = findViewById(R.id.card_search_hospitals)
+        // ADDED: Initialize MedGenie card in initViews()
+        medgenieCard = findViewById(R.id.card_medgenie)
         settingsCard = findViewById(R.id.card_settings)
     }
 
@@ -146,6 +150,12 @@ class PatientDashboardActivity : AppCompatActivity() {
         searchHospitalsCard.setOnClickListener {
             val intent = Intent(this, SearchHospitalsActivity::class.java)
             startActivity(intent)
+        }
+
+        // ADDED: Set click listener for MedGenie card
+        medgenieCard.setOnClickListener {
+            // TODO: Launch MedGenie chat activity
+            Toast.makeText(this, "MedGenie - Coming Soon", Toast.LENGTH_SHORT).show()
         }
 
         settingsCard.setOnClickListener {

@@ -540,6 +540,78 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!-- ADDED: MedGenie AI Assistant Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_medgenie"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintTop_toBottomOf="@id/card_search_hospitals"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:background="@android:color/white">
+
+                    <ImageView
+                        android:id="@+id/iv_medgenie"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_genie"
+                        app:tint="@color/color_palette_5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_medgenie_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="MedGenie"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintStart_toEndOf="@id/iv_medgenie"
+                        app:layout_constraintEnd_toStartOf="@id/iv_arrow_medgenie"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="AI Health Assistant for medical guidance and support"
+                        android:textSize="12sp"
+                        android:textColor="#757575"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintStart_toEndOf="@id/iv_medgenie"
+                        app:layout_constraintEnd_toStartOf="@id/iv_arrow_medgenie"
+                        app:layout_constraintTop_toBottomOf="@id/tv_medgenie_title"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_arrow_medgenie"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/color_palette_5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
             <!-- Settings Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_settings"
@@ -551,7 +623,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:layout_constraintTop_toBottomOf="@id/card_search_hospitals"
+                app:layout_constraintTop_toBottomOf="@id/card_medgenie"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
