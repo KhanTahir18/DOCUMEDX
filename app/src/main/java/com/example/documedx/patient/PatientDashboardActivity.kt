@@ -144,7 +144,8 @@ class PatientDashboardActivity : AppCompatActivity() {
         }
 
         searchHospitalsCard.setOnClickListener {
-            Toast.makeText(this, "Search Hospitals - Coming Soon", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SearchHospitalsActivity::class.java)
+            startActivity(intent)
         }
 
         settingsCard.setOnClickListener {

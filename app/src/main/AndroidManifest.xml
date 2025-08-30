@@ -90,6 +90,10 @@
             android:windowSoftInputMode="adjustPan"
             />
         <activity
+            android:name=".patient.SearchHospitalsActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity
             android:name=".organization.AddStaffInOrganizationActivity"
             android:windowSoftInputMode="adjustPan"
             />
